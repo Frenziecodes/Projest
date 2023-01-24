@@ -30,6 +30,7 @@ Projest is a website where users can share their projects and showcase their wor
 
 Projest is built using the following technologies: 
 <br>
+<br>
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -65,4 +66,4 @@ We welcome any contributions to Projest. If you want to contribute, please follo
 Please make sure to follow the project's coding style and to write clear and concise commit messages.
 Also, it is highly recommended that you open an issue before starting to work on a new feature, so we can discuss the feature and the implementation approach.
 
-
+### Do consider giving the repo a star if you like it !
