@@ -23,6 +23,25 @@
      />
 </head>
 <body>
+    <!-- navbar -->
+    <div class="flex justify-between items-center align-middle h-16 w-full bg-violet-500 text-white py-2 px-3 fixed top-0 left-0 right-0 z-30 mb-16">
+        <div class="flex justify-center items-center">
+           PROJEST
+        </div>
+        <ul class="flex justify-center items-center">
+            <li class="m-2 md:m-5 bg-indigo-900 px-4 py-1 rounded-sm"><a href="#">Home</a></li>
+            <li class="dropdown m-2 md:m-5">
+                <a href="#">Projects</a>
+                <!-- <ul class="dropdown-content p-3 bg-violet-500 absolute">
+                  <li class="m-2"><a href="#">View Project</a></li>
+                  <li class="m-2"><a href="#">Add Project</a></li>                  
+                </ul> -->
+              </li>         
+            <li class="m-2 md:m-5"><a href="#">Contributing</a></li>
+        </ul>        
+        
+    </div>
+    
     <section class="flex flex-col pt-20 px-10 w-full items-center justify-center">
         <!-- Pills navs -->
         <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
