@@ -162,7 +162,7 @@ if ($result->num_rows < 1)
       }
       }
     ?>
-      <form name="index.php" action="login.php" method="post">      
+      <form name="login.php" action="login.php" method="post">      
   
         <!-- Email input -->
         <div class="form-outline mb-4">
@@ -202,7 +202,7 @@ if ($result->num_rows < 1)
     </div>
     <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
 
-      <form action="index.php" method="post">      
+      <form action="login.php" method="post">      
   
         <!-- Name input -->
         <div class="form-outline mb-4">
