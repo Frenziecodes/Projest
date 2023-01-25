@@ -34,7 +34,7 @@ if ($result->num_rows < 1)
     $_SESSION['id']=$row['uid'];
     $_SESSION['unaam']=$row['uname'];
     session_start();
-    header("location:home.php");
+    header("location:dashboard.php");
   }
   else
    {
