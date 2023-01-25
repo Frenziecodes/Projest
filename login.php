@@ -9,7 +9,7 @@ if(isloggedin()==FALSE)
 }
 else
 {
-header("location:home.php");  
+header("location:dashboard.php");  
   
 }
   
