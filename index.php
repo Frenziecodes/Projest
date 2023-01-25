@@ -221,7 +221,9 @@
               <p class="mb-6 pb-2 lg:pb-0">
                 Sign up now and start showcasing your projects, connecting with like-minded individuals, and advancing your career on Projest
               </p>
-              <button type="button" class="inline-block px-7 py-3 border-2 border-white text-white font-medium text-sm leading-snug uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light">Sign up now</button>
+              <button type="button" class="inline-block px-7 py-3 border-2 border-white text-white font-medium text-sm leading-snug uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                    <a href="login.php">Sign up now</a>
+              </button>
             </div>
           </div>
         </div>
