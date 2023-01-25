@@ -42,6 +42,10 @@
         </ul>        
         
     </div>
+    <section class=" flex flex-col justify-center align-middle items-center p-4 md:flex-row md:justify-between ">
+        <section class="flex flex-col w-full items-center justify-center">
+            <img class="w-full h-full" src="assets/img/Free Vector _ Sign up concept illustration (1).jpeg" alt="">
+        </section>
 
     <section class="flex flex-col pt-20 px-10 w-full items-center justify-center">
         <!-- Pills navs -->
@@ -211,6 +215,8 @@
         <!-- Pills content -->
     </section>
   
+    </section>
+    
 
 
     <!-- MDB -->
