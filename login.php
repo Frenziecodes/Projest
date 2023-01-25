@@ -47,7 +47,7 @@
             <img class="w-full h-full" src="assets/img/Free Vector _ Sign up concept illustration (1).jpeg" alt="">
         </section>
 
-    <section class="flex flex-col pt-20 px-10 w-full items-center justify-center">
+    <section class="flex flex-col pt-12 px-10 w-full items-center justify-center">
         <!-- Pills navs -->
         <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
         <li class="nav-item" role="presentation">
@@ -208,7 +208,7 @@
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary bg-blue-600 btn-block mb-3">Sign in</button>
+            <button type="submit" class="btn btn-primary bg-blue-600 btn-block mb-1">Sign in</button>
             </form>
         </div>
         </div>
@@ -216,6 +216,12 @@
     </section>
   
     </section>
+    <footer class="bg-violet-600 text-center lg:text-left relative bottom-0 right-0 left-0">
+    <div class="text-white text-center p-4">
+      © 2023 Copyright:
+      <a href="#">PROJEST</a>
+    </div>
+  </footer>
     
 
 
