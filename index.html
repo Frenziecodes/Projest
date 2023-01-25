@@ -15,7 +15,8 @@
         <div class="flex justify-center items-center">
            PROJEST
         </div>
-        <ul class="flex justify-center items-center">
+        <!-- primary navbar Links -->
+        <ul class="hidden md:flex justify-center items-center"> 
             <li class="m-2 md:m-5"><a href="#">Home</a></li>
             <li class="dropdown m-2 md:m-5">
                 <a href="#">Projects</a>
@@ -26,8 +27,39 @@
               </li>         
             <li class="m-2 md:m-5"><a href="#">Contributing</a></li>
         </ul>        
-        
+        <!-- mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button class="outline-none mobile-menu-button px-2">
+            <div class="space-y-2">
+              <div class="w-8 h-0.5 bg-white"></div>
+              <div class="w-8 h-0.5 bg-white"></div>
+              <div class="w-8 h-0.5 bg-white"></div>
+            </div>
+        </div>
+
     </div>
+            <!-- mobile menu -->
+            <div class="hidden mobile-menu">
+              <ul class="absolute bg-violet-500 text-white w-15 px-3 top-16 right-0 rounded-bl-md">
+                <li class="m-2 md:m-5"><a href="#">Home</a></li>
+                <li class="dropdown m-2 md:m-5">
+                    <a href="#">Projects</a>
+                    <!-- <ul class="dropdown-content p-3 bg-violet-500 absolute">
+                      <li class="m-2"><a href="#">View Project</a></li>
+                      <li class="m-2"><a href="#">Add Project</a></li>                  
+                    </ul> -->
+                  </li>         
+                <li class="m-2 md:m-5"><a href="#">Contributing</a></li>
+              </ul>
+            </div>
+            <script>
+              const btn = document.querySelector("button.mobile-menu-button");
+              const menu = document.querySelector(".mobile-menu");
+
+              btn.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+              })
+            </script>
       
   <div class="container my-20 px-6 mx-auto">    
         <section class="mb-16 text-gray-800 text-center lg:text-left">
