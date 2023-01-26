@@ -1,4 +1,5 @@
-  var dropdown = document.querySelectorAll('.dropdown');
+// dropdown content
+var dropdown = document.querySelectorAll('.dropdown');
   for (var i = 0; i < dropdown.length; i++) {
     dropdown[i].addEventListener('mouseover', function() {
       this.querySelector('.dropdown-content').style.display = 'block';
@@ -7,4 +8,6 @@
       this.querySelector('.dropdown-content').style.display = 'none';
     });
   }
+
+  // Form validation
 
