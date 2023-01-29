@@ -20,10 +20,14 @@ var dropdown = document.querySelectorAll('.dropdown');
     if(username == ''){     
       document.getElementById('nameErr').innerHTML='Username is required!'
       return false;
+    }else{
+      document.getElementById('nameErr').innerHTML='';
     }
     if(username.length<4){      
       document.getElementById('nameErr').innerHTML='username should be at least 4 character';
       return false;
+    }else{
+      document.getElementById('nameErr').innerHTML='';
     }
 
     // validating email
@@ -32,20 +36,28 @@ var dropdown = document.querySelectorAll('.dropdown');
     if (userEmail == '') {      
       document.getElementById('emailErr').innerHTML='Email is required';
       return false
+    }else{
+      document.getElementById('emailErr').innerHTML='';
     }
     if (at <1 || (dot - at < 2)) {      
       document.getElementById('emailErr').innerHTML='Incorrect Email';
       return false;
+    }else{
+      document.getElementById('emailErr').innerHTML='';
     }
 
     // validating password
     if(userPass == ''){      
       document.getElementById('passErr').innerHTML='Password is required';
       return false;
+    }else{
+      document.getElementById('passErr').innerHTML='';
     }
     if (userPass.length < 6) {      
-      document.getElementById('emailErr').innerHTML='Password should be at least 6 characters';
+      document.getElementById('passErr').innerHTML='Password should be at least 6 characters';
       return false
+    }else{
+      document.getElementById('passErr').innerHTML='';
     }
 
   }
