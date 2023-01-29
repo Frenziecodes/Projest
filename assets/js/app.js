@@ -18,30 +18,30 @@ var dropdown = document.querySelectorAll('.dropdown');
     var userPass2 = document.register.pass2.value;
 
     // validating username
-    if(username == ''){
-      alert("Username is Required")
+    if(username == ''){     
+      document.getElementById('nameErr').innerHTML='Username is required!'
       return false;
     }
-    if(username.length<4){
-      alert('username should be at least 4 character')
+    if(username.length<4){      
+      document.getElementById('nameErr').innerHTML='username should be at least 4 character'
     }
 
     // validating email
     at = userEmail.indexOf('@');
     dot = userEmail.lastIndexOf('.');
-    if (userEmail == '') {
-      alert('Email is required')
+    if (userEmail == '') {      
+      document.getElementById('emailErr').innerHTML='Email is required'
     }
-    if (at <1 || (dot - at < 2)) {
-      alert('Incorrect Email')
+    if (at <1 || (dot - at < 2)) {      
+      document.getElementById('emailErr').innerHTML='Incorrect Email'
     }
 
     // validating password
-    if(userPass == ''){
-      alert('Password is required')
+    if(userPass == ''){      
+      document.getElementById('passErr').innerHTML='Password is required'
     }
-    if (userPass.length < 6) {
-      alert('Password should be at least 6 characters')
+    if (userPass.length < 6) {      
+      document.getElementById('emailErr').innerHTML='Password should be at least 6 characters'
     }
 
     // validating repeat password
