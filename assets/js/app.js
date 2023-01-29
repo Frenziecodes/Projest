@@ -44,11 +44,6 @@ var dropdown = document.querySelectorAll('.dropdown');
       document.getElementById('emailErr').innerHTML='Password should be at least 6 characters'
     }
 
-    // validating repeat password
-    if (userPass2 != userPass) {
-      alert('Passwords do not match')
-    }
-
   }
   // end of registration form validation
 
