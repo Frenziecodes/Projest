@@ -14,8 +14,7 @@ var dropdown = document.querySelectorAll('.dropdown');
   function validateRegistration(){
     var username = document.register.name.value;
     var userEmail = document.register.email.value;
-    var userPass = document.register.pass.value;
-    var userPass2 = document.register.pass2.value;
+    var userPass = document.register.pass.value;    
 
     // validating username
     if(username == ''){     
@@ -23,25 +22,30 @@ var dropdown = document.querySelectorAll('.dropdown');
       return false;
     }
     if(username.length<4){      
-      document.getElementById('nameErr').innerHTML='username should be at least 4 character'
+      document.getElementById('nameErr').innerHTML='username should be at least 4 character';
+      return false;
     }
 
     // validating email
     at = userEmail.indexOf('@');
     dot = userEmail.lastIndexOf('.');
     if (userEmail == '') {      
-      document.getElementById('emailErr').innerHTML='Email is required'
+      document.getElementById('emailErr').innerHTML='Email is required';
+      return false
     }
     if (at <1 || (dot - at < 2)) {      
-      document.getElementById('emailErr').innerHTML='Incorrect Email'
+      document.getElementById('emailErr').innerHTML='Incorrect Email';
+      return false;
     }
 
     // validating password
     if(userPass == ''){      
-      document.getElementById('passErr').innerHTML='Password is required'
+      document.getElementById('passErr').innerHTML='Password is required';
+      return false;
     }
     if (userPass.length < 6) {      
-      document.getElementById('emailErr').innerHTML='Password should be at least 6 characters'
+      document.getElementById('emailErr').innerHTML='Password should be at least 6 characters';
+      return false
     }
 
   }
