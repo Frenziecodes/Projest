@@ -22,6 +22,7 @@
      rel="stylesheet"
      />
      <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="./assets/css/style.css">
      <link href="/dist/output.css" rel="stylesheet">
      <script type="module">
         // Import the functions you need from the SDKs you need
@@ -46,15 +47,19 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
       </script>
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
 </head>
-<body>
+<body class="bg-white">
     <!-- navbar -->
     <div class="flex justify-between items-center align-middle h-16 w-full bg-blue-600 text-white py-2 px-3 fixed top-0 left-0 right-0 z-30 mb-16">
         <div class="flex justify-center items-center">
-           PROJEST
+          <h1 class="animate__animated animate__wobble">PROJEST</h1>
         </div>
-        <ul class="flex justify-center items-center">
-            <li class="m-2 md:m-5"><a href="index.html">Home</a></li>
+        <ul class="hidden md:flex md:justify-center md:items-center">
+            <li class="m-2 md:m-5 bg-blue-900 px-4 py-1 rounded-sm"><a href="index.html">Home</a></li>
             <li class="dropdown m-2 md:m-5">
                 <a href="#">Projects</a>
                 <!-- <ul class="dropdown-content p-3 bg-violet-500 absolute">
@@ -64,13 +69,28 @@
               </li>         
             <li class="m-2 md:m-5"><a href="#">Contributing</a></li>
             <li class="inline-block px-3 py-2 m-2 border-2 border-white text-white font-medium text-sm leading-snug uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out md:m-5" data-mdb-ripple="true" data-mdb-ripple-color="light"><a href="login.html">Sign in</a></li>
-        </ul>        
-        
-    </div>
+        </ul> 
+        <!-- sidenav -->
+        <div id="mySidenav" class="sidenav bg-blue-600">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="index.html">Home</a>
+          <a href="#">Projects</a>
+          <a href="#">Contribution</a>
+          <a href="login.html">Sign in</a>
+        </div>
+
+        <div class="md:hidden" onclick="openNav()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </div>   
+     </div>
+
     <section class=" flex flex-col justify-center align-middle items-center p-4 md:flex-row md:justify-between ">
-        <section class="flex flex-col w-full h-72 items-center justify-center md:h-auto">
+        <!-- <section class="flex flex-col w-full h-72 items-center justify-center md:h-auto">
             <img class="w-full h-full" src="./assets/img/login.jpeg" alt="">
-        </section>
+        </section> -->      
+        
 
     <section class="flex flex-col pt-12 px-10 w-full items-center justify-center">
         <!-- Pills navs -->
@@ -130,7 +150,7 @@
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <input type="email" id="loginName" class="form-control" />
-                <label class="form-label" for="loginName">Email or username</label>
+                <label class="form-label" for="loginName" >Email or username</label>
             </div>
 
             <!-- Password input -->
