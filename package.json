@@ -3,6 +3,7 @@
     "tailwindcss": "^3.2.4"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "firebase": "^9.16.0"
   }
 }
