@@ -1,0 +1,116 @@
+[debug] [2023-01-30T09:20:33.238Z] ----------------------------------------------------------------------
+[debug] [2023-01-30T09:20:33.242Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ELITEBOOK 820 G3\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-01-30T09:20:33.243Z] CLI Version:   11.21.0
+[debug] [2023-01-30T09:20:33.243Z] Platform:      win32
+[debug] [2023-01-30T09:20:33.244Z] Node Version:  v18.12.1
+[debug] [2023-01-30T09:20:33.245Z] Time:          Mon Jan 30 2023 12:20:33 GMT+0300 (East Africa Time)
+[debug] [2023-01-30T09:20:33.245Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-01-30T09:20:33.256Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-01-30T09:20:33.257Z] > authorizing via signed-in user (travinskielewinskie@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\xampp\htdocs\Projest
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-01-30T09:22:10.644Z] ----------------------------------------------------------------------
+[debug] [2023-01-30T09:22:10.646Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ELITEBOOK 820 G3\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-01-30T09:22:10.647Z] CLI Version:   11.21.0
+[debug] [2023-01-30T09:22:10.647Z] Platform:      win32
+[debug] [2023-01-30T09:22:10.647Z] Node Version:  v18.12.1
+[debug] [2023-01-30T09:22:10.648Z] Time:          Mon Jan 30 2023 12:22:10 GMT+0300 (East Africa Time)
+[debug] [2023-01-30T09:22:10.649Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-01-30T09:22:10.661Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-01-30T09:22:10.662Z] > authorizing via signed-in user (travinskielewinskie@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\xampp\htdocs\Projest
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-01-30T09:24:19.684Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2023-01-30T09:24:20.743Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2023-01-30T09:24:20.743Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project projest-3kf (projest) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2023-01-30T09:24:28.207Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-01-30T09:24:28.207Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/projest-3kf
+[debug] [2023-01-30T09:24:30.189Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com 200
+[debug] [2023-01-30T09:24:30.190Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com [omitted]
+[warn] !  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2023-01-30T09:24:30.194Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com:enable [none]
+[debug] [2023-01-30T09:24:30.194Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com:enable x-goog-quota-user=projects/projest-3kf
+[debug] [2023-01-30T09:24:32.337Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com:enable 200
+[debug] [2023-01-30T09:24:32.337Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com:enable [omitted]
+[debug] [2023-01-30T09:24:42.355Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-01-30T09:24:42.356Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/projest-3kf
+[debug] [2023-01-30T09:24:44.086Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com 200
+[debug] [2023-01-30T09:24:44.086Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/projest-3kf/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2023-01-30T09:24:44.097Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/projest-3kf [none]
+[debug] [2023-01-30T09:24:45.097Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/projest-3kf 200
+[debug] [2023-01-30T09:24:45.098Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/projest-3kf {"projectId":"projest-3kf","projectNumber":"288268902129","displayName":"projest","name":"projects/projest-3kf","resources":{"hostingSite":"projest-3kf"},"state":"ACTIVE","etag":"1_e2a042d1-2e4a-4b69-84fc-214830f03086"}
+[debug] [2023-01-30T09:25:03.930Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/projest-3kf/locations/us-central1/instances databaseId=projest-3kf-default-rtdb&validateOnly=true
+[debug] [2023-01-30T09:25:03.931Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/projest-3kf/locations/us-central1/instances {"type":"default_database"}
+[debug] [2023-01-30T09:25:05.091Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/projest-3kf/locations/us-central1/instances 200
+[debug] [2023-01-30T09:25:05.091Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/projest-3kf/locations/us-central1/instances {"name":"projects/288268902129/locations/us-central1/instances/projest-3kf-default-rtdb","project":"projects/288268902129","databaseUrl":"https://projest-3kf-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2023-01-30T09:25:05.093Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/projest-3kf/locations/us-central1/instances databaseId=projest-3kf-default-rtdb
+[debug] [2023-01-30T09:25:05.094Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/projest-3kf/locations/us-central1/instances {"type":"default_database"}
+[debug] [2023-01-30T09:25:06.483Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/projest-3kf/locations/us-central1/instances 200
+[debug] [2023-01-30T09:25:06.483Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/projest-3kf/locations/us-central1/instances {"name":"projects/288268902129/locations/us-central1/instances/projest-3kf-default-rtdb","project":"projects/288268902129","databaseUrl":"https://projest-3kf-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2023-01-30T09:27:53.437Z] >>> [apiv2][query] GET https://projest-3kf-default-rtdb.firebaseio.com/.settings/rules.json [none]
+[debug] [2023-01-30T09:27:54.675Z] <<< [apiv2][status] GET https://projest-3kf-default-rtdb.firebaseio.com/.settings/rules.json 200
+[debug] [2023-01-30T09:27:54.676Z] <<< [apiv2][body] GET https://projest-3kf-default-rtdb.firebaseio.com/.settings/rules.json [stream]
+[info] +  Database Rules for projest-3kf-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2023-01-30T09:28:36.997Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2023-01-30T09:28:37.531Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
