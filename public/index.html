@@ -72,7 +72,16 @@
             <li class="m-2 md:m-5"><a href="#">Contributing</a></li>
             <li class="inline-block px-3 py-2 m-2 border-2 border-white text-white font-medium text-sm leading-snug uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out md:m-5" data-mdb-ripple="true" data-mdb-ripple-color="light"><a href="login.html">Sign in</a></li>
         </ul> 
-        <div class="md:hidden">
+        <!-- sidenav -->
+        <div id="mySidenav" class="sidenav bg-blue-600">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="index.html">Home</a>
+          <a href="#">Projects</a>
+          <a href="#">Contribution</a>
+          <a href="login.html">Sign in</a>
+        </div>
+
+        <div class="md:hidden" onclick="openNav()">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
