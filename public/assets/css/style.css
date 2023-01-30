@@ -34,16 +34,15 @@
   /* The navigation menu links */
   .sidenav a {
     padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #cccaca;
+    text-decoration: none;    
+    color: #fff;
     display: block;
     transition: 0.3s;
   }
   
   /* When you mouse over the navigation links, change their color */
   .sidenav a:hover {
-    color: #fff;
+    color: rgb(188, 183, 183);
   }
   
   /* Position and style the close button (top right corner) */
