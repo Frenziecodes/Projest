@@ -53,25 +53,90 @@
       />
 </head>
 <body>
-    <form id="project-form">
-        <div>
-          <label for="project-title">Project Title:</label>
-          <input type="text" id="project-title" name="project-title">
+    <form id="project-form" class="flex flex-col justify-center items-center p-4 bg-blue-100">
+        <h3 class="font-medium leading-tight text-3xl mt-0 mb-2 text-blue-600">Enter Project Details</h3>
+
+        <div class="flex justify-center">
+            <div class="mb-3 xl:w-96">             
+              <input type="text"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="project-title" name="project-title" placeholder="Project title"
+              />
+            </div>
         </div>
-        <div>
-          <label for="project-description">Project Description:</label>
-          <textarea id="project-description" name="project-description"></textarea>
+        
+        <div class="flex justify-center">
+            <div class="mb-3 xl:w-96">             
+              <textarea class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition  ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="project-description" name="project-description" rows="4"  placeholder="Project Description"></textarea>
+            </div>
         </div>
-        <div>
-          <label for="user-github-link">User Github Link:</label>
-          <input type="text" id="user-github-link" name="user-github-link">
+        
+        
+        <div class="flex justify-center">
+            <div class="mb-3 xl:w-96">              
+              <input type="text"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="user-github-link" name="user-github-link" placeholder="Your Github Link"
+              />
+            </div>
         </div>
-        <div>
-          <label for="project-github-link">Project Github Link:</label>
-          <input type="text" id="project-github-link" name="project-github-link">
+        
+        <div class="flex justify-center">
+            <div class="mb-3 xl:w-96">              
+              <input type="text"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="project-github-link" name="project-github-link" placeholder="Project Github Link"
+              />
+            </div>
+        </div>        
+        
+        <div class="mb-3 xl:w-96">            
+            <input type="text"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="project-tags" name="project-tags" placeholder="Select tags below"
+            />
+          </div>
+        <div id="tag-list" class="mb-3">
+            <div class="mb-2">
+                <span class="tag">JavaScript</span>
+                <span class="tag">PHP</span>
+                <span class="tag">Python</span>
+                <span class="tag">C++</span>
+                <span class="tag">Java</span>
+            </div>
+                
+            <div class="mb-2">
+                <span class="tag">Ruby</span>
+                <span class="tag">Swift</span>
+                <span class="tag">Go</span>
+                <span class="tag">Kotlin</span>
+                <span class="tag">TypeScript</span>
+            </div>
+             
+            <div class="mb-2">
+                <span class="tag">SQL</span>
+                <span class="tag">HTML</span>
+                <span class="tag">Objective-C</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Perl</span>
+            </div>
+
+            <div class="mb-2">
+                <span class="tag">Visual Basic</span>             
+                <span class="tag">Front-End</span>
+                <span class="tag">Back-End</span>
+                <span class="tag">Full-Stack</span>
+            </div>
+             
+             
+             
+            
+  
         </div>
-        <button type="submit">Submit</button>
+
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-sm">Submit</button>
       </form>
-      
+      <script src="./assets/js/app.js"></script>
 </body>
 </html>

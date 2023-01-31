@@ -80,3 +80,13 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
+// project details tags
+const tagList = document.getElementById("tag-list");
+const projectTagsInput = document.getElementById("project-tags");
+
+tagList.addEventListener("click", function(event) {
+  if (event.target.classList.contains("tag")) {
+    projectTagsInput.value += event.target.innerText + ", ";
+  }
+});

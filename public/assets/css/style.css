@@ -82,5 +82,11 @@
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+  }  
+  .tag{
+    background-color: #1569c9;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;    
+    margin: 3px;
   }
-  
