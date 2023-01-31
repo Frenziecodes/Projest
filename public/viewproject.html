@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="/dist/output.css" rel="stylesheet">
+    <script type="module">
+       // Import the functions you need from the SDKs you need
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
+       // TODO: Add SDKs for Firebase products that you want to use
+       // https://firebase.google.com/docs/web/setup#available-libraries
+     
+       // Your web app's Firebase configuration
+       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+       const firebaseConfig = {
+         apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
+         authDomain: "projest-3kf.firebaseapp.com",
+         projectId: "projest-3kf",
+         storageBucket: "projest-3kf.appspot.com",
+         messagingSenderId: "288268902129",
+         appId: "1:288268902129:web:a4d6e00506d95427a69350",
+         measurementId: "G-X074W4XF2X"
+       };
+     
+       // Initialize Firebase
+       const app = initializeApp(firebaseConfig);
+       const analytics = getAnalytics(app);
+     </script>
+       <link
+       rel="stylesheet"
+       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+     />
+</head>
+<body>
+
+   <!-- navbar -->
+   <div class="flex justify-between items-center align-middle h-16 w-full bg-blue-600 text-white py-2 px-3 fixed top-0 left-0 right-0 z-30 mb-16">
+       <div class="flex justify-center items-center">
+         <h1 class="animate__animated animate__wobble">PROJEST</h1>
+       </div>
+       <ul class="hidden md:flex md:justify-center md:items-center">
+           <li class="m-2 md:m-5 "><a href="index.html">Home</a></li>
+           <li class="dropdown m-2 md:m-5 bg-blue-900 px-4 py-1 rounded-sm">
+               <a href="#">Projects</a>
+               <ul class="dropdown-content p-1 bg-blue-500 absolute">
+                 <li class="m-2"><a href="#">View Project</a></li>
+                 <li class="m-2"><a href="#">Add Project</a></li>                  
+               </ul>
+           </li>         
+           <li class="m-2 md:m-5"><a href="#">Docs</a></li>
+           <li class="m-2 md:m-5"><a href="#">Contributing</a></li>
+           <li class="inline-block px-3 py-2 m-2 border-2 border-white text-white font-medium text-sm leading-snug uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out md:m-5" data-mdb-ripple="true" data-mdb-ripple-color="light"><a href="login.html">Sign in</a></li>
+       </ul> 
+       <!-- sidenav -->
+       <div id="mySidenav" class="sidenav bg-blue-600">
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+         <a href="index.html">Home</a>
+         <a href="#">Projects</a>
+         <a href="#">Docs</a>
+         <a href="#">Contributing</a>
+         <a href="login.html">Sign in</a>
+       </div>
+
+       <div class="md:hidden" onclick="openNav()">
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+         </svg>
+       </div>   
+    </div>
+
+    <div id="project-container">
+        <!-- template for each project -->
+        <div class="project-item">
+          <h3 class="project-title"></h3>
+          <p class="project-description"></p>
+          <p class="project-github-link"></p>
+          <p class="project-tags"></p>
+        </div>
+      </div>
+      
+      <script>
+        // Retrieve data from Firebase database
+        firebase.database().ref("projects").on("value", function(snapshot) {
+          // Clear the project container
+          document.getElementById("project-container").innerHTML = "";
+      
+          // Loop through each project in the database
+          snapshot.forEach(function(childSnapshot) {
+            var project = childSnapshot.val();
+            
+            // Clone the project template
+            var projectItem = document.querySelector(".project-item").cloneNode(true);
+      
+            // Update the project data in the template
+            projectItem.querySelector(".project-title").innerHTML = project.title;
+            projectItem.querySelector(".project-description").innerHTML = project.description;
+            projectItem.querySelector(".project-github-link").innerHTML = project.githubLink;
+            projectItem.querySelector(".project-tags").innerHTML = project.tags.join(", ");
+      
+            // Add the project template to the project container
+            document.getElementById("project-container").appendChild(projectItem);
+          });
+        });
+      </script>
+      
+      <script src="./assets/js/app.js"></script>
+</body>
+</html>
