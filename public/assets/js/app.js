@@ -81,12 +81,82 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 
-// project details tags
-const tagList = document.getElementById("tag-list");
-const projectTagsInput = document.getElementById("project-tags");
 
-tagList.addEventListener("click", function(event) {
-  if (event.target.classList.contains("tag")) {
-    projectTagsInput.value += event.target.innerText + ", ";
+
+// Get the form element
+const form = document.querySelector("#project-form");
+
+// Get the tag list container
+const tagList = document.querySelector("#tag-list");
+
+// Get the tag input field
+const tagInput = document.querySelector("#project-tags");
+
+// Array to store selected tags
+let selectedTags = [];
+
+// Function to handle tag selection
+const handleTagClick = (event) => {
+  // Get the clicked tag element
+  const tag = event.target;
+
+  // If the tag is already selected, remove it from the selectedTags array
+  if (selectedTags.includes(tag.textContent)) {
+    selectedTags = selectedTags.filter((selectedTag) => selectedTag !== tag.textContent);
+  } else {
+    // Otherwise, add the tag to the selectedTags array
+    selectedTags.push(tag.textContent);
   }
+
+  // Update the tag input field with the selected tags
+  tagInput.value = selectedTags.join(", ");
+};
+
+// Add click event listener to each tag element
+tagList.addEventListener("click", handleTagClick);
+
+// Initialize Firebase
+var firebaseConfig = {
+  apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
+  authDomain: "projest-3kf.firebaseapp.com",
+  databaseURL: "https://projest-3kf-default-rtdb.firebaseio.com",
+  projectId: "projest-3kf",
+  storageBucket: "projest-3kf.appspot.com",
+  messagingSenderId: "288268902129",
+  appId: "1:288268902129:web:a4d6e00506d95427a69350",
+  measurementId: "G-X074W4XF2X"
+};
+firebase.initializeApp(firebaseConfig);
+
+// Reference to the projects database
+var projectsRef = firebase.database().ref("projects");
+
+// Get the form element
+var projectForm = document.getElementById("project-form");
+
+// Add submit event listener to the form
+projectForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  // Get the form data
+  var projectTitle = document.getElementById("project-title").value;
+  var projectDescription = document.getElementById("project-description").value;
+  var githubUser = document.getElementById("user-github-link").value;
+  var githubProject = document.getElementById("project-github-link").value;
+  var projectTags = document.getElementById("project-tags").value;
+
+  // Create a new project object
+  var project = {
+    title: projectTitle,
+    description: projectDescription,
+    github_user: githubUser,
+    github_project: githubProject,
+    tags: projectTags.split(',')
+  };
+
+  // Add the project to the database
+  projectsRef.push(project);
+
+  // Clear the form fields
+  projectForm.reset();
 });
