@@ -119,7 +119,7 @@ tagList.addEventListener("click", handleTagClick);
 var firebaseConfig = {
   apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
   authDomain: "projest-3kf.firebaseapp.com",
-  databaseURL: "https://projest-3kf-default-rtdb.firebaseio.com",
+  databaseURL: "https://console.firebase.google.com/u/0/project/projest-3kf/database/projest-3kf-default-rtdb/data/~2F",
   projectId: "projest-3kf",
   storageBucket: "projest-3kf.appspot.com",
   messagingSenderId: "288268902129",
@@ -159,4 +159,12 @@ projectForm.addEventListener("submit", function(event) {
 
   // Clear the form fields
   projectForm.reset();
+});
+
+// Reference to the database
+let database = firebase.database();
+
+// Read data from the database
+database.ref("projects").on("value", (snapshot) => {
+  console.log(snapshot.val()); // Logs the data from the database
 });
