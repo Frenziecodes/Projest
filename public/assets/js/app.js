@@ -170,3 +170,21 @@ projectForm.addEventListener("submit", function(event) {
   projectForm.reset();
 });
 
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+const projects = document.querySelectorAll(".project"); // assume each project is in a div with class "project"
+
+searchButton.addEventListener("click", function() {
+  const searchValue = searchInput.value.toLowerCase();
+  projects.forEach(project => {
+    const title = project.querySelector(".title").textContent.toLowerCase();
+    const tags = project.querySelector(".tags").textContent.toLowerCase();
+    if (title.includes(searchValue) || tags.includes(searchValue)) {
+      project.style.display = "block";
+    } else {
+      project.style.display = "none";
+    }
+  });
+});
+
+
