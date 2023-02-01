@@ -60,7 +60,7 @@
      </div>
     
 
-    <section class="mt-16">
+    <section class="mt-16 md:flex md:justify-between md:items-start md:w-full">
         <div class="flex justify-center flex-col p-4">
         <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Adding a project on Projest</h4>
             1.Navigate to the "Projest" platform. <br>
@@ -93,64 +93,76 @@
         </div>
     </section>
 
-    <section>
-        <!-- overview -->
-        <div class="flex justify-center flex-col p-4">
-        <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Overview</h4>
-        "Projest" is a platform that allows users to upload and view projects. 
-        It uses a real-time Firebase database to store the project details, which are then displayed on the platform for users to view.
-        
-        </div>
+    <section>        
 
-        <!-- API endpoints -->
-        <div class="flex justify-center flex-col p-4">
-        <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">API Endpoints</h4>
+        <div class="md:flex md:flex-row md:w-full md:my-2 md:justify-between md:items-start">
+            <div class="md:flex md:flex-col md:w-full md:my-2 md:justify-between md:items-start">
+                <!-- overview -->
+                <div class="flex justify-center flex-col p-4 md:w-full">
+                    <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Overview</h4>
+                    "Projest" is a platform that allows users to upload and view projects. 
+                    It uses a real-time Firebase database to store the project details, which are then displayed on the platform for users to view.
+                    
+                </div>
 
-        /api/projects: Returns a list of all projects stored in the Firebase database.
-            <br>
-        /api/projects/:id: Returns a specific project based on its id.
+                 <!-- integration steps -->
+                <div class="flex justify-center flex-col p-4">
+                    <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">
+                        Integration Steps
+                    </h4>        
+                    Add the Firebase SDK to your project.
+                    Connect to the Firebase database and retrieve the project data.
+                    Display the project data in your desired format.
+                    Implement the search functionality to allow users to search for projects by title or tag name.
+                </div>
 
-        </div>
-
-        <!-- data format -->
-        <div class="flex justify-center flex-col p-4">
-            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Data format</h4>
-            The data format for projects is as follows:
-            <div class="flex justify-center items-center p-2 mt-1 bg-blue-400 rounded-md">
-                { <br>
-                    "id": "unique project id",<br>
-                    "title": "project title",<br>
-                    "description": "project description",<br>
-                    "userGithubLink": "link to user's Github profile",<br>
-                    "projectGithubLink": "link to project's Github repository", <br>
-                    "tags": [ "project tag 1", "project tag 2", ... ] <br>
-                }
             </div>
+
+            <div class="md:flex md:flex-col md:w-full md:my-2 md:justify-between md:items-start">
+                <!-- API endpoints -->
+                <div class="flex justify-center flex-col p-4 md:w-full">
+                    <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">API Endpoints</h4>
+
+                    /api/projects: Returns a list of all projects stored in the Firebase database.
+                        <br>
+                    /api/projects/:id: Returns a specific project based on its id.
+
+                </div>
+
+                <!-- notes -->
+                <div class="flex justify-center flex-col p-4">
+                    <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Notes</h4>        
+                    Ensure that you comply with Firebase's terms of service and privacy policy when using their database.
+                    Do not store sensitive information in the Firebase database.
+                    Handle errors and exceptions appropriately in your code.
+                </div>
+            </div>
+
+            <!-- data format -->
+            <div class="flex justify-center flex-col p-4 md:w-full">
+                <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Data format</h4>
+                The data format for projects is as follows:
+                <div class="flex justify-center items-center p-2 mt-1 bg-blue-400 rounded-md">
+                    { <br>
+                        "id": "unique project id",<br>
+                        "title": "project title",<br>
+                        "description": "project description",<br>
+                        "userGithubLink": "link to user's Github profile",<br>
+                        "projectGithubLink": "link to project's Github repository", <br>
+                        "tags": [ "project tag 1", "project tag 2", ... ] <br>
+                    }
+                </div>
+            </div>
+
         </div>
 
-        <!-- integration steps -->
-        <div class="flex justify-center flex-col p-4">
-        <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Integration Steps</h4>        
-            Add the Firebase SDK to your project.
-            Connect to the Firebase database and retrieve the project data.
-            Display the project data in your desired format.
-            Implement the search functionality to allow users to search for projects by title or tag name.
-        </div>
-
-        <!-- notes -->
-        <div class="flex justify-center flex-col p-4">
-            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Notes</h4>        
-            Ensure that you comply with Firebase's terms of service and privacy policy when using their database.
-            Do not store sensitive information in the Firebase database.
-            Handle errors and exceptions appropriately in your code.
-        </div>
     </section>
 
     <!-- FAQsvsection -->
     <div class="container px-4 mx-auto">
     
         <section class="mb-2 text-gray-800">
-        <h2 class="text-3xl font-bold mb-4 text-center">Frequently asked questions</h2>
+        <h2 class="text-3xl font-bold mb-4 text-center text-blue-600">Frequently asked questions</h2>
     
         <div class="grid lg:grid-cols-3 gap-6">
             <div class="md:mb-12">
