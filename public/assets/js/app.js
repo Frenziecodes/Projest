@@ -115,8 +115,11 @@ const handleTagClick = (event) => {
 // Add click event listener to each tag element
 tagList.addEventListener("click", handleTagClick);
 
+const firebase = require("firebase/app");
+require("firebase/firestore");
+
 // Initialize Firebase
-var firebaseConfig = {
+firebase.initializeApp({
   apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
   authDomain: "projest-3kf.firebaseapp.com",
   databaseURL: "https://console.firebase.google.com/u/0/project/projest-3kf/database/projest-3kf-default-rtdb/data/~2F",
@@ -125,7 +128,7 @@ var firebaseConfig = {
   messagingSenderId: "288268902129",
   appId: "1:288268902129:web:a4d6e00506d95427a69350",
   measurementId: "G-X074W4XF2X"
-};
+});
 firebase.initializeApp(firebaseConfig);
 
 // Reference to the projects database
@@ -133,6 +136,12 @@ var projectsRef = firebase.database().ref("projects");
 
 // Get the form element
 var projectForm = document.getElementById("project-form");
+
+// const functions = require('firebase-functions');
+// const firebase = require('firebase-admin');
+// firebase.initializeApp();
+
+const db = firebase.firestore();
 
 // Add submit event listener to the form
 projectForm.addEventListener("submit", function(event) {
@@ -161,10 +170,3 @@ projectForm.addEventListener("submit", function(event) {
   projectForm.reset();
 });
 
-// Reference to the database
-let database = firebase.database();
-
-// Read data from the database
-database.ref("projects").on("value", (snapshot) => {
-  console.log(snapshot.val()); // Logs the data from the database
-});

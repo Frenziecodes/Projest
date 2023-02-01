@@ -23,33 +23,12 @@
      <script src="https://cdn.tailwindcss.com"></script>
      <link rel="stylesheet" href="./assets/css/style.css">
      <link href="/dist/output.css" rel="stylesheet">
-     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
-          authDomain: "projest-3kf.firebaseapp.com",
-          projectId: "projest-3kf",
-          storageBucket: "projest-3kf.appspot.com",
-          messagingSenderId: "288268902129",
-          appId: "1:288268902129:web:a4d6e00506d95427a69350",
-          measurementId: "G-X074W4XF2X"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
-        <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-      />
+     <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-database.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
+
 </head>
 <body>
 
@@ -131,7 +110,7 @@
             />
           </div>
         <div id="tag-list" class="mb-3">
-            <div class="mb-3 flex flex-col">
+            <div class="mb-3 flex flex-col md:flex-row">
               <div class="mb-3">
                 <span class="tag">JavaScript</span>
                 <span class="tag">PHP</span>
@@ -144,17 +123,8 @@
               </div>               
                 
             </div>
-                
-            <div class="mb-2 flex flex-col">
-              <div class="mb-3">
-                <span class="tag">Ruby</span>
-                <span class="tag">Swift</span>
-                <span class="tag">Full-Stack</span>                
-              </div>             
-                
-            </div>
-             
-            <div class="mb-2 flex flex-col">
+
+            <div class="mb-2 flex flex-col md:flex-row">
               <div class="mb-3">
                 <span class="tag">SQL</span>
                 <span class="tag">HTML</span>
@@ -167,25 +137,23 @@
               </div>               
                 
             </div>
-
-            <div class="mb-2 flex flex-col">
+                
+            <div class="mb-2 flex flex-col md:flex-row">
+              <div class="mb-3">
+                <span class="tag">Ruby</span>
+                <span class="tag">Swift</span>
+                <span class="tag">Full-Stack</span>                
+              </div>  
               <div class="mb-3">
                 <span class="tag">Front-End</span>
                 <span class="tag">Back-End</span>
                 <span class="tag">Go</span>
-              </div>
-              <div>
+              </div>           
                 
-              </div>
-                            
-               
-            </div>
-             
-             
-             
+            </div>            
             
-  
-        </div>
+               
+         </div>
 
         <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-sm">Submit</button>
       </form>
@@ -195,6 +163,46 @@
           © 2023 All rights reserved    
         </div>
       </footer>
+
+      <script>
+        // Initialize Firebase
+        var firebaseConfig = {
+          apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
+          authDomain: "projest-3kf.firebaseapp.com",
+          projectId: "projest-3kf",
+          storageBucket: "projest-3kf.appspot.com",
+          messagingSenderId: "288268902129",
+          appId: "1:288268902129:web:a4d6e00506d95427a69350",
+          measurementId: "G-X074W4XF2X"
+        };
+      
+        firebase.initializeApp(firebaseConfig);
+        var db1 = firebase.firestore();
+      </script>
+
+      <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";        
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
+          authDomain: "projest-3kf.firebaseapp.com",
+          projectId: "projest-3kf",
+          storageBucket: "projest-3kf.appspot.com",
+          messagingSenderId: "288268902129",
+          appId: "1:288268902129:web:a4d6e00506d95427a69350",
+          measurementId: "G-X074W4XF2X"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
       <script src="./assets/js/app.js"></script>
 </body>
 </html>
