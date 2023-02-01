@@ -46,32 +46,89 @@
     
 
     <section class="mt-16">
-        Adding a Project
-        <br>
-Navigate to the "Projest" platform.
-Click on the "Projects" dropdown menu in the navigation bar.
-Select the "Add Project" option.
-Fill in the form with your project details, including the project title, description, user Github link, and project Github link.
-Select the tags that best describe your project.
-Click the "Submit" button to send the form data to the real-time Firebase database.
-<br>
-Viewing All Projects
-<br>
-Navigate to the "Projest" platform.
-Click on the "Projects" dropdown menu in the navigation bar.
-Select the "View All Projects" option.
-All the projects that have been submitted to the platform will be displayed.
-You can search for a specific project by its title or tag name using the search bar.
+        <div class="flex justify-center flex-col p-4">
+        <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Adding a project on Projest</h4>
+            1.Navigate to the "Projest" platform. <br>
+            2.Click on the "Projects" dropdown menu in the navigation bar. <br>
+            3.Select the "Add Project" option. <br>
+            4.Fill in the form with your project details, including the project title, description, user Github link, and project Github link. <br>
+            5.Select the tags that best describe your project. <br>
+            6.Click the "Submit" button to send the form data to the real-time Firebase database. <br>
+        </div>
 
-<br>
-Contributing to a Project
-<br>
-Navigate to the "Projest" platform.
-Select the "Contribute" page from the navigation bar.
-Find a project that you would like to contribute to.
-Follow the project's Github link to access its repository.
-Make your contributions to the project.
-Submit your changes via a pull request.
+        <!-- viewing projects -->
+        <div class="flex justify-center flex-col p-4">
+            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Viewing Projects</h4>
+            1.Navigate to the "Projest" platform. <br>
+            2.Click on the "Projects" dropdown menu in the navigation bar. <br>
+            3.Select the "View All Projects" option. <br>
+            4.All the projects that have been submitted to the platform will be displayed. <br>
+            5.You can search for a specific project by its title or tag name using the search bar. <br>
+        </div>
+
+        <!-- contributing to a project -->
+        <div class="flex justify-center flex-col p-4">
+            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Contributing to a Project</h4>
+            1.Navigate to the "Projest" platform. <br>
+            2.Select the "view projects" page from the navigation bar. <br>
+            3.Find a project that you would like to contribute to. <br>
+            4.Follow the project's Github link to access its repository.
+            5.Make your contributions to the project. <br>
+            6.Submit your changes via a pull request. <br>
+        </div>
+    </section>
+
+    <section>
+        <!-- overview -->
+        <div class="flex justify-center flex-col p-4">
+        <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Overview</h4>
+        "Projest" is a platform that allows users to upload and view projects. 
+        It uses a real-time Firebase database to store the project details, which are then displayed on the platform for users to view.
+        
+        </div>
+
+        <!-- API endpoints -->
+        <div class="flex justify-center flex-col p-4">
+        <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">API Endpoints</h4>
+
+        /api/projects: Returns a list of all projects stored in the Firebase database.
+
+        /api/projects/:id: Returns a specific project based on its id.
+
+        </div>
+
+        <!-- data format -->
+        <div class="flex justify-center flex-col p-4">
+            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Data format</h4>
+            The data format for projects is as follows:
+            <div class="flex justify-center items-center p-2 mt-1 bg-blue-400 rounded-md">
+                { <br>
+                    "id": "unique project id",<br>
+                    "title": "project title",<br>
+                    "description": "project description",<br>
+                    "userGithubLink": "link to user's Github profile",<br>
+                    "projectGithubLink": "link to project's Github repository", <br>
+                    "tags": [ "project tag 1", "project tag 2", ... ] <br>
+                }
+            </div>
+        </div>
+
+        <!-- integration steps -->
+        <div class="flex justify-center flex-col p-4">
+        <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Integration Steps</h4>        
+            Add the Firebase SDK to your project.
+            Connect to the Firebase database and retrieve the project data.
+            Display the project data in your desired format.
+            Implement the search functionality to allow users to search for projects by title or tag name.
+        </div>
+
+        <!-- notes -->
+        <div class="flex justify-center flex-col p-4">
+            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Notes</h4>        
+            Ensure that you comply with Firebase's terms of service and privacy policy when using their database.
+            Do not store sensitive information in the Firebase database.
+            Handle errors and exceptions appropriately in your code.
+        </div>
     </section>
     
     <script src="./assets/js/app.js"></script>
