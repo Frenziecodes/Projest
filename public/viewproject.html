@@ -96,12 +96,12 @@
         for (var key in projects) {
           var project = projects[key];
           projectsDiv.innerHTML += 
-            "<div>" + 
+            "<div class=''>" + 
             "<h2>" + project.title + "</h2>" + 
-            "<p>" + project.description + "</p>" +
-            "<p>" + project.tags.join(", ") + "</p>" +
+            "<p>" + project.description + "</p>" +            
             "<p>User GitHub Link: <a href='" + project.userGitHubLink + "'>" + project.userGitHubLink + "</a></p>" +
             "<p>Project GitHub Link: <a href='" + project.projectGitHubLink + "'>" + project.projectGitHubLink + "</a></p>" +
+            "<p>" + project.tags.join(", ") + "</p>" +
             "</div>";
         }
       });
