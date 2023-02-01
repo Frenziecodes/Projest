@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/app.js"></script>
+</head>
+<body>
+     <!-- navbar -->
+   <div class="flex justify-between items-center align-middle h-16 w-full bg-blue-600 text-white py-2 px-3 fixed top-0 left-0 right-0 z-30 mb-16">
+    <div class="flex justify-center items-center">
+      <h1 class="animate__animated animate__wobble">PROJEST</h1>
+    </div>
+    <ul class="hidden md:flex md:justify-center md:items-center">
+        <li class="m-2 md:m-5 "><a href="index.html">Home</a></li>
+        <li class="dropdown m-2 md:m-5 ">
+            <a href="#">Projects</a>
+            <ul class="dropdown-content p-1 bg-blue-500 absolute">
+              <li class="m-2"><a href="viewproject.html">View Project</a></li>
+              <li class="m-2"><a href="addproject.html">Add Project</a></li>                  
+            </ul>
+        </li>         
+        <li class="m-2 md:m-5"><a href="docs.html">Docs</a></li>
+        <li class="m-2 md:m-5 bg-blue-900 px-4 py-1 rounded-sm"><a href="contributing.html">Contributing</a></li>           
+    </ul> 
+    <!-- sidenav -->
+    <div id="mySidenav" class="sidenav bg-blue-600">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html">Home</a>
+      <a href="#">Projects</a>
+      <a href="docs.html">Docs</a>
+      <a href="contributing.html">Contributing</a>         
+    </div>
+
+    <div class="md:hidden" onclick="openNav()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </div>   
+ </div>
+ <section class="mt-16 pt-2">
+    <!-- contribution guidelines -->
+    <div class="p-2">
+        <h4 class="font-medium leading-tight text-2xl text-center mt-0 mb-2 text-blue-600">Contribution Guidelines</h4>
+        <p>
+            Welcome to the Projest project! We are grateful for your interest in contributing to our project. With your help, we can continue to improve Projest and provide a platform for users to showcase their projects.
+        </p>
+    </div>
+    <section class="md:flex md:justify-between md:items-start md:w-full">
+
+        <!-- code of conduct -->
+        <div class="p-2 md:w-full">
+            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Code of Conduct</h4>
+            <p>
+                We expect all contributors to Projest to adhere to our code of conduct. This code outlines the standards of behavior expected of all contributors, including respecting the opinions and contributions of others, avoiding harassment and discrimination, and maintaining a positive and productive environment for all contributors.
+            </p>
+        </div>
+
+        <!-- issues -->
+        <div class="p-2 md:w-full">
+            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Issues</h4>
+            <p>
+                If you encounter any issues while using Projest, please report them to our issues tracker. To ensure your issue is quickly resolved, please provide the following information:
+            </p>
+            <ul>
+                <li>1.A clear and concise description of the issue.</li>
+                <li>2.Steps to reproduce the issue.</li>
+                <li>3.Screenshots or video demonstrating the issue.</li>
+                <li>4.The version of Projest you are using.</li>
+                <li>5.Pull Requests</li>             
+            </ul>
+        </div>
+
+        <!-- Pull requests -->
+        <div class="p-2 md:w-full">
+            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Pull Request</h4>
+            <p>
+                If you would like to contribute to Projest by fixing an issue or adding a new feature, please follow these steps:
+            </p>
+            <ul>
+                <li>1.Fork the Projest repository on GitHub.</li>
+                <li>2.Create a new branch for your changes.</li>
+                <li>3.Make your changes and push them to your fork.</li>
+                <li>4.Submit a pull request to the Projest repository.</li>
+                <li>N/B: In your pull request, please provide a clear and concise description of your changes and why they are necessary. Your changes will be reviewed by our development team and, if approved, will be merged into the Projest repository.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section class="md:flex md:justify-between md:items-start md:w-full">
+        <!-- Development Workflow -->
+        <div class="p-2 md:w-full">
+            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Development Workflow</h4>
+            <p>
+                Projest uses a GitHub-based workflow for managing contributions. Our development team will review all pull requests and provide feedback on any changes that need to be made before they are merged into the Projest repository.
+            </p>
+        </div>
+
+        <!-- Documentation -->
+        <div class="p-2 md:w-full">
+            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Documentation</h4>
+            <p>
+                We welcome contributions to the Projest documentation. Please see our documentation guidelines for information on how to contribute to the documentation.
+            </p>
+        </div>
+
+        <!-- credits -->
+        <div class="p-2 md:w-full">
+            <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Credits</h4>
+            <p>
+                We would like to extend a special thank you to all of the contributors who have helped make Projest a success. Your contributions are greatly appreciated and help make Projest a better platform for users everywhere.
+            </p>
+        </div>
+    </section>
+
+    <div class="text-center mt-2">
+        <p>
+            Thank you for considering a contribution to Projest. We look forward to working with you!
+        </p>
+    </div>
+
+    <footer class="bg-blue-600 text-center lg:text-left relative mt-2 bottom-0 right-0 left-0">
+        <div class="text-white text-center p-4">
+          © 2023 All rights reserved    
+        </div>
+    </footer>
+
+ </section>
+
+
+</body>
+</html>
