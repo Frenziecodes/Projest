@@ -98,7 +98,7 @@
         <div class="md:flex md:flex-row md:w-full md:my-2 md:justify-between md:items-start">
             <div class="md:flex md:flex-col md:w-full md:my-2 md:justify-between md:items-start">
                 <!-- overview -->
-                <div class="flex justify-center flex-col p-4 md:w-full">
+                <div class="flex justify-center flex-col p-4 md:w-full md:mb-1 md:p-2">
                     <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Overview</h4>
                     "Projest" is a platform that allows users to upload and view projects. 
                     It uses a real-time Firebase database to store the project details, which are then displayed on the platform for users to view.
@@ -106,14 +106,14 @@
                 </div>
 
                  <!-- integration steps -->
-                <div class="flex justify-center flex-col p-4">
+                <div class="flex justify-center flex-col p-4 md:p-2">
                     <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">
                         Integration Steps
                     </h4>        
                     Add the Firebase SDK to your project.
                     Connect to the Firebase database and retrieve the project data.
                     Display the project data in your desired format.
-                    Implement the search functionality to allow users to search for projects by title or tag name.
+                    Implement the search functionality to allow users to search for projects by title or tag.
                 </div>
 
             </div>
@@ -121,7 +121,7 @@
             <div class="md:flex md:flex-col md:w-full md:my-2 md:justify-between md:items-start">
                 <!-- API endpoints -->
                 <div class="flex justify-center flex-col p-4 md:w-full">
-                    <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">API Endpoints</h4>
+                    <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 md:mb-1 text-blue-600">API Endpoints</h4>
 
                     /api/projects: Returns a list of all projects stored in the Firebase database.
                         <br>
@@ -142,7 +142,7 @@
             <div class="flex justify-center flex-col p-4 md:w-full">
                 <h4 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Data format</h4>
                 The data format for projects is as follows:
-                <div class="flex justify-center items-center p-2 mt-1 bg-blue-400 rounded-md">
+                <div class="flex justify-center items-center p-2 mt-4 bg-slate-300 rounded-md">
                     { <br>
                         "id": "unique project id",<br>
                         "title": "project title",<br>
