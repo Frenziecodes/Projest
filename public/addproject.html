@@ -23,12 +23,8 @@
      <script src="https://cdn.tailwindcss.com"></script>
      <link rel="stylesheet" href="./assets/css/style.css">
      <link href="/dist/output.css" rel="stylesheet">
-     <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-database.js"></script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
-
+     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
 </head>
 <body>
 
@@ -65,144 +61,75 @@
         </div>   
      </div>
 
-    <form id="project-form" class="flex flex-col justify-center items-center p-4 mt-16 bg-blue-100">
-        <h3 class="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Enter Project Details</h3>
-
-        <div class="flex justify-center">
-            <div class="mb-3 xl:w-96">             
-              <input type="text"
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="project-title" name="project-title" placeholder="Project title"
-              />
-            </div>
-        </div>
-        
-        <div class="flex justify-center">
-            <div class="mb-3 xl:w-96">             
-              <textarea class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition  ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="project-description" name="project-description" rows="4"  placeholder="Project Description"></textarea>
-            </div>
-        </div>
-        
-        
-        <div class="flex justify-center">
-            <div class="mb-3 xl:w-96">              
-              <input type="text"
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="user-github-link" name="user-github-link" placeholder="Your Github Link"
-              />
-            </div>
-        </div>
-        
-        <div class="flex justify-center">
-            <div class="mb-3 xl:w-96">              
-              <input type="text"
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="project-github-link" name="project-github-link" placeholder="Project Github Link"
-              />
-            </div>
-        </div>        
-        
-        <div class="mb-3 xl:w-96">            
-            <input type="text"
-              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="project-tags" name="project-tags" placeholder="Select tags below"
-            />
-          </div>
-        <div id="tag-list" class="mb-3">
-            <div class="mb-3 flex flex-col md:flex-row">
-              <div class="mb-3">
-                <span class="tag">JavaScript</span>
-                <span class="tag">PHP</span>
-                <span class="tag">Python</span>
-              </div>
-              <div>
-                <span class="tag">C++</span>
-                <span class="tag">Java</span>
-                <span class="tag">Kotlin</span>
-              </div>               
-                
-            </div>
-
-            <div class="mb-2 flex flex-col md:flex-row">
-              <div class="mb-3">
-                <span class="tag">SQL</span>
-                <span class="tag">HTML</span>
-                <span class="tag">TypeScript</span>
-              </div>
-              <div>
-                <span class="tag">CSS</span>
-                <span class="tag">Perl</span>
-                <span class="tag">Visual Basic</span> 
-              </div>               
-                
-            </div>
-                
-            <div class="mb-2 flex flex-col md:flex-row">
-              <div class="mb-3">
-                <span class="tag">Ruby</span>
-                <span class="tag">Swift</span>
-                <span class="tag">Full-Stack</span>                
-              </div>  
-              <div class="mb-3">
-                <span class="tag">Front-End</span>
-                <span class="tag">Back-End</span>
-                <span class="tag">Go</span>
-              </div>           
-                
-            </div>            
-            
-               
-         </div>
-
-        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-sm">Submit</button>
-      </form>
-
-      <footer class="bg-blue-600 text-center lg:text-left relative bottom-0 right-0 left-0">
-        <div class="text-white text-center p-4">
-          © 2023 All rights reserved    
-        </div>
-      </footer>
-
-      <script>
-        // Initialize Firebase
-        var firebaseConfig = {
-          apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
-          authDomain: "projest-3kf.firebaseapp.com",
-          projectId: "projest-3kf",
-          storageBucket: "projest-3kf.appspot.com",
-          messagingSenderId: "288268902129",
-          appId: "1:288268902129:web:a4d6e00506d95427a69350",
-          measurementId: "G-X074W4XF2X"
-        };
+     <form id="project-form" class="mt-16">
+      <input type="text" id="title" placeholder="Project Title">
+      <textarea id="description" placeholder="Project Description"></textarea>
+      <input type="text" id="userGitHubLink" placeholder="User GitHub Link">
+      <input type="text" id="projectGitHubLink" placeholder="Project GitHub Link">
+      <br><br>
+      <h3>Select Project Tags:</h3>
+      <div id="tag-list">
+        <label><input type="checkbox" value="javascript">JavaScript</label>
+        <label><input type="checkbox" value="python">Python</label>
+        <label><input type="checkbox" value="java">Java</label>
+        <label><input type="checkbox" value="csharp">C#</label>
+        <!-- Add more tags as needed -->
+      </div>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+      // Initialize Firebase
+      var firebaseConfig = {
+        apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
+        authDomain: "projest-3kf.firebaseapp.com",
+        databaseURL: "https://projest-3kf-default-rtdb.firebaseio.com/",
+        projectId: "projest-3kf",
+        storageBucket: "projest-3kf.appspot.com",
+        messagingSenderId: "288268902129",
+        appId: "1:288268902129:web:a4d6e00506d95427a69350",
+        measurementId: "G-X074W4XF2X"
+      };
+      firebase.initializeApp(firebaseConfig);
       
-        firebase.initializeApp(firebaseConfig);
-        var db1 = firebase.firestore();
-      </script>
-
-      <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";        
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+      // Get a reference to the database
+      var database = firebase.database();
       
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
-          authDomain: "projest-3kf.firebaseapp.com",
-          projectId: "projest-3kf",
-          storageBucket: "projest-3kf.appspot.com",
-          messagingSenderId: "288268902129",
-          appId: "1:288268902129:web:a4d6e00506d95427a69350",
-          measurementId: "G-X074W4XF2X"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
+      // Get a reference to the form and add a submit event listener
+      var form = document.querySelector("#project-form");
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        // Get the values from the form fields
+        var title = document.querySelector("#title").value;
+        var description = document.querySelector("#description").value;
+        var userGitHubLink = document.querySelector("#userGitHubLink").value;
+        var projectGitHubLink = document.querySelector("#projectGitHubLink").value;
+        
+        // Get the selected tags
+        var tagList = document.querySelector("#tag-list");
+        var tags = [];
+        for (var i = 0; i < tagList.children.length; i++) {
+          var tag = tagList.children[i];
+          if (tag.firstElementChild.checked) {
+            tags.push(tag.firstElementChild.value);
+          }
+        }
+        
+        // Add the new project to the database
+        database.ref("projects").push({
+          title: title,
+          description: description,
+          userGitHubLink: userGitHubLink,
+          projectGitHubLink: projectGitHubLink,
+          tags: tags
+        });
+        
+        // Clear the form fields
+        form.reset();
+      });
+    </script>
       <script src="./assets/js/app.js"></script>
 </body>
 </html>

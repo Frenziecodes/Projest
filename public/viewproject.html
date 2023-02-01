@@ -62,84 +62,50 @@
          </svg>
        </div>   
     </div>
-
-    <div id="project-container">
-        <!-- template for each project -->
-        <div class="project-item">
-          <h3 class="project-title"></h3>
-          <p class="project-description"></p>
-          <p class="project-github-link"></p>
-          <p class="project-tags"></p>
-        </div>
-      </div>
+    <div id="projects" class="mt-16">
+      <!-- Projects will be added here dynamically -->
+    </div>
+    
+    <script>
+      // Initialize Firebase
+      var firebaseConfig = {
+        apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
+        authDomain: "projest-3kf.firebaseapp.com",
+        databaseURL: "https://projest-3kf-default-rtdb.firebaseio.com/",
+        projectId: "projest-3kf",
+        storageBucket: "projest-3kf.appspot.com",
+        messagingSenderId: "288268902129",
+        appId: "1:288268902129:web:a4d6e00506d95427a69350",
+        measurementId: "G-X074W4XF2X"
+      };
+      firebase.initializeApp(firebaseConfig);
       
-      <script>
-        // Retrieve data from Firebase database
-        firebase.database().ref("projects").on("value", function(snapshot) {
-          // Clear the project container
-          document.getElementById("project-container").innerHTML = "";
+      // Get a reference to the database
+      var database = firebase.database();
       
-          // Loop through each project in the database
-          snapshot.forEach(function(childSnapshot) {
-            var project = childSnapshot.val();
-            
-            // Clone the project template
-            var projectItem = document.querySelector(".project-item").cloneNode(true);
-      
-            // Update the project data in the template
-            projectItem.querySelector(".project-title").innerHTML = project.title;
-            projectItem.querySelector(".project-description").innerHTML = project.description;
-            projectItem.querySelector(".project-github-link").innerHTML = project.githubLink;
-            projectItem.querySelector(".project-tags").innerHTML = project.tags.join(", ");
-      
-            // Add the project template to the project container
-            document.getElementById("project-container").appendChild(projectItem);
-          });
-        });
-      </script>
-      
-
-
-      <script>
-        // Initialize Firebase
-        var firebaseConfig = {
-          apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
-          authDomain: "projest-3kf.firebaseapp.com",
-          projectId: "projest-3kf",
-          storageBucket: "projest-3kf.appspot.com",
-          messagingSenderId: "288268902129",
-          appId: "1:288268902129:web:a4d6e00506d95427a69350",
-          measurementId: "G-X074W4XF2X"
-        };
-      
-        firebase.initializeApp(firebaseConfig);
-        var db1 = firebase.firestore();
-      </script>
-      <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
-        import { realTimeDatabase} from 'firebase/database';
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
-          authDomain: "projest-3kf.firebaseapp.com",
-          projectId: "projest-3kf",
-          storageBucket: "projest-3kf.appspot.com",
-          messagingSenderId: "288268902129",
-          appId: "1:288268902129:web:a4d6e00506d95427a69350",
-          measurementId: "G-X074W4XF2X"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
-      <script src="./assets/js/app.js"></script>
+      // Get a reference to the projects node and add a value event listener
+      var projectsRef = database.ref("projects");
+      projectsRef.on("value", function(snapshot) {
+        var projects = snapshot.val();
+        
+        // Clear the existing projects
+        var projectsDiv = document.querySelector("#projects");
+        projectsDiv.innerHTML = "";
+        
+        // Loop through the projects and add them to the page
+        for (var key in projects) {
+          var project = projects[key];
+          projectsDiv.innerHTML += 
+            "<div>" + 
+            "<h2>" + project.title + "</h2>" + 
+            "<p>" + project.description + "</p>" +
+            "<p>" + project.tags.join(", ") + "</p>" +
+            "<p>User GitHub Link: <a href='" + project.userGitHubLink + "'>" + project.userGitHubLink + "</a></p>" +
+            "<p>Project GitHub Link: <a href='" + project.projectGitHubLink + "'>" + project.projectGitHubLink + "</a></p>" +
+            "</div>";
+        }
+      });
+    </script>     
       <script src="./assets/js/app.js"></script>
 </body>
 </html>
