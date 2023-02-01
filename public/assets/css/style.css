@@ -90,3 +90,9 @@
     border-radius: 4px;    
     margin: 3px;
   }
+
+  /* back to top btn */
+  #btn-back-to-top {
+    position: fixed;
+    display: none;
+  }
