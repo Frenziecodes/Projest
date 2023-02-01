@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/app.js"></script>
+</head>
+<body>
+     <!-- navbar -->
+   <div class="flex justify-between items-center align-middle h-16 w-full bg-blue-600 text-white py-2 px-3 fixed top-0 left-0 right-0 z-30 mb-16">
+    <div class="flex justify-center items-center">
+      <h1 class="animate__animated animate__wobble">PROJEST</h1>
+    </div>
+    <ul class="hidden md:flex md:justify-center md:items-center">
+        <li class="m-2 md:m-5 "><a href="index.html">Home</a></li>
+        <li class="dropdown m-2 md:m-5 bg-blue-900 px-4 py-1 rounded-sm">
+            <a href="#">Projects</a>
+            <ul class="dropdown-content p-1 bg-blue-500 absolute">
+              <li class="m-2"><a href="viewproject.html">View Project</a></li>
+              <li class="m-2"><a href="addproject.html">Add Project</a></li>                  
+            </ul>
+        </li>         
+        <li class="m-2 md:m-5"><a href="docs.html">Docs</a></li>
+        <li class="m-2 md:m-5"><a href="#">Contributing</a></li>           
+    </ul> 
+    <!-- sidenav -->
+    <div id="mySidenav" class="sidenav bg-blue-600">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html">Home</a>
+      <a href="#">Projects</a>
+      <a href="docs.html">Docs</a>
+      <a href="#">Contributing</a>         
+    </div>
+
+    <div class="md:hidden" onclick="openNav()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </div>   
+ </div>
+</body>
+</html>
