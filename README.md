@@ -1,30 +1,16 @@
 # Projest
 
-Projest is a website where users can share their projects and showcase their work to the world. With Projest, users can create a personal profile, upload projects, and connect with other users in the community.
+Projest is a platform where users can showcase their projects and connect with other developers. With Projest, users can add new projects, view projects added by others, and search for projects based on project title and tags.
 
 ## Features
 
-- User profiles: Create a personal profile and showcase your work history, skills, and contact information.
+- Add projects: Users can add their projects by filling in a form on the "Add Project" page.
 
-- Project upload: Easily upload and share your projects with the community.
+- View projects: Users can view all projects on the "View Projects" page. Projects are displayed in a grid format, with each project displayed in its own div.
 
-- Search functionality: Search for specific projects or keywords within the project descriptions.
+- Search projects: Users can search for projects based on project title and tags using the search functionality tool.
 
-- Project categories: Organize projects into specific categories (e.g. web development, mobile app development, etc.) to make it easier for users to find relevant projects.
-
-- Collaboration tools: Collaborate on projects with others by adding commenting, editing, and versioning features.
-
-- Social media sharing: Share your projects on social media platforms like Facebook, Twitter, and LinkedIn.
-
-- Like and Share: Allow users to like or share projects that they find interesting.
-
-- Reviews and ratings: Allow users to rate and review projects and give feedback to the creators.
-
-- Contact feature: Allow users to contact the creators of the projects directly via a contact form or contact details.
-
-- File Download: Allow users to download the projects or some documents related to the project.
-
-- Personalized Dashboard: Allow users to have a personalized dashboard where they can see their own projects, the projects they liked or shared, the projects they are following, etc.
+- GitHub links: Users can add their GitHub profile link and project GitHub link with each project.
 
 ## Tech Stack
 
@@ -44,26 +30,22 @@ To get started with Projest, you will need to have XAMPP installed on your machi
 
 1. Clone the repository - git clone https://github.com/lewisushindi/projest.git
 
-2. Copy the project folder and paste it in the `htdocs` folder inside the XAMPP installation directory.
+2. Open index.html in your browser
 
-3. Start the XAMPP control panel and start the Apache and MySQL services.
+3. To add a project, click on "Add Project" in the navigation bar, fill out the form and submit it
 
-4. Create a new database and import the `projest.sql` file in it.
+4. To view all projects, click on "View Projects" in the navigation bar
 
-5. Rename the `config-sample.php` file to `config.php` and update the database configuration with your own values.
+5. To search for a project, enter either a project title or tag in the search bar and press "Enter"
 
-6. Open your browser and navigate to `http://localhost/projest/` and the website should be up and running.
 
 ## Contributing
 
-We welcome any contributions to Projest. If you want to contribute, please follow these steps:
-
-1. Fork the repository
-2. Create a new branch for your changes (e.g. `feature-new-page` or `fix-bug-login`)
-3. Make your changes and commit them to the new branch
-4. Submit a pull request to the `develop` branch
+We welcome contributions to Projest. If you have an idea for a new feature or bug fix, please feel free to open a pull request.
 
 Please make sure to follow the project's coding style and to write clear and concise commit messages.
 Also, it is highly recommended that you open an issue before starting to work on a new feature, so we can discuss the feature and the implementation approach.
 
-### Do consider giving the repo a star if you like it !
+## Support
+If you run into any issues or have any questions, feel free to open an issue in the GitHub repository.
+## Do consider giving the repo a star if you like it !
