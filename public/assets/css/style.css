@@ -7,6 +7,29 @@
   position: relative;
   display: inline-block;
 }
+.dropdown-content2{
+  display: none;
+  position: absolute;
+  background-color: #1569c9;
+  right: -120px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content2 a{
+  color: white;  
+  text-decoration: none;
+  display: block;
+  padding: 7px 10px;
+}
+
+.dropdown-content2 a:hover {background-color: rgb(19, 166, 224);}
+
+
+.dropdown:hover .dropdown-content2 {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
