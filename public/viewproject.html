@@ -51,7 +51,13 @@
        <div id="mySidenav" class="sidenav bg-blue-600">
          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
          <a href="index.html">Home</a>
-         <a href="#">Projects</a>
+         <li class="dropdown">
+          <a href="#">Projects</a>
+          <ul class="dropdown-content2 p-1 bg-blue-500 absolute">
+            <li class="m-2"><a href="viewproject.html">View Project</a></li>
+            <li class="m-2"><a href="addproject.html">Add Project</a></li>                  
+          </ul>
+        </li>
          <a href="docs.html">Docs</a>
          <a href="contributing.html">Contributing</a>         
        </div>
@@ -111,15 +117,15 @@
           // Create a div for each project
           var projectDiv = document.createElement('div');
           projectDiv.classList.add('project')
-          projectDiv.innerHTML =           
+          projectDiv.innerHTML =                    
             '<h3 class= "text-center mb-1 text-3xl">' + projectTitle + '</h3>' +
             '<p class="mb-1">' + projectDescription + '</p>' +
             '<div class="flex items-center justify-center my-2">' +
-            '<p><a class="mr-10 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"' + userGithubLink + '">User Link</a></p>' +
+            '<p><a class="mr-10 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" href="' + userGithubLink + '">User Link</a></p>' +
             '<p><a class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"  href="' + projectGithubLink + '">Github Link</a></p>' +
             '</div>' +
             '<p class="mb-2">Project Tags: ' + projectTags + '</p>';
-    
+            
           // Append the project div to the container
           document.getElementById('projectContainer').appendChild(projectDiv);
         }
@@ -127,6 +133,27 @@
         
       });
     </script>
+    <style>
+      .project{
+        background-color: #1569c9;
+        color: white;
+        padding: 4px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        max-width: 900px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-top: 10px;
+        text-align: center;
+        flex-direction: column;
+        box-shadow: 5px 7px #608ef1;
+      }
+      .project:hover{
+        background-color: #023a7a;
+      }
+    </style>
           <script src="./assets/js/app.js"></script>
 </body>
 </html>
