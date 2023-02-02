@@ -77,13 +77,13 @@
       </div>
     </div> 
 
-    <div id="projects" >
-      <!-- Projects will be added here dynamically -->
+    <div id="projectContainer" class="p-2 flex flex-col justify-center items-center">
+
     </div>
     
     <script>
       // Initialize Firebase
-      var firebaseConfig = {
+      var config = {
         apiKey: "AIzaSyDSKCtNzXr2QF4M76gTExS8ZUBoedvKwBA",
         authDomain: "projest-3kf.firebaseapp.com",
         databaseURL: "https://projest-3kf-default-rtdb.firebaseio.com/",
@@ -93,34 +93,40 @@
         appId: "1:288268902129:web:a4d6e00506d95427a69350",
         measurementId: "G-X074W4XF2X"
       };
-      firebase.initializeApp(firebaseConfig);
-      
-      // Get a reference to the database
-      var database = firebase.database();
-      
-      // Get a reference to the projects node and add a value event listener
-      var projectsRef = database.ref("projects");
-      projectsRef.on("value", function(snapshot) {
+      firebase.initializeApp(config);
+    
+      // Reference to the projects node in the database
+      var projectsRef = firebase.database().ref('projects');
+    
+      // Get the data from the database
+      projectsRef.on('value', function(snapshot) {
         var projects = snapshot.val();
-        
-        // Clear the existing projects
-        var projectsDiv = document.querySelector("#projects");
-        projectsDiv.innerHTML = "";
-        
-        // Loop through the projects and add them to the page
-        for (var key in projects) {
-          var project = projects[key];
-          projectsDiv.innerHTML += 
-            "<div class=''>" + 
-            "<h2>" + project.title + "</h2>" + 
-            "<p>" + project.description + "</p>" +            
-            "<p>User GitHub Link: <a href='" + project.userGitHubLink + "'>" + project.userGitHubLink + "</a></p>" +
-            "<p>Project GitHub Link: <a href='" + project.projectGitHubLink + "'>" + project.projectGitHubLink + "</a></p>" +
-            "<p>" + project.tags.join(", ") + "</p>" +
-            "</div>";
+        for (var project in projects) {
+          var projectTitle = projects[project].title;
+          var projectDescription = projects[project].description;
+          var userGithubLink = projects[project].userGitHubLink;
+          var projectGithubLink = projects[project].projectGitHubLink;
+          var projectTags = projects[project].tags;
+    
+          // Create a div for each project
+          var projectDiv = document.createElement('div');
+          projectDiv.classList.add('project')
+          projectDiv.innerHTML =           
+            '<h3 class= "text-center mb-1 text-3xl">' + projectTitle + '</h3>' +
+            '<p class="mb-1">' + projectDescription + '</p>' +
+            '<div class="flex items-center justify-center my-2">' +
+            '<p><a class="mr-10 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"' + userGithubLink + '">User Link</a></p>' +
+            '<p><a class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"  href="' + projectGithubLink + '">Github Link</a></p>' +
+            '</div>' +
+            '<p class="mb-2">Project Tags: ' + projectTags + '</p>';
+    
+          // Append the project div to the container
+          document.getElementById('projectContainer').appendChild(projectDiv);
         }
+
+        
       });
-    </script>     
-      <script src="./assets/js/app.js"></script>
+    </script>
+          <script src="./assets/js/app.js"></script>
 </body>
 </html>
