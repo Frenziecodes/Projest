@@ -26,8 +26,6 @@ Projest is built using the following technologies:
 
 ## Getting started
 
-To get started with Projest, you will need to have XAMPP installed on your machine.
-
 1. Clone the repository - git clone https://github.com/lewisushindi/projest.git
 
 2. Open index.html in your browser
