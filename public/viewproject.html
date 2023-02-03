@@ -70,7 +70,7 @@
     </div>
 
       <!-- search functionality  -->
-    <div class="flex justify-center mt-16 pt-2" id="searchContainer">
+    <div class="flex justify-center mt-28 pt-2" id="searchContainer">
       <div class="mb-3 xl:w-96">
         <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
           <input id="searchInput" type="text" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search by title or tag" aria-label="Search" aria-describedby="button-addon2">
@@ -83,7 +83,7 @@
       </div>
     </div> 
 
-    <div id="projectContainer" class="p-2 flex flex-col justify-center items-center">
+    <div id="projectContainer" class="mb-5 pl-72 pr-72 pt-3 grid grid-cols-2 gap-5">
         <!-- projects from the database  are displayed here -->
     </div>
     
@@ -117,7 +117,7 @@
     
           // Create a div for each project
           var projectDiv = document.createElement('div');
-          projectDiv.classList.add('project')
+          projectDiv.classList.add('project','m-0')
           projectDiv.innerHTML =                    
             '<h3 class= "text-center mb-1 text-3xl">' + projectTitle + '</h3>' +
             '<p class="mb-1">' + projectDescription + '</p>' +
