@@ -7,6 +7,7 @@
     <title>Projest</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="/assets/img/depositphotos_346957816-stock-illustration-initial-monogram-letter-logo-design.jpg" type="image/x-icon">
     <link href="/dist/output.css" rel="stylesheet">
 </head>
 <body>
