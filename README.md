@@ -46,4 +46,4 @@ Also, it is highly recommended that you open an issue before starting to work on
 
 ## Support
 If you run into any issues or have any questions, feel free to open an issue in the GitHub repository.
-## Do consider giving the repo a star if you like it !
+## Do consider giving the repo a star !
