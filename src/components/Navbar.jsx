@@ -1,127 +1,132 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Transition } from '@headlessui/react'
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 
 function Navbar() {
-  const [showHamburgerMenu, setShowHamburgerMenu] = React.useState(false)
-
 
   return (
-    <div className="flex justify-between items-center align-middle h-16 w-full bg-blue-600 text-white py-2 px-3  mb-10">
-      <div className="flex justify-center items-center">
-        <Link to="/" className="animate__animated animate__wobble">PROJEST</Link>
-      </div>
-      <ul className="hidden md:flex md:justify-center md:items-center">
+    <Disclosure as="nav" className="bg-blue-600">
+      {({ open }) => (
+        <>
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div className="relative flex h-16 items-center justify-between">
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="flex flex-shrink-0 items-center">
+                  <div className="flex justify-center items-center">
+                    <Link to="/" className="animate__animated animate__wobble text-white font-medium">PROJEST</Link>
+                  </div>
+                </div>
 
-        <li className="m-2 md:m-5"><Link to="">Home</Link></li>
-        <Menu as="div" className="relative inline-block text-left">
-          <div>
-            <Menu.Button className="m-2 mb-0 md:m-5 ">
-              Projects
-            </Menu.Button>
+              </div>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div className="hidden sm:ml-6 sm:block">
+                  <div className="flex space-x-4">
+                    <div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white"><Link to="">Home</Link></div>
+                    <Menu as="div" className="relative inline-block text-left">
+                      <div>
+                        <Menu.Button className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">
+                          Projects
+                        </Menu.Button>
+                      </div>
+
+                      <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-100"
+                        enterFrom="transform opacity-0 scale-95"
+                        enterTo="transform opacity-100 scale-100"
+                        leave="transition ease-in duration-75"
+                        leaveFrom="transform opacity-100 scale-100"
+                        leaveTo="transform opacity-0 scale-95"
+                      >
+                        <Menu.Items className="absolute right-0 z-10 -mt-3 w-56 origin-top-right rounded-md bg-blue-500 text-white focus:outline-none">
+                          <div className="py-1">
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link to="viewprojects" className={'block px-4 py-2 text-sm hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white'}>View Projects</Link>
+                              )}
+                            </Menu.Item>
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link
+                                  to="addproject"
+                                  className={'block px-4 py-2 text-sm hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white'}
+                                >
+                                  Add Project
+                                </Link>
+                              )}
+                            </Menu.Item>
+                          </div>
+                        </Menu.Items>
+                      </Transition>
+                    </Menu>
+                    <div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white"><Link to="docs">Docs</Link></div>
+                    <div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white"><Link to="contributing">Contributing</Link></div>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
+                {/* Mobile menu button*/}
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? (
+                    <XMarkIcon className="block h-6 w-6 text-white" aria-hidden="true" />
+                  ) : (
+                    <Bars3Icon className="block h-6 w-6 text-white" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
+            </div>
           </div>
 
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-100"
-            enterFrom="transform opacity-0 scale-95"
-            enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
-            leaveFrom="transform opacity-100 scale-100"
-            leaveTo="transform opacity-0 scale-95"
-          >
-            <Menu.Items className="absolute right-0 z-10 -mt-3 w-56 origin-top-right rounded-md bg-blue-500 text-white focus:outline-none">
-              <div className="py-1">
-                <Menu.Item>
-                  {({ active }) => (
-                    <a
-                      href="/viewprojects"
-                      className={'block px-4 py-2 text-sm hover:bg-blue-600'}
-                    >
-                      View Project
-                    </a>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <a
-                      href="/addproject"
-                      className={'block px-4 py-2 text-sm hover:bg-blue-600'}
-                    >
-                      Add Project
-                    </a>
-                  )}
-                </Menu.Item>
-              </div>
-            </Menu.Items>
-          </Transition>
-        </Menu>
-        <li className="m-2 md:m-5"><Link to="docs">Docs</Link></li>
-        <li className="m-2 md:m-5"><Link to="contributing">Contributing</Link></li>
-      </ul>
+          <Disclosure.Panel className="sm:hidden">
+            <div className="space-y-1 px-2 pt-2 pb-3">
+              <div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white"><Link to="">Home</Link></div>
+              <Menu as="div" className="relative inline-block text-left">
+                <div>
+                  <Menu.Button className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">
+                    Projects
+                  </Menu.Button>
+                </div>
 
-
-
-      <div className="md:hidden">
-        <svg onClick={() => {
-          setShowHamburgerMenu(!showHamburgerMenu)
-        }}
-          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-7 h-7">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-        {showHamburgerMenu && (
-          <ul className="dropdown-content p-3 bg-blue-500 mt-10 ">
-            <li className="m-2 md:m-5"><Link to="">Home</Link></li>
-
-            <Menu as="div" className="relative inline-block text-left">
-              <div>
-                <Menu.Button className="m-2 mb-0 md:m-5 ">
-                  Projects
-                </Menu.Button>
-              </div>
-
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-              >
-                <Menu.Items className="absolute right-0 z-10 -mt-3 w-56 origin-top-right rounded-md bg-blue-500 text-white focus:outline-none">
-                  <div className="py-1">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="/viewprojects"
-                          className={'block px-4 py-2 text-sm hover:bg-blue-600'}
-                        >
-                          View Project
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="/addproject"
-                          className={'block px-4 py-2 text-sm hover:bg-blue-600'}
-                        >
-                          Add Project
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </div>
-                </Menu.Items>
-              </Transition>
-            </Menu>
-            <li className="m-2 md:m-5"><Link to="docs">Docs</Link></li>
-            <li className="m-2 md:m-5"><Link to="contributing">Contributing</Link></li>
-          </ul>
-        )}
-      </div>
-    </div>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute left-2 z-10 mt-2 w-[90vw] origin-top-right rounded-md bg-blue-500 text-white focus:outline-none">
+                    <div className="py-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link to="viewprojects" className={'block px-4 py-2 text-sm hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white'}>View Projects</Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            to="addproject"
+                            className={'block px-4 py-2 text-sm hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white'}
+                          >
+                            Add Project
+                          </Link>
+                        )}
+                      </Menu.Item>
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+              <div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white"><Link to="docs">Docs</Link></div>
+              <div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white"><Link to="contributing">Contributing</Link></div>
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
   );
 }
 
