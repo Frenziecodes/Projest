@@ -1,15 +1,26 @@
 import React, { useState } from 'react'
-import { collection, doc, setDoc, addDoc, updateDoc, deleteDoc, getDoc, getDocs, where, query } from "firebase/firestore"; 
+import { collection, doc, addDoc } from "firebase/firestore"; 
 import { db } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 function AddProject() {
-  const [username, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [githubLink, setGithubLink] = useState('');
+  const [projectLink, setProjectLink] = useState('');
+  const [tags, setTags] = useState([]);
+  const userData = collection(db,'projects')
+  const navigate = useNavigate();
 
-  const saveData=async ()=> {
-    await addDoc(doc(db, "projects"), {
-      project_title: "Kalp",
+  const saveData = async () => {
+    await addDoc(userData, {
+      title: title,
+      description: description,
+      githubLink: githubLink,
+      projectLink: projectLink,
+      tags: tags
     });
+    navigate('/viewprojects')
   }
 
   return (
@@ -18,10 +29,10 @@ function AddProject() {
       <div className='border-b-[3px] border-black mb-10 w-[200px]'></div>
       <div className='flex flex-col md:flex-row justify-start items-start w-[100%]'>
         <div className='flex flex-col items-center md:items-end justify-center w-[100%] md:w-[40%] lg:w-[50%]'>
-          <input type="text" placeholder='Project Title' className=' placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'></input>
-          <textarea placeholder='Project Description' className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 '></textarea>
-          <input type="text" placeholder='User Github Link' className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 '></input>
-          <input type="text" placeholder='Project GIthub Link' className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'></input>
+          <input type="text" placeholder='Project Title' className=' placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setTitle(e.target.value)} ></input>
+          <textarea placeholder='Project Description' className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 ' onChange={(e) => setDescription(e.target.value)} ></textarea>
+          <input type="text" placeholder='User Github Link' className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 ' onChange={(e) => setGithubLink(e.target.value)} ></input>
+          <input type="text" placeholder='Project GIthub Link' className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setProjectLink(e.target.value)} ></input>
         </div>
         <div className='md:ml-[20px] w-[90%] md:w-[60%] lg:w-[34%] my-[20px] mx-[20px] '>
           <h4>Select Your Project Tags : </h4>
