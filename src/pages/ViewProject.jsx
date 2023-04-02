@@ -27,12 +27,12 @@ function ViewProject() {
       </div>
     ) : (
       <div className='h-[100%] p-[20px]'>
-        <div className='grid grid-cols-3 mt-[40px] px-[20px]'>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[40px] px-[20px]'>
           {
             users.map(user => {
               {/* console.log(user) */ }
               return (
-                <div key={user.id} className="flex flex-col text-black justify-center items-center p-[10px] h-[100%] bg-blue-100 rounded-sm hover:-translate-y-1 hover:scale-110 hover:bg-blue-200 duration-300">
+                <div key={user.id} className="flex flex-col text-black items-center p-[20px] h-[100%] bg-blue-100 rounded-sm hover:-translate-y-1 hover:scale-110 hover:bg-blue-200 duration-300">
                   <h2 className='text-3xl text-blue-600 font-[700] mb-[10px]'>{user.title}</h2>
                   <p className='text-gray-600'>{user.description}</p>
                   <div className='flex justify-center w-[100%] my-[20px]'>
@@ -40,10 +40,10 @@ function ViewProject() {
                     <a href={user.projectGithubLink} className=" h-[100%] ml-[20px] px-[10px] py-[10px] bg-blue-500 text-white rounded-sm font-[500] " target="_blank">Project Link</a>
                   </div>
                   <div>
-                  Tags : 
+                  Project Tags : 
                     {
                       user.tags.map(tag => {
-                        <span className=''>{tag}</span>
+                        return(<span className=''> {tag} ,</span>)
                       })
                     }
                   </div>
