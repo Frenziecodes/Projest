@@ -39,6 +39,8 @@ function ViewProject() {
 
   }, [searchVal])
 
+  const h = userResult.length <=3 ? 'h-[84vh]' : 'h-[100%]'
+
   useEffect(() => {
     const getData = async () => {
       const data = await getDocs(userData);
@@ -58,7 +60,7 @@ function ViewProject() {
         </div>
       </div>
     ) : (
-      <div className='h-[100%] p-[20px]'>
+      <div className={`${h} p-[20px]`}>
         <div className='flex justify-center'>
           <input type="text" placeholder='Search projects here' className=' placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={e => setSearchVal(e.target.value)} ></input>
           {/* <BsSearch onClick={handleSearchClick} /> */}
