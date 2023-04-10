@@ -127,7 +127,10 @@ function AddProject() {
           </div>
         </div>
       </div>
-      <button className="rounded-[5px] text-white font-medium transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-blue-600 duration-300 px-6 py-2 mt-8" onClick={saveData}>Save Project</button>
+      <button className="px-6 py-2 mt-8 font-medium text-white bg-blue-500 rounded-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" onClick={saveData} >
+        Save Project
+      </button>
+
     </div>
   )
 }
