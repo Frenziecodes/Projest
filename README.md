@@ -9,7 +9,7 @@ Projest is a platform where users can showcase their projects and connect with o
 
 ## Getting Started 
 For run this this app follow simple steps 
-1. Clone this ![repository](https://github.com/lewisushindi)
+1. Clone this <a href="https://github.com/lewisushindi/Projest">repository </a>
 2. Then run `npm i`
 3. Run `npm start`
 
@@ -19,6 +19,6 @@ We welcome contributions to Projest. If you have an idea for a new feature or bu
 Please make sure to follow the project's coding style and to write clear and concise commit messages. Also, it is highly recommended that you open an issue before starting to work on a new feature, so we can discuss the feature and the implementation approach.
 
 ## Support
-If you run into any issues or have any questions, feel free to open an issue in the GitHub repository.
+If you run into any issues or have any questions, feel free to open an issue in the GitHub <a href="https://github.com/lewisushindi/Projest">repository </a>.
 
 ## Do consider giving the repo a star !
