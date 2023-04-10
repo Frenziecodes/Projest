@@ -1,6 +1,6 @@
 # Projest
 
-Projest is a platform where users can showcase their projects and connect with other developers. With Projest, users can add new projects, view projects added by others, and search for projects based on project title and tags. Projest is a Opensource project.
+Projest is a platform where users can showcase their projects and connect with other developers. With Projest, users can add new projects, view projects added by others, and search for projects based on project title and tags. Projest is an Open source project.
 
 ## Technology stack
 
@@ -8,7 +8,7 @@ Projest is a platform where users can showcase their projects and connect with o
 * **Front-end:**  ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) 
 
 ## Getting Started 
-For run this this app follw simple steps 
+For run this this app follow simple steps 
 1. Clone this repository 
 2. Then run `npm i`
 3. Run `npm start`
