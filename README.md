@@ -9,7 +9,7 @@ Projest is a platform where users can showcase their projects and connect with o
 
 ## Getting Started 
 For run this this app follow simple steps 
-1. Clone this repository 
+1. Clone this ![repository](https://github.com/lewisushindi)
 2. Then run `npm i`
 3. Run `npm start`
 
