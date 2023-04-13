@@ -14,7 +14,7 @@ For run this this app follow simple steps
 3. Run `npm start`
 
 ## Contributing
-We welcome contributions to Projest. If you have an idea for a new feature or bug fix, please feel free to open a pull request.
+We welcome contributions to Projest. If you have an idea for a new feature or bug fix, please feel free to <a href="https://github.com/lewisushindi/Projest/pulls">open a pull request</a>.
 
 Please make sure to follow the project's coding style and to write clear and concise commit messages. Also, it is highly recommended that you open an issue before starting to work on a new feature, so we can discuss the feature and the implementation approach.
 
