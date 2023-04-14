@@ -14,7 +14,7 @@ body:
     id: solution
     attributes:
       label: Describe the solution you'd like
-      description: Please describe the solution you come up with. 
+      description: Please describe the solution/feature you come up with. 
     validations:
       required: true
   - type: textarea
