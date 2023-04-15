@@ -3,7 +3,7 @@ import React from "react";
 function DocsPage() {
   return (
     <div>
-      <section className="my-3 md:my-16 flex flex-col md:items-start justify-center md:w-full">
+      <section className="my-3 md:my-16 flex flex-col md:items-start justify-center md:w-11/12 md:mx-auto ">
         <div className="flex flex-col md:flex-row justify-center items-start">
           <div className="flex justify-center flex-col p-4 md:w-[40%]">
             <h4 className="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">
@@ -62,7 +62,7 @@ function DocsPage() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-center w-full md:mt-5">
-          <div className="flex flex-col p-4 md:w-[80%]">
+          <div className="flex flex-col p-4 ">
             <h4 className="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">Data format</h4>
             <div className="flex flex-col p-2 mt-4 bg-slate-300 rounded-md">
               <p>"id": "unique project id",</p>
