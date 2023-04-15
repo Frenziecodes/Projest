@@ -1,0 +1,38 @@
+name: 💡 General Feature Request
+description: Suggest features, propose improvements, discuss new ideas!
+title: "[FEATURE] <description>"
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Is your feature request related to a problem? Please describe.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like
+      description: Please describe the solution/feature you come up with. 
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Please add screenshots if applicable
+    validations:
+      required: false
+  - type: textarea
+    id: extrainfo
+    attributes:
+      label: Additional information
+      description: Is there anything else we should know about this idea?
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        You can also join us on [Twitter](https://twitter.com/coder_flame).
+        Feel free to check out other awesome repositories by **lewisushindi** [here](https://github.com/lewisushindi?tab=repositories&q=&type=source).
