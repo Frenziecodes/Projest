@@ -14,9 +14,9 @@ For run this this app follow simple steps
 3. Run `npm start`
 
 ## Contributing
-We welcome contributions to Projest. If you have an idea for a new feature or bug fix, please feel free to <a href="https://github.com/lewisushindi/Projest/pulls">open a pull request</a>.
+We welcome contributions to <a href="https://projest.vercel.app/">Projest</a>. If you have an idea for a new feature or bug fix, please feel free to <a href="https://github.com/lewisushindi/Projest/pulls">open a pull request</a>.
 
-Please make sure to follow the project's coding style and to write clear and concise commit messages. Also, it is highly recommended that you open an issue before starting to work on a new feature, so we can discuss the feature and the implementation approach.
+Please make sure to follow the project's coding style and to write clear and concise commit messages. Also, it is highly recommended that you open an <a href="https://github.com/lewisushindi/Projest/issues">issue</a>. before starting to work on a new feature, so we can discuss the feature and the implementation approach.
 
 ## Support
 If you run into any issues or have any questions, feel free to open an issue in the GitHub <a href="https://github.com/lewisushindi/Projest/issues">repository issues </a>.
