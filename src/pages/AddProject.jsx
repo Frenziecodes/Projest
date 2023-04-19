@@ -71,85 +71,89 @@ function AddProject() {
         <div className='md:ml-[20px] w-[90%] md:w-[60%] lg:w-[34%] my-[20px] mx-[20px] md:my-0 '>
           <h4>Select Your Project Tags : </h4>
           <div className='grid grid-cols-3 md:grid-cols-4 gap-8 mt-2'>
+          <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
+            <input id="js-checkbox" type="checkbox" value="Javascript" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)}/>
+            <label htmlFor="js-checkbox" className="ml-1 text-base font-medium">Javascript</label>
+          </div>
+
+          <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
+            <input id="py-checkbox" type="checkbox" value="Python" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+            <label htmlFor="py-checkbox" className="ml-1 text-base font-medium">Python</label>
+          </div>
+
+          <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
+            <input id="java-checkbox" type="checkbox" value="Java" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+            <label htmlFor="java-checkbox" className="ml-1 text-base font-medium">Java</label>
+          </div>
+
+          <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
+            <input id="php-checkbox" type="checkbox" value="PHP" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+            <label htmlFor="php-checkbox" className="ml-1 text-base font-medium">PHP</label>
+          </div>
+
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Javascript" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)}/>
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Javascript</label>
+              <input id="Html-checkbox" type="checkbox" value="Html" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="Html-checkbox" className="ml-1 text-base font-medium">HTML</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Python" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Python</label>
+              <input id="ReactJs-checkbox" type="checkbox" value="React.js" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="ReactJs-checkbox" className="ml-1 text-base font-medium">React.js</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Java" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Java</label>
+              <input id="VueJs-checkbox" type="checkbox" value="Vue.js" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="VueJs-checkbox" className="ml-1 text-base font-medium">Vue.js</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="PHP" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">PHP</label>
+              <input id="Angular-checkbox" type="checkbox" value="Angular.js" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="Angular-checkbox" className="ml-1 text-base font-medium">Angular.js</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Html" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">HTML</label>
+              <input id="Tailwind-checkbox" type="checkbox" value="Tailwind.css" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="Tailwind-checkbox" className="ml-1 text-base font-medium">TailwindCss</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="React.js" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">React.js</label>
+              <input id="Bootstrap-checkbox" type="checkbox" value="Bootstrap" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="Bootstrap-checkbox" className="ml-1 text-base font-medium">Bootstrap</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Vue.js" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Vue.js</label>
+              <input id="Css-checkbox" type="checkbox" value="Css" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="Css-checkbox" className="ml-1 text-base font-medium">CSS</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Angular.js" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Angular.js</label>
+              <input id="C#-checkbox" type="checkbox" value="C#" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="C#-checkbox" className="ml-1 text-base font-medium">C #</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Tailwind.css" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">TailwindCss</label>
+              <input id="FrontEnd-checkbox" type="checkbox" value="Frontend" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="FrontEnd-checkbox" className="ml-1 text-base font-medium">Frontend</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Bootstrap" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Bootstrap</label>
+              <input id="BackEnd-checkbox" type="checkbox" value="Backend" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="BackEnd-checkbox" className="ml-1 text-base font-medium">Backend</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Css" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">CSS</label>
+              <input id="FullStack-checkbox" type="checkbox" value="Fullstack" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="FullStack-checkbox" className="ml-1 text-base font-medium">FullStack</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="C#" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">C #</label>
+              <input id="Kotlin-checkbox" type="checkbox" value="Kotlin" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="Kotlin-checkbox" className="ml-1 text-base font-medium">Kotlin</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Frontend" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Frontend</label>
+              <input id="Typescript-checkbox" type="checkbox" value="Typescript" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="Typescript-checkbox" className="ml-1 text-base font-medium">TypeScript</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Backend" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Backend</label>
+              <input id="Rust-checkbox" type="checkbox" value="Rust" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
+              <label htmlFor="Rust-checkbox" className="ml-1 text-base font-medium">Rust</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Fullstack" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">FullStack</label>
+              <input id="Swift-checkbox" type="checkbox" value="Swift" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"  onChange={e => handleChange(e)}/>
+              <label htmlFor="Swift-checkbox" className="ml-1 text-base font-medium">Swift</label>
             </div>
             <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Kotlin" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Kotlin</label>
-            </div>
-            <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Typescript" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">TypeScript</label>
-            </div>
-            <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Rust" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={e => handleChange(e)} />
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Rust</label>
-            </div>
-            <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Swift" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"  onChange={e => handleChange(e)}/>
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Swift</label>
-            </div>
-            <div className="flex items-center justify-start bg-blue-600 px-1 w-28 rounded-[2px] text-white py-2">
-              <input id="default-checkbox" type="checkbox" value="Git" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"  onChange={e => handleChange(e)}/>
-              <label htmlFor="default-checkbox" className="ml-1 text-base font-medium">Git</label>
+              <input id="Git-checkbox" type="checkbox" value="Git" className="cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"  onChange={e => handleChange(e)}/>
+              <label htmlFor="Git-checkbox" className="ml-1 text-base font-medium">Git</label>
             </div>
           </div>
         </div>
