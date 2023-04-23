@@ -62,10 +62,10 @@ function AddProject() {
           <textarea placeholder='Project Description'{...register("Description")}  className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 ' onChange={(e) => setDescription(e.target.value)}  ></textarea>
           <p className='text-red-500'>{errors.Description?.message}</p>
 
-          <input type="text" placeholder='User Github Link' className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 ' onChange={(e) => setGithubLink(e.target.value)}  {...register("UserGithubLink")}></input>
+          <input type="text" placeholder='User Github Link'{...register("UserGithubLink")} className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 ' onChange={(e) => setGithubLink(e.target.value)} ></input>
           <p className='text-red-500'>{errors.UserGithubLink?.message}</p>
 
-          <input type="text" placeholder='Project Github Link' className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setProjectLink(e.target.value)} {...register("ProjectGithubLink")} ></input>
+          <input type="text" placeholder='Project Github Link'{...register("ProjectGithubLink")} className=' placeholder:text-slate-500 block bg-white w-[90vw]  md:w-[36vw] lg:w-[32vw]  border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setProjectLink(e.target.value)} ></input>
           <p className='text-red-500'>{errors.ProjectGithubLink?.message}</p>
         </div>
         <div className='md:ml-5 w-11/12 md:w-2/3 lg:w-1/3 my-5 mx-5 md:my-0'>
