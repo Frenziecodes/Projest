@@ -5,6 +5,7 @@ import DocsPage from './pages/DocsPage'
 import HomePage from './pages/HomePage'
 import ViewProject from './pages/ViewProject'
 import Contributing from './pages/Contributing'
+import Registration from './pages/Registration'
 import Layout from './components/Layout'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/viewprojects' element={<ViewProject />} />
           <Route path='/addproject' element={<AddProject />} />
           <Route path='/contributing' element={<Contributing />} />
+          <Route path='/Registration' element={<Registration />} />
         </Routes>
       </Layout>
     </BrowserRouter>
