@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import ViewProject from './pages/ViewProject'
 import Contributing from './pages/Contributing'
 import Registration from './pages/Registration'
+import Login from './pages/Login'
 import Layout from './components/Layout'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/addproject' element={<AddProject />} />
           <Route path='/contributing' element={<Contributing />} />
           <Route path='/Registration' element={<Registration />} />
+          <Route path='/Login' element={<Login />} />
         </Routes>
       </Layout>
     </BrowserRouter>

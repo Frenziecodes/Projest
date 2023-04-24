@@ -15,7 +15,7 @@ const Registration = () => {
       const auth = getAuth();
       const { user } = await createUserWithEmailAndPassword(auth, email, password);
       console.log(user);
-      navigate("/viewprojects");
+      navigate("/Login");
     } catch (error) {
       console.error(error);
       setError(error.message);
