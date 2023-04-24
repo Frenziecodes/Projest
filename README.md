@@ -1,6 +1,21 @@
 # Projest
 
 Projest is a platform where users can showcase their projects and connect with other developers. With Projest, users can add new projects, view projects added by others, and search for projects based on project title and tags. Projest is an Open source project.
+<br />
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;">
+    <img src="https://badgen.net/github/stars/lewisushindi/Projest" alt="stars"/>
+    <img src="https://badgen.net/github/forks/lewisushindi/Projest" alt="GitHub forks">
+    <img src="https://badgen.net/github/contributors/lewisushindi/Projest" alt="contributors"/>
+    <img src="https://badgen.net/github/commits/lewisushindi/Projest" alt="commits"/>
+    <img src="https://badgen.net/github/last-commit/lewisushindi/Projest" alt="last commit"/>
+    <img src="https://badgen.net/github/open-issues/lewisushindi/Projest" alt="open-issues"/>
+    <img src="https://badgen.net/github/closed-issues/lewisushindi/Projest" alt="closed-issues"/>
+    <img src="https://badgen.net/github/prs/lewisushindi/Projest" alt="prs"/>
+    <img src="https://badgen.net/github/merged-prs/lewisushindi/Projest" alt="merged-pr"/> 
+    <img src="https://badgen.net/github/license/lewisushindi/Projest" alt="license"/>
+</div>
+
 
 ## Technology stack
 
