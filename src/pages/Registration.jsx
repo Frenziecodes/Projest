@@ -60,6 +60,9 @@ const Registration = () => {
         Register
       </button>
     </form>
+    <p className="mt-4">
+      Already have an account? <Link to="/Login" className="text-blue-500 hover:text-blue-600 transition-colors duration-300">Login here</Link>.
+    </p>
   </div>
   
   );
