@@ -58,14 +58,7 @@ const Login = () => {
           <button type="submit" className="bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
             Login
           </button>
-        </form>
-        <p className="mt-4 text-center">
-          Don't have an account?{" "}
-          <Link to="/register" className="text-blue-500 hover:text-blue-600 transition-colors duration-300">
-            Register here
-          </Link>
-          .
-        </p>
+        </form>       
       </div>
     </div>
   );
