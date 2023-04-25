@@ -30,7 +30,7 @@ const Login = () => {
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleLogin} className="flex flex-col space-y-4">
           <div className="flex flex-col">
-            <label htmlFor="email" className="font-semibold mb-2">
+            <label htmlFor="email" className="block mb-2">
               Email:
             </label>
             <input
@@ -43,7 +43,7 @@ const Login = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="password" className="font-semibold mb-2">
+            <label htmlFor="password" className="block mb-2">
               Password:
             </label>
             <input
