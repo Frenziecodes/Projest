@@ -25,7 +25,8 @@ const Login = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white rounded-lg border border-gray-300 px-4 py-6">
-        <h2 className="text-3xl font-bold mb-4 text-center">Login</h2>
+        <h2 className="text-3xl font-bold mb-4 text-center">Welcome Back</h2>
+        <p className="text-center mb-4">Please Login to Projest to continue</p>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleLogin} className="flex flex-col space-y-4">
           <div className="flex flex-col">
