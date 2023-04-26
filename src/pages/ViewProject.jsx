@@ -10,6 +10,7 @@ function ViewProject() {
   const userData = collection(db, "projects");
   const [searchVal, setSearchVal] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
+  const [prePageNumber, setPrePageNumber] = useState(0);
   const usersPerPage = 6;
   const pagesVisited = pageNumber * usersPerPage;
 
@@ -38,6 +39,14 @@ function ViewProject() {
     });
 
     return setUserResult(filteredData);
+  }, [searchVal]);
+
+  useEffect(() => {
+    if (searchVal !== "") {
+      setPageNumber(0);
+    } else {
+      setPageNumber(prePageNumber);
+    }
   }, [searchVal]);
 
   const h = userResult.length <= 3 ? "h-[84vh]" : "h-[100%]";
@@ -91,10 +100,11 @@ function ViewProject() {
       );
     });
 
-  const pageCount = Math.ceil(users.length / usersPerPage);
+  const pageCount = Math.ceil(userResult.length / usersPerPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
+    setPrePageNumber(selected);
   };
 
   return loader ? (
@@ -121,19 +131,21 @@ function ViewProject() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[40px] px-[20px]">
         {displayUsers}
       </div>
-      {userResult?.length ? <div className="flex justify-center mt-12 mb-6"><ReactPaginate
-        previousLabel={"prev"}
-        nextLabel={"next"}
-        breakLabel={"..."}
-        breakClassName={"break-me"}
-        pageCount={pageCount}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={changePage}
-        containerClassName={"pagination"}
-        subContainerClassName={"pages pagination"}
-        activeClassName={"active"}
-      /></div> : <></>}
+      <div className="flex justify-center mt-12 mb-6">
+        <ReactPaginate
+          previousLabel={"prev"}
+          nextLabel={"next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={changePage}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"}
+        />
+      </div>
     </div>
   );
 }

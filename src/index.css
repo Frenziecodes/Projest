@@ -20,24 +20,32 @@ html{
     list-style: none;
     outline: none;
   }
+  .pagination .previous a{
+    border-radius: 5px !important;
+  }
+  .pagination .next a{
+    border-radius: 5px !important;
+  }
   .pagination > .active > a{
-    background-color: #47ccde ;
-    border-color: #47ccde ;
+    background-color: rgb(37 99 235 / 1);
+    border-color: rgb(37 99 235 / 1); 
     color: #fff;
   }
   .pagination > li > a{
-    border: 1px solid #47ccde ;
+    border: 1px solid rgb(37 99 235 / 1);
     padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
     outline: none;
     cursor: pointer;
   }
   .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-    background-color: #47ccde ;
-    border-color: #47ccde;
+    background-color: rgb(37 99 235 / 1);
+    border-color: rgb(37 99 235 / 1);
     outline: none ;
   }
   .pagination > li > a, .pagination > li > span{
-    color: #47ccde
+    color: rgb(37 99 235 / 1);
   }
   .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
     border-radius: unset
