@@ -4,7 +4,7 @@ import Logout from './Logout'
 
 function SideNav() {
   return (
-    <nav className='w-full flex flex-col h-screen align-middle bg-white mt-10'>
+    <nav className='w-full flex flex-col h-screen align-middle bg-white pt-2'>
       <ul className='relative"'>     
 
         <li className='relative flex items-center text-sm mb-2 py-4 px-6 h-12 overflow-hidden  text-ellipsis whitespace-nowrap rounded hover:text-gray-700 hover:bg-gray-100 transition duration-300 ease-in-out text-gray-900' data-mdb-ripple="true" data-mdb-ripple-color="dark">
