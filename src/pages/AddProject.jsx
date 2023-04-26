@@ -57,7 +57,7 @@ function AddProject() {
           <SideNav />
         </div>
 
-        <div className='flex flex-col items-center ml-3 h-[100%] pb-[50px] md:pb-[115px] pt-20'>
+        <div className='flex flex-col items-center ml-3 h-[100%] pb-[50px] md:pb-[115px] pt-16'>
           <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="font-medium leading-tight text-2xl mt-10 md:mt-[50px] mb-4 text-blue-600">Add your project details 👇</h2>
           <div className='border-b-[3px] border-black mb-10 w-[200px]'></div>
