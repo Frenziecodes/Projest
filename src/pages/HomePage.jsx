@@ -1,11 +1,12 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 function HomePage() {
     return (
-        <div className="mt-10 lg:mt-20 md:mb-10 px-0 mx-auto w-[100%]">
+        <div className="lg:mt-20 md:mb-10 px-0 mx-auto w-[100%]">
             <Navbar />
-            <section className="text-gray-800 text-center lg:text-left mt-0 lg:mt-[20px] px-6">
+            <section className="text-gray-800 text-center lg:text-left mt-16 lg:mt-[20px] px-6">
                 <div className="grid lg:grid-cols-2 gap-6 xl:gap-8 items-center lg:mb-[100px]">
                     <div className="mb-2 lg:mb-0 flex justify-center align-middle">
                         <h2 className="text-3xl md:text-4xl xl:text-4xl font-bold tracking-tight">
@@ -145,9 +146,9 @@ function HomePage() {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </div>
+                    </div>                   
+                </section>                
+            </div>           
         </div>
     )
 }

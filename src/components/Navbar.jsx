@@ -24,8 +24,8 @@ function Navbar() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    <Link to=""><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Home</div></Link>
-                    <Menu as="div" className="relative inline-block text-left">
+                    <Link to="/"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Home</div></Link>
+                    {/* <Menu as="div" className="relative inline-block text-left">
                       <div>
                         <Menu.Button className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">
                           Projects
@@ -61,9 +61,7 @@ function Navbar() {
                           </div>
                         </Menu.Items>
                       </Transition>
-                    </Menu>
-                    {/* <Link to="docs"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Docs</div></Link> */}
-                    {/* <Link to="contributing"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Contributing</div></Link> */}
+                    </Menu>                     */}
                     <Link to="Registration"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Register</div></Link>
                     <Link to="Login"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Login</div></Link>
                   </div>
@@ -86,7 +84,7 @@ function Navbar() {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
               <Link to=""><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Home</div></Link>
-              <Menu as="div" className="relative inline-block text-left">
+              {/* <Menu as="div" className="relative inline-block text-left">
                 <Menu.Button className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white w-[90vw]"><div className='text-start'>
                   Projects
                 </div>
@@ -121,11 +119,9 @@ function Navbar() {
                     </div>
                   </Menu.Items>
                 </Transition>
-              </Menu>
+              </Menu> */}
               <Link to="Registration"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Register</div></Link>
-              <Link to="Login"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Login</div></Link>
-              {/* <Link to="docs"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Docs</div></Link> */}
-              {/* <Link to="contributing"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Contributing</div></Link> */}
+              <Link to="Login"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Login</div></Link>             
             </div>
           </Disclosure.Panel>
         </>
