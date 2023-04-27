@@ -5,9 +5,7 @@ import SideNav from './sidenav';
 function MyProjects() {
     return(
         <section className='flex h-screen overflow-y-hidden'>
-            <div className='w-64 bg-white shadow pt-20'>
-                <SideNav />
-            </div>
+            <SideNav />
 
             <div className='ml-1 pt-20'>
                 <h1>My Projects Page under Construction</h1>

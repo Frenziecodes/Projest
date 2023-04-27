@@ -52,10 +52,8 @@ function AddProject() {
   }
 
   return (
-    <section className='flex h-screen overflow-y-hidden'>
-        <div className='w-64 bg-white shadow pt-20'>
-          <SideNav />
-        </div>
+    <section className='flex h-screen overflow-y-hidden'>        
+        <SideNav />       
 
         <div className='flex flex-col items-center ml-3 h-[100%] pb-[50px] md:pb-[115px] pt-16'>
           <form onSubmit={handleSubmit(onSubmit)}>

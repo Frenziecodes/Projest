@@ -54,23 +54,21 @@ function ViewProject() {
   }, [])
 
   return (
-    loader ? (
-      <div className='h-[84vh]' >
-        <div className="flex justify-center items-center h-full">
-          <img className="h-16 w-16" src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif" alt="" />
-        </div>
-      </div>
-    ) : (
+    // loader ? (
+    //   <div className='h-[84vh]' >
+    //     <div className="flex justify-center items-center h-full">
+    //       <img className="h-16 w-16" src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif" alt="" />
+    //     </div>
+    //   </div>
+    // ) : (
       <section className='flex h-screen'>
-        <div className='w-64 bg-white shadow fixed left-0 top-0 pt-20'>
-          <SideNav/>
-        </div>
-        <div className="{`${h} p-[20px]`} pt-20">
+        <SideNav /> 
+        <div className="{`${h} p-[20px]`} pt-20 md:ml-60">
           <div className='flex justify-center'>
             <input type="text" placeholder='Search projects here' className=' placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={e => setSearchVal(e.target.value)} ></input>
             {/* <BsSearch onClick={handleSearchClick} /> */}
           </div>
-          <div className='ml-64 grid sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-[40px] px-[20px]'>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[40px] px-[20px]'>
             {
               userResult.map(user => {
                 return (
@@ -99,7 +97,7 @@ function ViewProject() {
       
     )
 
-  )
+  // )
 }
 
 export default ViewProject

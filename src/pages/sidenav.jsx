@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logout from './Logout'
 
-function SideNav() {
+
+const SideNav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNav = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeNav = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <nav className='w-full flex flex-col h-screen align-middle bg-white pt-2'>
-      <ul className='relative"'>     
+    <div className='fixed left-0 top-0 bg-white pt-16' id='mySidenav'>       
+    
+    <div className='relative'>
+      <button className='absolute top-0 left-0 m-2' onClick={toggleNav}>
+        {isOpen ? (
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        ) : (
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        )}
+      </button>
+      {isOpen && (
+        <div className='h-screen w-60 shadow bg-white absolute top-0 left-0'>
+          <button className='absolute top-0 right-0 m-2' onClick={closeNav}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <ul className='relative mt-10'>     
 
         <li className='relative flex items-center text-sm mb-2 py-4 px-6 h-12 overflow-hidden  text-ellipsis whitespace-nowrap rounded hover:text-gray-700 hover:bg-gray-100 transition duration-300 ease-in-out text-gray-900' data-mdb-ripple="true" data-mdb-ripple-color="dark">
           <Link to="/dashboard" className='flex items-center w-full'>
@@ -63,8 +94,16 @@ function SideNav() {
             <Logout/>          
         </li>
       </ul>
-    </nav>
+      </div>
+      )}
+      <style jsx>{`
+        #mySidenav {
+          width: ${isOpen ? '' : '1'}rem;
+        }
+      `}</style>
+    </div>
+    </div>
   );
-}
+};
 
 export default SideNav;
