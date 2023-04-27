@@ -15,7 +15,7 @@ const Login = () => {
       const auth = getAuth();
       const { user } = await signInWithEmailAndPassword(auth, email, password);
       console.log(user);
-      navigate("/dashboard");
+      navigate("/viewprojects");
     } catch (error) {
       console.error(error);
       setError(error.message);
