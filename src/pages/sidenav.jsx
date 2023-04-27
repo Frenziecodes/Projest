@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logout from './Logout'
+import { useMediaQuery } from '@react-hook/media-query';
 
 
 const SideNav = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(useMediaQuery('(min-width: 1024px)'));
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
@@ -99,6 +100,9 @@ const SideNav = () => {
       <style jsx>{`
         #mySidenav {
           width: ${isOpen ? '' : '1'}rem;
+        }
+        .Context {
+          margin-left: ${isOpen ? '' : '1'}rem;
         }
       `}</style>
     </div>
