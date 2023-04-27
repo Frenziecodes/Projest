@@ -54,13 +54,13 @@ function ViewProject() {
   }, [])
 
   return (
-    // loader ? (
-    //   <div className='h-[84vh]' >
-    //     <div className="flex justify-center items-center h-full">
-    //       <img className="h-16 w-16" src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif" alt="" />
-    //     </div>
-    //   </div>
-    // ) : (
+    loader ? (
+      <div className='h-[84vh]' >
+        <div className="flex justify-center items-center h-full">
+          <img className="h-16 w-16" src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif" alt="" />
+        </div>
+      </div>
+    ) : (
       <section className='flex h-screen'>
         <SideNav /> 
         <div className="{`${h} p-[20px]`} pt-10 md:ml-60 Context">
@@ -97,7 +97,7 @@ function ViewProject() {
       
     )
 
-  // )
+  )
 }
 
 export default ViewProject
