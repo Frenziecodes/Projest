@@ -64,6 +64,7 @@ function Navbar() {
                     </Menu>                     */}
                     <Link to="Registration"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Register</div></Link>
                     <Link to="Login"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Login</div></Link>
+                    <Link to="contributing"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Contributing</div></Link>
                   </div>
                 </div>
               </div>
@@ -121,7 +122,8 @@ function Navbar() {
                 </Transition>
               </Menu> */}
               <Link to="Registration"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Register</div></Link>
-              <Link to="Login"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Login</div></Link>             
+              <Link to="Login"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Login</div></Link>
+              <Link to="contributing"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:bg-white hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px] text-white">Contributing</div></Link>             
             </div>
           </Disclosure.Panel>
         </>

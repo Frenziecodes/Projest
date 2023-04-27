@@ -1,8 +1,10 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 function Contributing() {
     return (
         <div>
+            <Navbar/>
             <section className="my-3 md:my-16 flex flex-col items-center justify-center md:w-full">
                 <h2 className="p-2 text-3xl font-bold mb-4 text-center text-black">Contribution Guidelines</h2>
                 <div className='border-b-[3px] border-blue-600 mb-10 w-[200px]'></div>
