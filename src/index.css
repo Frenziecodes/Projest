@@ -19,6 +19,10 @@ html{
 
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .pagination {
     margin: 15px auto;
     display: flex;
