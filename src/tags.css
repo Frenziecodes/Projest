@@ -1,0 +1,36 @@
+.tagInputFieldClass{
+    padding: 8px;
+    border: 1px solid #8080807a;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.ReactTags__selected{
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tagClass{
+    background: rgb(37 99 235 / 1);
+    color: white;
+    font-weight: 500;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 4px;
+    border-radius: 50px;
+    margin: 2px;
+}
+
+.tagClass button{
+    font-size: 20px;
+    margin-left: 6px;
+}
+
+.suggestionsClass{
+    cursor: pointer;
+}
+
+.activeSuggestionClass:hover{
+    background-color: rgba(226, 226, 226, 0.491);
+}
