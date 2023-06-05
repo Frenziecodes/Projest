@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import ReactPaginate from "react-paginate";
 import SideNav from './sidenav';
+import AdvertBanner from "../components/AdvertBanner";
 
 function ViewProject() {
   const [users, setUsers] = useState([]);
@@ -130,6 +131,7 @@ function ViewProject() {
         ></input>
         {/* <BsSearch onClick={handleSearchClick} /> */}
       </div>
+      <AdvertBanner/>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[40px] px-[20px]">
         {displayUsers}
       </div>
