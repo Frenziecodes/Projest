@@ -27,7 +27,7 @@ const WhyProjestSection = () => {
                     Showcase your projects by filling out our user-friendly submission form.
                   </p>
                   <div className="flex justify-center">
-                    <Link to="addproject" className="py-2 px-6 rounded-md bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow-lg transition duration-300 ease-in-out">
+                    <Link to="addproject" className="py-2 px-6 rounded-md bg-gradient-to-r from-blue-500 to-pink-500 hover:bg-gradient-to-l hover:from-blue-500 hover:to-pink-500 text-gray-700 font-semibold shadow-lg transition duration-300 ease-in-out">
                       Add Project
                     </Link>
                   </div>
@@ -61,7 +61,7 @@ const WhyProjestSection = () => {
                     Discover a wide range of projects submitted by talented individuals.
                   </p>
                   <div className="flex justify-center">
-                    <Link to="viewprojects" className="py-2 px-6 rounded-md bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow-lg transition duration-300 ease-in-out">
+                    <Link to="viewprojects" className="py-2 px-6 rounded-md bg-gradient-to-r from-blue-500 to-pink-500 hover:bg-gradient-to-l hover:from-blue-500 hover:to-pink-500 text-gray-700 font-semibold shadow-lg transition duration-300 ease-in-out">
                       Explore Projects
                     </Link>
                   </div>

@@ -22,7 +22,7 @@ function HomePage() {
                         </p>
 
                         <Link to="viewprojects">
-                            <div className="m-2 md:m-5 py-2 px-6 rounded-md bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow-lg transition duration-300 ease-in-out">
+                            <div className="m-2 md:m-5 py-2 px-6 rounded-md bg-gradient-to-r from-blue-500 to-pink-500 hover:bg-gradient-to-l hover:from-blue-500 hover:to-pink-500 text-gray-700 font-semibold shadow-lg transition duration-300 ease-in-out">
                                Explore Projects
                             </div>
                         </Link>
