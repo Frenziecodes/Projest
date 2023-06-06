@@ -1,26 +1,130 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import ProjestNav from '../components/ProjestNav'
+import { Link } from 'react-router-dom';
 
 function HomePage() {
     return (
         <div className="lg:mt-20 md:mb-10 px-0 mx-auto w-[100%]">
-            <Navbar />
-            <section className="text-gray-800 text-center lg:text-left mt-16 lg:mt-[20px] px-6">
-                <div className="grid lg:grid-cols-2 gap-6 xl:gap-8 items-center lg:mb-[100px]">
-                    <div className="mb-2 lg:mb-0 flex justify-center align-middle">
+            <ProjestNav/>
+            <section className="text-gray-800 text-center lg:text-left mt-16 lg:mt-20 px-6">
+                <div className="grid lg:grid-cols-2 gap-6 xl:gap-8 items-center lg:mb-20">
+                    <div className="mb-2 lg:mb-0 flex flex-col justify-center items-center lg:items-start">
                         <h2 className="text-3xl md:text-4xl xl:text-4xl font-bold tracking-tight">
                             Ready to share your projects<br />
-                            <span className="text-blue-600">on projest?</span>
+                            <span className="text-blue-600">on Projest?</span>
                         </h2>
-                    </div>
-                    <div className="mb-4 lg:mb-0 lg:w-[100%] justify-center flex lg:justify-start">
-                        <p className="text-gray-500 text-lg w-[80%] text-start">
-                            Join a community of like-minded individuals and showcase your skills, get recognized for your work and connect with potential collaborators, elevate your career with a professional portfolio on Projest, discover new projects and talents, and find your next job or team member on Projest.
+                        <p className="text-gray-500 my-4 text-lg max-w-lg lg:max-w-none text-center lg:text-left">
+                            Join a vibrant community of developers. Showcase your skills, collaborate on innovative projects, and unlock endless possibilities. Connect, learn, and grow together with Projest.
                         </p>
+
+                        <Link to="viewprojects">
+                            <div className="m-2 md:m-5 py-2 px-6 rounded-md bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow-lg transition duration-300 ease-in-out">
+                               Explore Projects
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="mb-4 lg:mb-0 justify-center flex">
+                        <img className="w-full max-h-40 lg:max-h-96" src="https://i.pinimg.com/564x/eb/d5/7e/ebd57e2fcb81ef9fb0ff453d6ab208a6.jpg" alt="Illustration" />
+                    </div>
+
+                </div>
+            </section>
+
+            <section className=" py-12">
+                <div className="container mx-auto px-6">
+                    <h2 className="text-3xl md:text-4xl xl:text-4xl font-bold text-center mb-8">Featured Developers</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="flex items-center justify-center bg-gray-200 w-24 h-24 mx-auto rounded-full overflow-hidden">
+                            <img src="https://i.pinimg.com/474x/f6/38/53/f63853a21cc19ca9c150619527396b1a.jpg" alt="Developer" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">John Doe</h3>
+                            <p class="text-gray-600">Full Stack Developer</p>
+                            <p class="text-gray-500 mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ante eget eros pretium efficitur.</p>
+                            <div class="mt-6">
+                            <a href="#" class="text-blue-500 font-semibold hover:text-blue-600">View Github Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="flex items-center justify-center bg-gray-200 w-24 h-24 mx-auto rounded-full overflow-hidden">
+                            <img src="https://i.pinimg.com/474x/f6/38/53/f63853a21cc19ca9c150619527396b1a.jpg" alt="Developer" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">John Doe</h3>
+                            <p class="text-gray-600">Full Stack Developer</p>
+                            <p class="text-gray-500 mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ante eget eros pretium efficitur.</p>
+                            <div class="mt-6">
+                            <a href="#" class="text-blue-500 font-semibold hover:text-blue-600">View Github Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="flex items-center justify-center bg-gray-200 w-24 h-24 mx-auto rounded-full overflow-hidden">
+                            <img src="https://i.pinimg.com/474x/f6/38/53/f63853a21cc19ca9c150619527396b1a.jpg" alt="Developer" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">John Doe</h3>
+                            <p class="text-gray-600">Full Stack Developer</p>
+                            <p class="text-gray-500 mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ante eget eros pretium efficitur.</p>
+                            <div class="mt-6">
+                            <a href="#" class="text-blue-500 font-semibold hover:text-blue-600">View Github Profile</a>
+                            </div>
+                        </div>
+                    </div>           
+                        
                     </div>
                 </div>
             </section>
+
+            <section className="py-12">
+    <div className="container mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl xl:text-4xl font-bold text-center mb-8">Featured Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="project1.jpg" alt="Project" className="w-full h-40 object-cover" />
+                <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">Ecommerce Website</h3>
+                    <p className="text-gray-600">by John Doe</p>
+                    <p className="text-gray-500 mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ante eget eros pretium efficitur.</p>
+                    <div className="mt-6">
+                        <a href="#" className="text-blue-500 font-semibold hover:text-blue-600">View Project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="project2.jpg" alt="Project" className="w-full h-40 object-cover" />
+                <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">Mobile App Design</h3>
+                    <p className="text-gray-600">by Jane Smith</p>
+                    <p className="text-gray-500 mt-4">Duis et lectus ac mauris faucibus eleifend. Nulla consectetur velit nec arcu semper, et fermentum nulla commodo.</p>
+                    <div className="mt-6">
+                        <a href="#" className="text-blue-500 font-semibold hover:text-blue-600">View Project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="project3.jpg" alt="Project" className="w-full h-40 object-cover" />
+                <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">Data Visualization Dashboard</h3>
+                    <p className="text-gray-600">by Alex Johnson</p>
+                    <p className="text-gray-500 mt-4">Aenean commodo urna eget dolor malesuada congue. Maecenas iaculis purus sed ultrices consequat.</p>
+                    <div className="mt-6">
+                        <a href="#" className="text-blue-500 font-semibold hover:text-blue-600">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
             <div className="my-10 mx-auto">
                 <section className="mb-20 text-gray-800">
                     <div className="flex justify-center bg-blue-100 w-[100%] mb-[20px]">
