@@ -3,9 +3,9 @@ import Footer from '../components/Footer'
 import FeaturedProject from '../components/FeaturedProjects';
 import ProjestNav from '../components/ProjestNav'
 import { Link } from 'react-router-dom';
-import DeveloperCard from '../components/FeaturedDeveloper';
 import TestimonialSection from '../components/TestimonialSection';
 import WhyProjestSection from '../components/WhyProjest';
+import FeaturedDevelopersSection from '../sections/DevelopersSection';
 
 function HomePage() {
     return (
@@ -36,8 +36,9 @@ function HomePage() {
             </section>
 
             <WhyProjestSection/>
+            <FeaturedDevelopersSection/>
 
-            <section className=" py-12">
+            {/* <section className=" py-12">
                 <div className="container mx-auto px-6">
                     <h2 className="text-3xl md:text-4xl xl:text-4xl font-bold text-center mb-8">Featured Developers</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -66,7 +67,7 @@ function HomePage() {
                         
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <section className="py-12">
                 <div className="container mx-auto px-6">
