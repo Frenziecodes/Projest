@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from '../components/Footer'
 import FeaturedProject from '../components/FeaturedProjects';
 import ProjestNav from '../components/ProjestNav'
 import { Link } from 'react-router-dom';
