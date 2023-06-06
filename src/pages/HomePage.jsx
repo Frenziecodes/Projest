@@ -74,29 +74,28 @@ function HomePage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         
                     <FeaturedProject
-                        title="Awesome Project"
-                        description="This is an amazing project showcasing the power of React."
-                        projectLink="https://projectwebsite.com"
-                        demoLink="https://demowebsite.com"
+                        title="Noptin"
+                        description="Noptin is the best email newsletter plugin for WordPress."
+                        projectLink="https://github.com/hizzle-co/noptin"
+                        demoLink="https://noptin.com"
                     />
                     <FeaturedProject
-                        title="Awesome Project"
-                        description="This is an amazing project showcasing the power of React."
-                        projectLink="https://projectwebsite.com"
-                        demoLink="https://demowebsite.com"
+                        title="Tesla UI"
+                        description="Developed UI for a Tesla clone website using React, HTML, CSS, and JavaScript. UI is completely responsive and has animation effects (React Reveal)"
+                        projectLink="https://github.com/munnokd/Tesla-UI/"
+                        demoLink="https://tesla-clone-b0e1e.web.app/"
                     />
                     <FeaturedProject
-                        title="Awesome Project"
-                        description="This is an amazing project showcasing the power of React."
-                        projectLink="https://projectwebsite.com"
-                        demoLink="https://demowebsite.com"
+                        title="ArcFox"
+                        description="ArcFox is a pack of firefox improvements that brings the appearance and some of the features of arc browser to firefox."
+                        projectLink="https://github.com/use-arcfox/arcfox"
+                        demoLink="https://arcfox.vercel.app/"
                     />
 
                     </div>
                 </div>
             </section>
-            <TestimonialSection/> 
-            {/* <Footer/>                   */}
+            <TestimonialSection/>
         </div>
     )
 }
