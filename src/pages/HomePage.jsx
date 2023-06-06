@@ -95,7 +95,8 @@ function HomePage() {
                     </div>
                 </div>
             </section>
-            <TestimonialSection/>                   
+            <TestimonialSection/> 
+            {/* <Footer/>                   */}
         </div>
     )
 }
