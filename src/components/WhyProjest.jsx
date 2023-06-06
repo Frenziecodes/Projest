@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import addProjectImage from '../images/addProject.png';
 
 const WhyProjestSection = () => {
   return (
@@ -35,9 +36,9 @@ const WhyProjestSection = () => {
               </div>
               <div className="flex justify-center items-center w-full md:w-1/2">
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/097.jpg"
+                  src={addProjectImage}
                   alt="Add Project Form"
-                  className="w-1/2 h-96"
+                  className="h-96"
                 />
               </div>
             </div>

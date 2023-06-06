@@ -37,37 +37,6 @@ function HomePage() {
             <WhyProjestSection/>
             <FeaturedDevelopersSection/>
 
-            {/* <section className=" py-12">
-                <div className="container mx-auto px-6">
-                    <h2 className="text-3xl md:text-4xl xl:text-4xl font-bold text-center mb-8">Featured Developers</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
-                    <DeveloperCard
-                        name="John Doe"
-                        role="Full Stack Developer"
-                        imageSrc="https://i.pinimg.com/474x/f6/38/53/f63853a21cc19ca9c150619527396b1a.jpg"
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ante eget eros pretium efficitur."
-                        githubLink="#"
-                    />
-                    <DeveloperCard
-                        name="John Doe"
-                        role="Full Stack Developer"
-                        imageSrc="https://i.pinimg.com/474x/f6/38/53/f63853a21cc19ca9c150619527396b1a.jpg"
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ante eget eros pretium efficitur."
-                        githubLink="#"
-                    />
-                    <DeveloperCard
-                        name="John Doe"
-                        role="Full Stack Developer"
-                        imageSrc="https://i.pinimg.com/474x/f6/38/53/f63853a21cc19ca9c150619527396b1a.jpg"
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ante eget eros pretium efficitur."
-                        githubLink="#"
-                    />          
-                        
-                    </div>
-                </div>
-            </section> */}
-
             <section className="py-12">
                 <div className="container mx-auto px-6">
                     <h2 className="text-3xl md:text-4xl xl:text-4xl font-bold text-center mb-8">Featured Projects</h2>
