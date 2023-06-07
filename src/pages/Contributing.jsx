@@ -12,11 +12,11 @@ function Contributing() {
         </p>
         <h3 className="text-2xl font-semibold mb-4">1. Reporting Issues</h3>
         <p className="text-gray-800 text-lg mb-4">
-          If you encounter any bugs, issues, or have suggestions for improvements, please feel free to report them on our GitHub <a href="https://github.com/Frenziecodes/Projest" className='text-blue-600'> repository</a>. Be sure to include as much detail as possible to help us understand and reproduce the problem.
+          If you encounter any bugs, issues, or have suggestions for improvements, please feel free to report them on our GitHub <a href="https://github.com/Frenziecodes/Projest" className="text-blue-600">repository</a>. Be sure to include as much detail as possible to help us understand and reproduce the problem.
         </p>
         <h3 className="text-2xl font-semibold mb-4">2. Contributing Code</h3>
         <p className="text-gray-800 text-lg mb-4">
-          We encourage developers to contribute code to Projest. You can start by <a href="https://github.com/Frenziecodes/Projest/fork" className='text-blue-600'><code> forking</code></a> the repository on GitHub, making your changes locally, and then submitting a <a href="https://github.com/Frenziecodes/Projest/pulls" className='text-blue-600'>pull request</a>. Please follow our guidelines and coding conventions when submitting code contributions.
+          We encourage developers to contribute code to Projest. You can start by <a href="https://github.com/Frenziecodes/Projest/fork" className="text-blue-600"><code>forking</code></a> the repository on GitHub, making your changes locally, and then submitting a <a href="https://github.com/Frenziecodes/Projest/pulls" className="text-blue-600">pull request</a>. Please follow our guidelines and coding conventions when submitting code contributions.
         </p>
         <h3 className="text-2xl font-semibold mb-4">3. Documentation</h3>
         <p className="text-gray-800 text-lg mb-4">
@@ -24,14 +24,27 @@ function Contributing() {
         </p>
         <h3 className="text-2xl font-semibold mb-4">4. Feature Requests</h3>
         <p className="text-gray-800 text-lg mb-4">
-          If you have ideas for new features or enhancements to Projest, we would love to hear them! Please open an <a href="https://github.com/Frenziecodes/Projest/issues" className='text-blue-600'>issue </a> on our GitHub repository and describe your proposed feature in detail.
+          If you have ideas for new features or enhancements to Projest, we would love to hear them! Please open an <a href="https://github.com/Frenziecodes/Projest/issues" className="text-blue-600">issue</a> on our GitHub repository and describe your proposed feature in detail.
         </p>
-        <h3 className="text-2xl font-semibold mb-4">5. Spread the Word</h3>
+        <h3 className="text-2xl font-semibold mb-4">5. Adding a Project</h3>
+        <p className="text-gray-800 text-lg mb-4">
+          To add a project on Projest, follow these steps:
+        </p>
+        <ol className="list-decimal list-inside text-gray-800 text-lg mb-4 pl-6">
+          <li>Click on the "Add Project" link in the navigation menu.</li>
+          <li>Fill in the required information about your project, such as the title, description, and GitHub repository URL.</li>
+          <li>Optionally, you can provide additional details and tags to make your project more discoverable.</li>
+          <li>Click the "Submit" button to add your project to Projest.</li>
+        </ol>
+        <p className="text-gray-800 text-lg mb-4">
+          Once your project is added, it will be visible to the Projest community, and others can explore, collaborate, and contribute to it.
+        </p>
+        <h3 className="text-2xl font-semibold mb-4">6. Spread the Word</h3>
         <p className="text-gray-800 text-lg mb-4">
           Help us grow the Projest community by sharing about the platform with your peers, colleagues, and on social media. The more people who join Projest, the more vibrant and collaborative the community becomes.
         </p>
         <p className="text-gray-800 text-lg mb-4">
-          Lastly, if you find Projest useful, we kindly ask you to <a href="https://github.com/Frenziecodes/Projest" className='text-blue-600'><code>star</code></a> the project on GitHub. It helps us gain visibility and attract more contributors to improve the platform.
+          Lastly, if you find Projest useful, we kindly ask you to <a href="https://github.com/Frenziecodes/Projest" className="text-blue-600"><code>star</code></a> the project on GitHub. It helps us gain visibility and attract more contributors to improve the platform.
         </p>
         <p className="text-gray-800 text-lg mb-6">
           We appreciate all contributions, big and small! Together, let's make Projest an amazing platform for developers to showcase their skills, collaborate on projects, and learn from each other.
