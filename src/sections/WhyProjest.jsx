@@ -24,7 +24,7 @@ const WhyProjestSection = () => {
             <div className="flex flex-col md:flex-row items-center">
               <div className="w-full md:w-1/2">
                 <div className="px-6 py-12 md:px-12">
-                  <h2 className="mb-6 text-2xl font-bold">Submit Your Projects with Ease</h2>
+                  <h2 className="mb-6 text-xl lg:text-3xl font-bold">Submit Your Projects with Ease</h2>
                   <p className="mb-6 pb-2 text-white">
                     Showcase your projects by filling out our user-friendly submission form.
                   </p>
@@ -58,7 +58,7 @@ const WhyProjestSection = () => {
               </div>
               <div className="w-full md:w-1/2">
                 <div className="px-6 py-12 md:px-12">
-                  <h2 className="mb-6 text-3xl font-bold md:text-right">Explore Exciting Projects</h2>
+                  <h2 className="mb-6 text-xl lg:text-3xl font-bold md:text-right">Explore Exciting Projects</h2>
                   <p className="mb-6 pb-2 text-white md:text-right">
                     Discover a wide range of projects submitted by talented individuals.
                   </p>
