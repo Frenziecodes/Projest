@@ -20,7 +20,7 @@ function ProjestHero(){
                 </Link>
             </div>
             <div className="mb-4 lg:mb-0 justify-center flex">
-                <img className="w-full max-h-40 lg:max-h-96" src="https://i.pinimg.com/564x/eb/d5/7e/ebd57e2fcb81ef9fb0ff453d6ab208a6.jpg" alt="Illustration" />
+                <img className="max-h-96" src="https://i.pinimg.com/564x/eb/d5/7e/ebd57e2fcb81ef9fb0ff453d6ab208a6.jpg" alt="Illustration" />
             </div>
 
         </div>
