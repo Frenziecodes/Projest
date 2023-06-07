@@ -63,9 +63,16 @@ function ViewProject() {
         key={user.id}
         className="bg-white rounded-lg shadow-lg border border-gray-300 p-6 hover:-translate-y-1 hover:scale-110 duration-300"
       >
-        <h2 className="text-xl font-semibold mb-2 text-gray-900">
-          {user.title}
-        </h2>
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl font-semibold mb-2 text-gray-900">
+            {user.title}
+          </h2>
+          <img
+            className="rounded-full w-12 h-12 mb-4"
+            src={`https://github.com/${user.userGithubLink.split("/")[3]}.png`}
+            alt="Profile"
+          />
+        </div>        
         <p className="text-gray-800 mb-4" style={{ height: "3.75rem" }}>
           {truncatedDescription}
         </p>
@@ -109,9 +116,9 @@ function ViewProject() {
         <input
           type="text"
           placeholder="Search projects here either by name or language used"
-          className=" placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+          className="placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
           onChange={(e) => setSearchVal(e.target.value)}
-        ></input>
+        />
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[40px] py-4 px-[20px]">
