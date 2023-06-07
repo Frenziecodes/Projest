@@ -39,7 +39,6 @@ const WhyProjestSection = () => {
                 <img
                   src={addProjectImage}
                   alt="Add Project Form"
-                  className="h-64 md:h-96"
                 />
               </div>
             </div>
@@ -53,7 +52,6 @@ const WhyProjestSection = () => {
                 <img
                   src={ViewprojectImage}
                   alt="View Project"
-                  className="h-64 md:h-96"
                 />
               </div>
               <div className="w-full md:w-1/2">
