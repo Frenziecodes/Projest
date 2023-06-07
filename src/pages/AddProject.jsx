@@ -120,7 +120,7 @@ function AddProject() {
               </div>
             </div>
           </div>
-          <button className="px-6 py-2 mt-8 mx-1 font-medium text-white bg-blue-500 rounded-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" type='submit'>
+          <button className="px-6 py-2 mt-8 mx-1 font-medium text-white bg-blue-800 rounded-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" type='submit'>
             Save Project
           </button>
         </form>
