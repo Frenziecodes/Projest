@@ -1,11 +1,35 @@
-import React from 'react'
-import FeaturedProject from '../components/FeaturedProjects';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase';
 import TestimonialSection from '../components/TestimonialSection';
 import WhyProjestSection from '../components/WhyProjest';
 import FeaturedDevelopersSection from '../sections/DevelopersSection';
+import FeaturedProjects from '../sections/FeaturedProjects';
 
 function HomePage() {
+    const [featuredProjects, setFeaturedProjects] = useState([]);
+    useEffect(() => {
+        const fetchFeaturedProjects = async () => {
+          try {
+            const projectsCollection = collection(db, 'projects');
+            const projectsSnapshot = await getDocs(projectsCollection);
+            const projectsData = projectsSnapshot.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data()
+            }));
+            // Shuffle the projects and select the first three
+            const shuffledProjects = projectsData.sort(() => 0.5 - Math.random());
+            const featuredProjects = shuffledProjects.slice(0, 3);
+            setFeaturedProjects(featuredProjects);
+          } catch (error) {
+            console.log('Error fetching featured projects:', error);
+          }
+        };
+      
+        fetchFeaturedProjects();
+      }, []);
+      
     return (
         <div className="lg:mt-20 md:mb-10 px-0 mx-auto w-[100%]">
             <section className="text-gray-800 text-center lg:text-left mt-16 lg:mt-20 px-6">
@@ -35,33 +59,8 @@ function HomePage() {
             <WhyProjestSection/>
             <FeaturedDevelopersSection/>
 
-            <section className="py-12">
-                <div className="container mx-auto px-6">
-                    <h2 className="text-3xl md:text-4xl xl:text-4xl font-bold text-center mb-8">Featured Projects</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        
-                    <FeaturedProject
-                        title="Noptin"
-                        description="Noptin is the best email newsletter plugin for WordPress."
-                        projectLink="https://github.com/hizzle-co/noptin"
-                        demoLink="https://noptin.com"
-                    />
-                    <FeaturedProject
-                        title="Tesla UI"
-                        description="Developed UI for a Tesla clone website using React, HTML, CSS, and JavaScript. UI is completely responsive and has animation effects (React Reveal)"
-                        projectLink="https://github.com/munnokd/Tesla-UI/"
-                        demoLink="https://tesla-clone-b0e1e.web.app/"
-                    />
-                    <FeaturedProject
-                        title="ArcFox"
-                        description="ArcFox is a pack of firefox improvements that brings the appearance and some of the features of arc browser to firefox."
-                        projectLink="https://github.com/use-arcfox/arcfox"
-                        demoLink="https://arcfox.vercel.app/"
-                    />
-
-                    </div>
-                </div>
-            </section>
+           {/* add featured projects here */}
+           <FeaturedProjects projects={featuredProjects} />
             <TestimonialSection/>
         </div>
     )

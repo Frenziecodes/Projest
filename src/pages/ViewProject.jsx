@@ -56,7 +56,7 @@ function ViewProject() {
       user.description.length > 70
         ? user.description.slice(0, 70) + "..."
         : user.description;
-
+        
     return (
       <div
         key={user.id}
@@ -97,6 +97,7 @@ function ViewProject() {
     );
   });
 
+ 
   return loader ? (
     <div className="h-[84vh]">
       <div className="flex justify-center items-center h-full">
