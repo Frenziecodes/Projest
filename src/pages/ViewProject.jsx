@@ -78,7 +78,7 @@ function ViewProject() {
         <div className="flex justify-between">
           <a
             href={user.userGithubLink}
-            className="bg-gradient-to-r from-blue-500 to-pink-500 hover:bg-gradient-to-l hover:from-blue-500 hover:to-pink-500 text-gray-700 py-2 px-4 rounded-md mr-4"
+            className="text-sm lg:text-lg bg-blue-800 hover:bg-blue-900 text-white py-2 px-2 mt-1 rounded-md"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -86,7 +86,7 @@ function ViewProject() {
           </a>
           <a
             href={user.projectGithubLink}
-            className="bg-gradient-to-r from-pink-500 to-blue-500 hover:bg-gradient-to-l hover:from-pink-500 hover:to-blue-500 text-gray-700 py-2 px-4 rounded-md"
+            className="text-sm lg:text-lg bg-blue-800 hover:bg-blue-900 text-white py-2 px-2 mt-1 rounded-md"
             target="_blank"
             rel="noopener noreferrer"
           >
