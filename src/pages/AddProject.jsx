@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { WithContext as ReactTags } from 'react-tag-input';
 import * as yup from 'yup';
 import '../tags.css';
+import axios from 'axios';
 
 const KeyCodes = {
   comma: 188,
@@ -39,10 +40,23 @@ function AddProject() {
     navigate('/viewprojects');
   };
 
+  const checkIfUsernameValid = async () =>{
+    let username = githubLink.split("/").pop();
+    let isUsernameValid = false;
+    try{
+      await axios.get(`https://api.github.com/users/${username}`)
+      isUsernameValid = true;
+    }
+    catch{
+      isUsernameValid = false;
+    }
+    return isUsernameValid;
+  }
+
   const schema = yup.object({
     title: yup.string().required("Project Title is required"),
     description: yup.string().required("Project Description is required"),
-    userGithubLink: yup.string().required("User Github Link is required"),
+    userGithubLink: yup.string().required("User Github Link is required").test('usernameTest', "We couldn't find an account with that username", checkIfUsernameValid),
     projectGithubLink: yup.string().required("Project Github Link is required"),
     demoLink: yup.string().required("Demo Link is required"),
   }).required();
