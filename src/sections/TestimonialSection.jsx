@@ -3,14 +3,14 @@ import React from "react";
 const TestimonialSection = () => {
   const testimonials = [
     {
-      name: "John Doe",
-      role: "Junior Web Developer",
-      testimonial: "Projest has been an incredible platform for me to showcase my projects and connect with other talented developers. I've received valuable feedback and even landed freelance gigs through the platform. Highly recommended!",
+      name: "Sarah Johnson",
+      role: "Full Stack Developer",
+      testimonial: "Projest has been an incredible platform for me to showcase my projects and connect with other talented developers. I've received valuable feedback and even landed job interviews through the platform. Projest has truly helped me level up my skills and build a strong professional network.",
     },
     {
-      name: "Jane Smith",
-      role: "Mobile Developer",
-      testimonial: "I joined Projest a few months ago, and it has been a game-changer for my career. The community is supportive, and the exposure my projects have received has been amazing. Projest has opened up new opportunities for collaboration and growth.",
+      name: "Michael Chen",
+      role: "UI/UX Designer",
+      testimonial: "As a designer, Projest has provided me with a platform to share my design portfolio and collaborate with developers on innovative projects. The feedback and support I've received from the community have been invaluable.",
     },
   ];
 

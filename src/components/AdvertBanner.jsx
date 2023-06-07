@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 
 function AdvertBanner() {
-    const [isBannerVisible, setBannerVisible] = useState(true);
-  
-    const handleDismissBanner = () => {
-      setBannerVisible(false);
-    };
-  
-    if (!isBannerVisible) {
-      return null; //
-    }
-    
+  const [isBannerVisible, setBannerVisible] = useState(true);
+
+  const handleDismissBanner = () => {
+    setBannerVisible(false);
+  };
+
+  if (!isBannerVisible) {
+    return null;
+  }
+
   return (
     <div className="alert alert-dismissible fade show items-center justify-between rounded-sm mb-1 bg-blue-500 py-4 px-6 text-center text-white md:flex md:text-left">
       <div className="mb-4 flex flex-wrap items-center justify-center md:mb-0 md:justify-start">
-        <span className="mr-2 [&>svg]:h-5 [&>svg]:w-5">
+        <span className="mr-2 h-5 w-5">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
             stroke="currentColor" className="text-white">
             <path strokeLinecap="round" strokeLinejoin="round"
