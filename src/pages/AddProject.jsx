@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { WithContext as ReactTags } from 'react-tag-input';
 import * as yup from 'yup';
-import NavBar from '../components/Navbar';
 import '../tags.css';
 
 const KeyCodes = {
@@ -81,7 +80,6 @@ function AddProject() {
 
   return (
     <section className=''>
-      <NavBar/>
       <div className='flex md:pl-10 flex-col items-center ml-1 md:ml-60 h-[100%] pb-4 mb-8 pt-10 Context'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="font-medium leading-tight text-md mt-10 md:mt-[50px] mb-4 text-gray-700">Add your project details by filling the form below</h2>          

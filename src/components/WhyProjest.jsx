@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import addProjectImage from '../images/addProject.png';
+import ViewprojectImage from '../images/explore.png'
 
 const WhyProjestSection = () => {
   return (
@@ -50,9 +51,9 @@ const WhyProjestSection = () => {
             <div className="flex flex-col md:flex-row items-center">
               <div className="flex justify-center items-center w-full md:w-1/2">
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/097.jpg"
-                  alt="Add Project Form"
-                  className="w-1/2 h-96"
+                  src={ViewprojectImage}
+                  alt="view project"
+                  className="h-96"
                 />
               </div>
               <div className="w-full md:w-1/2">

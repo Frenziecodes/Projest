@@ -1,7 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
-import NavBar from "../components/Navbar";
 import AdvertBanner from "../components/AdvertBanner";
 
 function ViewProject() {
@@ -111,7 +110,6 @@ function ViewProject() {
   ) : (
     <div className="{`${h} p-[20px]`} mt-20 Context">
       <AdvertBanner />
-      <NavBar />
       <div className="flex justify-center">
         <input
           type="text"

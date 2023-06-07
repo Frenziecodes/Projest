@@ -1,6 +1,5 @@
 import React from 'react'
 import FeaturedProject from '../components/FeaturedProjects';
-import ProjestNav from '../components/ProjestNav'
 import { Link } from 'react-router-dom';
 import TestimonialSection from '../components/TestimonialSection';
 import WhyProjestSection from '../components/WhyProjest';
@@ -9,7 +8,6 @@ import FeaturedDevelopersSection from '../sections/DevelopersSection';
 function HomePage() {
     return (
         <div className="lg:mt-20 md:mb-10 px-0 mx-auto w-[100%]">
-            <ProjestNav/>
             <section className="text-gray-800 text-center lg:text-left mt-16 lg:mt-20 px-6">
                 <div className="grid lg:grid-cols-2 gap-6 xl:gap-8 items-center lg:mb-20">
                     <div className="mb-2 lg:mb-0 flex flex-col justify-center items-center lg:items-start">
