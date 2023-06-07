@@ -26,7 +26,7 @@ function ProjestNav() {
                     <Link to="/"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg  hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]">Home</div></Link>                   
                     <Link to="viewprojects"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]">Projects</div></Link>   
                     <Link to="/addproject"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]">Add Project</div></Link>                 
-                    <Link to="contributing"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]">Contributing</div></Link>
+                    {/* <Link to="contributing"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]">Contributing</div></Link> */}
                     <a href="https://github.com/Frenziecodes/Projest" className="text-yellow-500 hover:text-yellow-300 flex items-center">
                       <FaStar className="mr-1" />
                       Star Project
@@ -52,10 +52,8 @@ function ProjestNav() {
             <div className="space-y-1 px-2 pt-2 pb-3">
               <Link to="/"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]">Home</div></Link>             
               <Link to="viewprojects"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]">Projects</div></Link>  
-              <Link to="/addproject"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]">Add Project</div></Link>            
-              <Link to="contributing"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]">Contributing</div></Link>
-              <a href="https://github.com/Frenziecodes/Projest" className="text-yellow-500 hover:text-yellow-300 flex items-center">
-                <FaStar className="mr-1" />
+              <Link to="/addproject"><div className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]">Add Project</div></Link> 
+              <a href="https://github.com/Frenziecodes/Projest" className="m-2 flex items-center py-[10px] px-[20px] rounded-[3px]">
                 Star Project
               </a>           
             </div>
