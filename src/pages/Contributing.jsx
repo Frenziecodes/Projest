@@ -1,72 +1,47 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React from 'react';
 
 function Contributing() {
-    return (
-        <div>
-            <Navbar/>
-            <section className="my-3 md:my-16 flex flex-col items-center justify-center md:w-full">
-                <h2 className="p-2 text-3xl font-bold mb-4 text-center text-black">Contribution Guidelines</h2>
-                <div className='border-b-[3px] border-blue-600 mb-10 w-[200px]'></div>
-                <p className='p-4 py-4 font-medium text-lg bg-blue-100 w-[100%] text-center'>Welcome to the Projest project! We are grateful for your interest in contributing to our project. With your help, we can continue to improve Projest and provide a platform for users to showcase their projects.</p>
-                <div className="flex flex-col md:flex-row justify-center items-start">
-                    <div className="p-4 flex justify-center flex-col py-4 md:w-[40%]">
-                        <h4 className="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">
-                            Code of Conduct
-                        </h4>
-                        <p>We expect all contributors to Projest to adhere to our code of conduct. This code outlines the standards of behavior expected of all contributors, including respecting the opinions and contributions of others, avoiding harassment and discrimination, and maintaining a positive and productive environment for all contributors.</p>
-                    </div>
-                    <div className="p-4 flex justify-center flex-col py-4 md:w-[40%]">
-                        <h4 className="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">
-                            Issues
-                        </h4>
-                        <div>
-                            <p>If you encounter any issues while using Projest, please report them to our issues tracker. To ensure your issue is quickly resolved, please provide the following information:</p>
-                            <p>1. A clear and concise description of the issue.</p>
-                            <p>2. Steps to reproduce the issue. </p>
-                            <p>3. Screenshots or video demonstrating the issue.</p>
-                            <p>4. The version of Projest you are using.</p>
-                            <p>5. Pull Requests</p>
-                        </div>
-                    </div>
-
-                    <div className="p-4 flex justify-center flex-col py-4 md:w-[40%]">
-                        <h4 className="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">
-                            Pull Request
-                        </h4>
-                        <p>If you would like to contribute to Projest by fixing an issue or adding a new feature, please follow these steps:</p>
-                        <p>1. Fork the Projest repository on GitHub.</p>
-                        <p>2. Create a new branch for your changes.</p>
-                        <p>3. Make your changes and push them to your fork.</p>
-                        <p>4. Submit a pull request to the Projest repository.</p>
-                        <p>N/B: In your pull request, please provide a clear and concise description of your changes and why they are necessary. Your changes will be reviewed by our development team and, if approved, will be merged into the Projest repository.</p>
-                    </div>
-
-                </div>
-                <div className="flex flex-col md:flex-row justify-center items-start">
-                    <div className="p-4 flex justify-center flex-col py-4 md:w-[40%]">
-                        <h4 className="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">
-                            Development Workflow
-                        </h4>
-                        <p>Projest uses a GitHub-based workflow for managing contributions. Our development team will review all pull requests and provide feedback on any changes that need to be made before they are merged into the Projest repository.</p>
-                    </div>
-                    <div className="p-4 flex justify-center flex-col py-4 md:w-[40%]">
-                        <h4 className="font-medium leading-tight text-2xl mt-0 mb-2 md:mb-1 text-blue-600">
-                            Documentation
-                        </h4>
-                        <p>We welcome contributions to the Projest documentation. Please see our documentation guidelines for information on how to contribute to the documentation.</p>
-                    </div>
-                    <div className="p-4 flex justify-center flex-col py-4 md:w-[40%]">
-                        <h4 className="font-medium leading-tight text-2xl mt-0 mb-2 text-blue-600">
-                            Credits
-                        </h4>
-                        <p>We would like to extend a special thank you to all of the contributors who have helped make Projest a success. Your contributions are greatly appreciated and help make Projest a better platform for users everywhere.</p>
-                    </div>
-                </div>
-                <p className='mt-8 py-4 font-medium text-lg bg-blue-100 w-[100%] text-center'>Thank you for considering a contribution to Projest. We look forward to working with you!</p>
-            </section>
-        </div>
-    )
+  return (
+    <div className="container mx-auto mt-10 px-6 py-12">
+      <h2 className="text-3xl md:text-4xl xl:text-4xl font-bold text-center mb-8">
+        Contributing to Projest
+      </h2>
+      <div className="max-w-3xl mx-auto">
+        <p className="text-gray-800 text-lg mb-6">
+          Thank you for your interest in contributing to Projest! We welcome contributions from the community to help improve and enhance the platform. Whether you're a developer, designer, or enthusiast, there are several ways you can contribute.
+        </p>
+        <h3 className="text-2xl font-semibold mb-4">1. Reporting Issues</h3>
+        <p className="text-gray-800 text-lg mb-4">
+          If you encounter any bugs, issues, or have suggestions for improvements, please feel free to report them on our GitHub <a href="https://github.com/Frenziecodes/Projest" className='text-blue-600'> repository</a>. Be sure to include as much detail as possible to help us understand and reproduce the problem.
+        </p>
+        <h3 className="text-2xl font-semibold mb-4">2. Contributing Code</h3>
+        <p className="text-gray-800 text-lg mb-4">
+          We encourage developers to contribute code to Projest. You can start by <a href="https://github.com/Frenziecodes/Projest/fork" className='text-blue-600'><code> forking</code></a> the repository on GitHub, making your changes locally, and then submitting a <a href="https://github.com/Frenziecodes/Projest/pulls" className='text-blue-600'>pull request</a>. Please follow our guidelines and coding conventions when submitting code contributions.
+        </p>
+        <h3 className="text-2xl font-semibold mb-4">3. Documentation</h3>
+        <p className="text-gray-800 text-lg mb-4">
+          Help us improve the documentation for Projest by identifying areas that need clarification or providing additional examples. You can submit documentation changes as pull requests on our GitHub repository.
+        </p>
+        <h3 className="text-2xl font-semibold mb-4">4. Feature Requests</h3>
+        <p className="text-gray-800 text-lg mb-4">
+          If you have ideas for new features or enhancements to Projest, we would love to hear them! Please open an <a href="https://github.com/Frenziecodes/Projest/issues" className='text-blue-600'>issue </a> on our GitHub repository and describe your proposed feature in detail.
+        </p>
+        <h3 className="text-2xl font-semibold mb-4">5. Spread the Word</h3>
+        <p className="text-gray-800 text-lg mb-4">
+          Help us grow the Projest community by sharing about the platform with your peers, colleagues, and on social media. The more people who join Projest, the more vibrant and collaborative the community becomes.
+        </p>
+        <p className="text-gray-800 text-lg mb-4">
+          Lastly, if you find Projest useful, we kindly ask you to <a href="https://github.com/Frenziecodes/Projest" className='text-blue-600'><code>star</code></a> the project on GitHub. It helps us gain visibility and attract more contributors to improve the platform.
+        </p>
+        <p className="text-gray-800 text-lg mb-6">
+          We appreciate all contributions, big and small! Together, let's make Projest an amazing platform for developers to showcase their skills, collaborate on projects, and learn from each other.
+        </p>
+        <p className="text-gray-800 text-lg">
+          If you have any questions or need further assistance, please reach out to our team at <span className="text-blue-600">coderflame3@gmail.com</span>.
+        </p>
+      </div>
+    </div>
+  );
 }
 
-export default Contributing
+export default Contributing;
