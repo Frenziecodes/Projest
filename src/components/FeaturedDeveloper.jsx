@@ -34,7 +34,7 @@ const DeveloperCard = ({ name, imageSrc, description, githubLink }) => {
         <div className="mt-3 flex justify-center">
           <a
             href={developer.html_url}
-            className="bg-gradient-to-r from-blue-500 to-pink-500 hover:bg-gradient-to-l hover:from-blue-500 hover:to-pink-500 text-gray-700 py-2 px-4 rounded-md font-semibold transition duration-300 ease-in-out"
+            className="bg-blue-800 hover:bg-blue-900 text-white py-2 px-4 rounded-md font-semibold transition duration-300 ease-in-out"
             style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
           >
             View Profile
