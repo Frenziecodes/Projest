@@ -4,12 +4,12 @@
 
 ### Phase 1: Core Functionality and User Experience
 
-- [x] Refine the user interface and experience based on user feedback.
-- [x] Implement project details page/modal to provide more information about each project.
-- [x] Enable users to upload and display images or screenshots of their projects.
-- [x] Implement basic search functionality to allow users to find projects by name or tags.
-- [x] Add basic filtering options to help users refine their project search.
-- [x] Implement user authentication and profiles, allowing users to manage their projects.
+- [ ] Refine the user interface and experience based on user feedback.
+- [ ] Implement project details page/modal to provide more information about each project.
+- [ ] Enable users to upload and display images or screenshots of their projects.
+- [ ] Implement basic search functionality to allow users to find projects by name or tags.
+- [ ] Add basic filtering options to help users refine their project search.
+- [ ] Implement user authentication and profiles, allowing users to manage their projects.
 
 ### Phase 2: Categorization and Enhanced Filtering
 
