@@ -82,7 +82,7 @@ function AddProject() {
     <section className=''>
       <div className='flex md:pl-10 flex-col items-center ml-1 md:ml-60 h-[100%] pb-4 mb-8 pt-10 Context'>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="font-medium leading-tight text-md mt-10 md:mt-[50px] mb-4 text-gray-700">Add your project details by filling the form below</h2>          
+          <h2 className="font-medium leading-tight text-md mt-10 mx-1 md:mt-[50px] mb-4 text-gray-700">Add your project details by filling the form below</h2>          
           <div className='flex flex-col md:flex-row justify-start items-start w-[100%]'>
             <div className='flex flex-col items-center md:items-end justify-center w-[100%] md:w-[40%] lg:w-[50%]'>
               <input type="text" placeholder='Project Title' {...register("title")} className='placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setTitle(e.target.value)}></input>
@@ -120,7 +120,7 @@ function AddProject() {
               </div>
             </div>
           </div>
-          <button className="px-6 py-2 mt-8 font-medium text-white bg-blue-500 rounded-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" type='submit'>
+          <button className="px-6 py-2 mt-8 mx-1 font-medium text-white bg-blue-500 rounded-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" type='submit'>
             Save Project
           </button>
         </form>
