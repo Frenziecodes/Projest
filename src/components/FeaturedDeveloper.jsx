@@ -24,7 +24,7 @@ const DeveloperCard = ({ name, imageSrc, description, githubLink }) => {
   const limitedDescription = developer.bio ? (developer.bio.length > 70 ? `${developer.bio.substring(0, 70)}...` : developer.bio) : '';
 
   return (
-    <div className="bg-white rounded-lg shadow-lg border border-gray-300 p-4">
+    <div className="bg-white rounded-lg shadow-lg border border-gray-300 p-4 hover:-translate-y-1 hover:scale-110 duration-300">
       <div className="flex items-center justify-center w-24 h-24 mx-auto rounded-full overflow-hidden">
         <img src={developer.avatar_url} alt="Developer" className="w-full h-full object-cover" />
       </div>
