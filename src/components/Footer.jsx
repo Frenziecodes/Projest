@@ -3,14 +3,15 @@ import LinksComponent from './LinksComponent';
 
 function Footer() {
   const getInVolved = [
-    { url: '#!', text: 'Add Project' },
-    { url: '#!', text: 'Explore projects' },
-    { url: '#!', text: 'Become a contributor' },
-  ]
+    { url: '/addproject', text: 'Add Project' },
+    { url: '/viewprojects', text: 'Explore projects', internal: true },
+    { url: 'https://github.com/Frenziecodes/Projest/blob/master/Contributing.md', text: 'Become a contributor', internal: false },
+  ];
+    
   const support = [    
-    { url: '#!', text: 'Contact Us' },
-    { url: '#!', text: 'Report an issue' },
-    { url: '#!', text: 'Request a Feature' },
+    { url: 'mailto:coderflame3@gmail.com', text: 'Contact Us' },
+    { url: 'https://github.com/Frenziecodes/Projest/issues/new?assignees=&labels=bug&projects=&template=bug.yml', text: 'Report an issue' },
+    { url: 'https://github.com/Frenziecodes/Projest/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.yml&title=%5BFEATURE%5D+%3Cdescription%3E', text: 'Request a Feature' },
   ]
   const resources = [
     { url: '#!', text: 'Articles' },
