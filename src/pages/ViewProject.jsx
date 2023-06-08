@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import AdvertBanner from "../components/AdvertBanner";
@@ -9,6 +9,8 @@ function ViewProject() {
   const [loader, setLoader] = useState(true);
   const userData = collection(db, "projects");
   const [searchVal, setSearchVal] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("");
 
   useEffect(() => {
     const getData = async () => {
@@ -22,31 +24,51 @@ function ViewProject() {
   }, []);
 
   useEffect(() => {
-    if (searchVal === "") {
+    if (searchVal === "" && selectedCategory === "" && selectedLanguage === "") {
       return setUserResult(users);
     }
-
+  
     const filteredData = users.filter((item) => {
+      const isMatchedCategory =
+        selectedCategory === "" || item.category === selectedCategory;
+  
+      const isMatchedLanguage =
+        selectedLanguage === "" || item.tags.includes(selectedLanguage);
+  
+      if (!isMatchedCategory || !isMatchedLanguage) {
+        return false;
+      }
+  
       if (item.title.toLowerCase().includes(searchVal.toLowerCase())) {
         return true;
       }
-
+  
       if (item.description.toLowerCase().includes(searchVal.toLowerCase())) {
         return true;
       }
-
+  
       const list = item.tags.filter((it) => {
         if (it.toLowerCase().includes(searchVal.toLowerCase())) {
           return true;
         }
         return false;
       });
-
+  
       return list.length > 0;
     });
-
+  
     setUserResult(filteredData);
-  }, [searchVal, users]);
+  }, [searchVal, selectedCategory, selectedLanguage, users]);
+  
+
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
+  const handleLanguageChange = (e) => {
+    setSelectedLanguage(e.target.value);
+  };
 
   const h = userResult.length <= 3 ? "h-[84vh]" : "h-[100%]";
 
@@ -56,7 +78,7 @@ function ViewProject() {
       user.description.length > 70
         ? user.description.slice(0, 70) + "..."
         : user.description;
-        
+
     return (
       <div
         key={user.id}
@@ -71,7 +93,7 @@ function ViewProject() {
             src={`https://github.com/${user.userGithubLink.split("/")[3]}.png`}
             alt="Profile"
           />
-        </div>        
+        </div>
         <p className="text-gray-800 mb-4" style={{ height: "3.75rem" }}>
           {truncatedDescription}
         </p>
@@ -97,7 +119,6 @@ function ViewProject() {
     );
   });
 
- 
   return loader ? (
     <div className="h-[84vh]">
       <div className="flex justify-center items-center h-full">
@@ -111,13 +132,47 @@ function ViewProject() {
   ) : (
     <div className="{`${h} p-[20px]`} mt-20 Context">
       <AdvertBanner />
-      <div className="flex justify-center">
+      <div className="flex flex-col md:flex-row justify-center items-center space-x-4">
         <input
           type="text"
           placeholder="Search projects here either by name or language used"
           className="placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+          value={searchVal}
           onChange={(e) => setSearchVal(e.target.value)}
         />
+        {/* <select
+          className="block bg-white w-[20vw] md:w-[14vw] lg:w-[12vw] border border-slate-300 rounded-md my-4 py-2 px-2 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+          value={selectedCategory}
+          onChange={handleCategoryChange}
+        >
+          <option value="">All Categories</option>
+          <option value="Development">Development</option>
+          <option value="Mobile App Development">
+            Mobile App Development
+          </option>
+          <option value="Data Science">Data Science</option>
+          <option value="Artificial Intelligence">
+            Artificial Intelligence
+          </option>
+          <option value="Game Development">Game Development</option>
+          <option value="UI/UX Design">UI/UX Design</option>
+          <option value="E-commerce">E-commerce</option>
+        </select> */}
+        <select
+          className="block bg-white w-[20vw] md:w-[14vw] lg:w-[12vw] border border-slate-300 rounded-md my-4 py-2 px-2 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+          value={selectedLanguage}
+          onChange={handleLanguageChange}
+        >
+          <option value="">All</option>
+          <option value="Javascript">JavaScript</option>
+          <option value="Python">Python</option>
+          <option value="Java">Java</option>
+          <option value="React">React</option>
+          <option value="PHP">PHP</option>
+          <option value="HTML">HTML</option>
+          <option value="TypeScript">TypeScript</option>
+          <option value="Vue">Vue</option>
+        </select>
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[40px] py-4 px-[20px]">

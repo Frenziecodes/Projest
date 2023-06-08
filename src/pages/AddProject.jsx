@@ -7,7 +7,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { WithContext as ReactTags } from 'react-tag-input';
 import * as yup from 'yup';
 import '../tags.css';
-import axios from 'axios';
 
 const KeyCodes = {
   comma: 188,
@@ -22,6 +21,7 @@ function AddProject() {
   const [githubLink, setGithubLink] = useState('');
   const [projectLink, setProjectLink] = useState('');
   const [demoLink, setDemoLink] = useState('');
+  const [category, setCategory] = useState('');
   const userData = collection(db, 'projects');
   const [tags, setTags] = useState([]);
   const navigate = useNavigate();
@@ -34,29 +34,18 @@ function AddProject() {
       userGithubLink: githubLink,
       projectGithubLink: projectLink,
       demoLink: demoLink,
-      tags: tagsArr
+      tags: tagsArr,
+      category: category 
     };
     await addDoc(userData, projectData);
     navigate('/viewprojects');
   };
-
-  const checkIfUsernameValid = async () =>{
-    let username = githubLink.split("/").pop();
-    let isUsernameValid = false;
-    try{
-      await axios.get(`https://api.github.com/users/${username}`)
-      isUsernameValid = true;
-    }
-    catch{
-      isUsernameValid = false;
-    }
-    return isUsernameValid;
-  }
+  
 
   const schema = yup.object({
     title: yup.string().required("Project Title is required"),
     description: yup.string().required("Project Description is required"),
-    userGithubLink: yup.string().required("User Github Link is required").test('usernameTest', "We couldn't find an account with that username", checkIfUsernameValid),
+    userGithubLink: yup.string().required("User Github Link is required"),
     projectGithubLink: yup.string().required("Project Github Link is required"),
     demoLink: yup.string().required("Demo Link is required"),
   }).required();
@@ -96,13 +85,13 @@ function AddProject() {
     <section className=''>
       <div className='flex md:pl-10 flex-col items-center ml-1 md:ml-60 h-[100%] pb-4 mb-8 pt-10 Context'>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="font-medium leading-tight text-md mt-10 mx-1 md:mt-[50px] mb-4 text-gray-700">Add your project details by filling the form below</h2>          
+          <h2 className="font-medium leading-tight text-md mt-10 mx-1 md:mt-[50px] mb-4 text-gray-700">Add your project details by filling the form below</h2>
           <div className='flex flex-col md:flex-row justify-start items-start w-[100%]'>
             <div className='flex flex-col items-center md:items-end justify-center w-[100%] md:w-[40%] lg:w-[50%]'>
               <input type="text" placeholder='Project Title' {...register("title")} className='placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setTitle(e.target.value)}></input>
-              <p className='text-red-500'>{errors.title?.message}</p> 
+              <p className='text-red-500'>{errors.title?.message}</p>
               <textarea placeholder='Project Description' {...register("description")} className='placeholder:text-slate-500 block bg-white min-h-[170px] w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setDescription(e.target.value)}></textarea>
-              <p className='text-red-500'>{errors.description?.message}</p>                            
+              <p className='text-red-500'>{errors.description?.message}</p>
             </div>
 
             <div className='md:ml-5 w-11/12 h-64 md:w-2/3 lg:w-1/2 my-5 mx-5 md:my-0'>
@@ -112,6 +101,21 @@ function AddProject() {
               <p className='text-red-500'>{errors.projectGithubLink?.message}</p>
               <input type="text" placeholder='Demo Link' {...register("demoLink")} className='placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setDemoLink(e.target.value)}></input>
               <p className='text-red-500'>{errors.demoLink?.message}</p>
+              <select
+                {...register("category")}
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className='block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'
+              >
+                <option value="">Select Category</option>
+                <option value="Development">Development</option>
+                <option value="Mobile App Development">Mobile App Development</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Game Development">Game Development</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="E-commerce">E-commerce</option>
+              </select>
               <div className='placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'>
                 <ReactTags
                   tags={tags}
