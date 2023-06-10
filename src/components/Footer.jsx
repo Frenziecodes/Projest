@@ -15,7 +15,7 @@ function Footer() {
   ]
   const resources = [
     { url: '#!', text: 'Articles' },
-    { url: '#!', text: 'Documentation' },
+    { url: '/documentation', text: 'Documentation' },
     { url: '#!', text: 'Developer Resources' },
   ]
   return (
