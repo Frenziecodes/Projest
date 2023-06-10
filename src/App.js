@@ -9,6 +9,8 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Layout from './components/Layout';
 import NotFound from './pages/404';
+import PrivacyPolicyPage from './pages/PrivacyPolicy';
+import TermsOfServicePage from './pages/Terms';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/viewprojects' element={<ViewProject />} />
           <Route path='/addproject' element={<AddProject />} />
+          <Route path='/privacypolicy' element={<PrivacyPolicyPage />} />
+          <Route path='/termsofservice' element={<TermsOfServicePage />} />
           <Route path='/contributing' element={<Contributing />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
