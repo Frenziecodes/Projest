@@ -1,45 +1,45 @@
 import { Link } from 'react-router-dom';
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { GithubAuthProvider } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
-import { auth } from '../firebase';
+// import { GithubAuthProvider } from 'firebase/auth';
+// import React, { useEffect, useState } from 'react';
+// import { auth } from '../firebase';
 
 function ProjestNav() {
 
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setUser(user);
+  //     } else {
+  //       setUser(null);
+  //     }
+  //   });
   
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("code")) {
-      auth
-        .getRedirectResult()
-        .then((result) => {
-          setUser(result.user);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
+  //   const urlParams = new URLSearchParams(window.location.search);
+  //   if (urlParams.has("code")) {
+  //     auth
+  //       .getRedirectResult()
+  //       .then((result) => {
+  //         setUser(result.user);
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   }
   
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+  //   return () => {
+  //     unsubscribe();
+  //   };
+  // }, []);
   
 
-  const handleGitHubLogin = () => {
-    const provider = new GithubAuthProvider();
-    auth.signInWithRedirect(provider);
-  };
+  // const handleGitHubLogin = () => {
+  //   const provider = new GithubAuthProvider();
+  //   auth.signInWithRedirect(provider);
+  // };
   
 
   return (
@@ -69,7 +69,7 @@ function ProjestNav() {
                     </svg>
                     </a>
 
-                    {user ? (
+                    {/* {user ? (
                       <img src={user.photoURL} alt="Profile" className="h-8 w-8 rounded-full" />
                     ) : (
                       <a
@@ -79,7 +79,7 @@ function ProjestNav() {
                       >
                         Login
                       </a>
-                    )}
+                    )} */}
 
                   </div>
                 </div>
