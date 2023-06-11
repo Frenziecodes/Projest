@@ -16,22 +16,30 @@ function ProjestNav() {
         setUser(null);
       }
     });
-
+  
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("code")) {
+      auth
+        .getRedirectResult()
+        .then((result) => {
+          setUser(result.user);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  
     return () => {
       unsubscribe();
     };
   }, []);
+  
 
   const handleGitHubLogin = () => {
     const provider = new GithubAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        setUser(result.user);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    auth.signInWithRedirect(provider);
   };
+  
 
   return (
     <Disclosure as="nav" className="bg-blue-900 text-white z-50 fixed top-0 left-0 right-0">
@@ -60,9 +68,13 @@ function ProjestNav() {
                     {user ? (
                       <img src={user.photoURL} alt="Profile" className="h-8 w-8 rounded-full" />
                     ) : (
-                      <button onClick={handleGitHubLogin}>
+                      <a
+                        href="https://github.com/login/oauth/authorize?client_id=0897b2b55024d54e3d6b&redirect_uri=https://projest.vercel.app/addproject&scope=user"
+                        onClick={handleGitHubLogin}
+                        className="hover:transition-[bg] m-2 md:m-5 hover:bg-opacity-20 hover:backdrop-blur-lg hover:drop-shadow-lg py-[10px] px-[20px] rounded-[3px]"
+                      >
                         Login
-                      </button>
+                      </a>
                     )}
                   </div>
                 </div>
