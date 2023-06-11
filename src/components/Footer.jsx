@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LinksComponent from './LinksComponent';
 
 function Footer() {
@@ -23,6 +23,27 @@ function Footer() {
     { url: '/privacypolicy', text: 'Privacy Policy' },
     { url: '/termsofservice', text: 'Terms of service' },
   ]
+
+  const [latestVersion, setLatestVersion] = useState('');
+
+  useEffect(() => {
+    fetchLatestVersion();
+  }, []);
+
+  const fetchLatestVersion = async () => {
+    try {
+      const response = await fetch('https://api.github.com/repos/Frenziecodes/Projest/releases/latest');
+      if (response.ok) {
+        const { tag_name: latestTag } = await response.json();
+        setLatestVersion(latestTag);
+      } else {
+        console.error('Failed to fetch the latest version from GitHub');
+      }
+    } catch (error) {
+      console.error('Error occurred while fetching the latest version:', error);
+    }
+  };
+
   return (
     <footer className="bg-blue-800 text-white py-6">
       <div className="container mx-auto flex flex-col justify-between items-center">
@@ -37,8 +58,13 @@ function Footer() {
         {/* <LinksComponent label="resources" links={resources} />         */}
         <LinksComponent label="Legal" links={legal} />        
       </div>
-      <div className="text-center mt-4">
-        © {new Date().getFullYear()} All rights reserved.
+      <div className='flex justify-around  mt-4'>
+        <div className="text-center">
+          © {new Date().getFullYear()} All rights reserved.
+        </div>
+        <div>
+          {latestVersion ? `${latestVersion}` : 'Fetching version...'}
+        </div>
       </div>
     </footer>
   );
