@@ -28,21 +28,21 @@ function DeveloperResources(){
                         link=""
                     />
                     <DeveloperResource
-                        icon="video"
-                        name= "video Tutorials"
-                        Description="Learn through step by step video tutorials"
+                        icon="book"
+                        name= "Recommended Books"
+                        Description="Discover must read books for developers"
                         link=""
                     />
                     <DeveloperResource
-                        icon="video"
-                        name= "video Tutorials"
-                        Description="Learn through step by step video tutorials"
+                        icon="tool"
+                        name= "Developer Tools"
+                        Description="Discover a collection of essential tools for developers,including code validators, syntax highlighters, performance analyzers and many other tools "
                         link=""
                     />
                     <DeveloperResource
-                        icon="video"
-                        name= "video Tutorials"
-                        Description="Learn through step by step video tutorials"
+                        icon="website"
+                        name= "Useful websites"
+                        Description="Explore websites with valuable development resources"
                         link=""
                     />
                     
