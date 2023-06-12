@@ -19,14 +19,14 @@ const DeveloperResource =({icon, name, Description, link}) => {
             IconComponent = null;
     }
     return(
-        <section className='bg-white h-44 p-2 flex flex-col justify-center items-center'>
+        <section className='bg-white shadow-lg p-2 flex flex-col justify-center items-center'>
             <div>
                 {IconComponent && <IconComponent className='w-6 h-6'/>}
             </div>
-            <div>
+            <div className='flex flex-col justify-center items-center'>
                 <h3 className='text-center my-3 text-xl text-blue-800 font-semibold'>{name}</h3>
                 <p>{Description}</p>
-                <a href="{link}" target='_blank' rel='noopener noreferrer' className='flex justify-center items-center bg-blue-800 w-1/4 h-10'>
+                <a href="{link}" target='_blank' rel='noopener noreferrer' className='flex justify-center items-center rounded-md text-white bg-blue-800 w-1/2 h-10 my-4'>
                     visit resource
                 </a>
             </div>
