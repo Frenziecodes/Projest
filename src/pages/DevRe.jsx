@@ -20,7 +20,7 @@ function DeveloperResources(){
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:mt-16">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:mt-16">
                     <DeveloperResource
                         icon="video"
                         name= "video Tutorials"
