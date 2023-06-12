@@ -100,7 +100,7 @@ function ViewProject() {
         <div className="flex justify-between">
           <a
             href={user.userGithubLink}
-            className="text-sm lg:text-lg bg-blue-800 hover:bg-blue-900 text-white py-2 px-2 mt-1 rounded-md"
+            className="text-sm lg:text-lg bg-white hover:bg-blue-800 hover:text-white border border-1 border-blue-800 text-blue-800 py-2 px-2 mt-1 rounded-md"
             target="_blank"
             rel="noopener noreferrer"
           >
