@@ -7,11 +7,11 @@ function DeveloperResources(){
                 <div className="grid md:grid-cols-2 gap-6 xl:gap-8 items-center lg:mb-20">
                     <div className="mb-2 lg:mb-0 flex flex-col justify-center items-center lg:items-start">
                         <h2 className="text-2xl md:text-2xl xl:text-4xl font-bold tracking-tight">
-                            Ready to share your projects<br />
-                            <span className="text-blue-600">on Projest?</span>
+                           Web development Hub: Empower Your Projects with Cutting-Edge<br />
+                            <span className="text-blue-600">Web development Resources</span>
                         </h2>
                         <p className="text-gray-500 my-4 text-md max-w-lg lg:max-w-none text-center lg:text-left">
-                            Join a vibrant community of developers. Showcase your skills, collaborate on innovative projects, and unlock endless possibilities. Connect, learn, and grow together with Projest.
+                           Welcome to the web Development Hub on projest! Unlock the full potential of your projects with our comprehensive collection of web development tools, resources, and community support. whether you're a beginner or an experienced web developer, our platform provides you with everything you need to build stunning websites and web applications.
                         </p>
 
                     </div>
@@ -20,7 +20,7 @@ function DeveloperResources(){
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:mt-16">
                     <DeveloperResource
                         icon="video"
                         name= "video Tutorials"
@@ -36,7 +36,7 @@ function DeveloperResources(){
                     <DeveloperResource
                         icon="tool"
                         name= "Developer Tools"
-                        Description="Discover a collection of essential tools for developers,including code validators, syntax highlighters, performance analyzers and many other tools "
+                        Description="Discover a collection of essential tools for developers. "
                         link=""
                     />
                     <DeveloperResource
@@ -44,8 +44,7 @@ function DeveloperResources(){
                         name= "Useful websites"
                         Description="Explore websites with valuable development resources"
                         link=""
-                    />
-                    
+                    />                   
                  
                 </div>
             </div>
