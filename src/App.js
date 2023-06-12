@@ -11,6 +11,7 @@ import Layout from './components/Layout';
 import NotFound from './pages/404';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
 import TermsOfServicePage from './pages/Terms';
+import DeveloperResources from './pages/DevRe';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/addproject' element={<AddProject />} />
           <Route path='/privacypolicy' element={<PrivacyPolicyPage />} />
           <Route path='/termsofservice' element={<TermsOfServicePage />} />
+          <Route path='/developerresources' element={<DeveloperResources />} />
           <Route path='/contributing' element={<Contributing />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />

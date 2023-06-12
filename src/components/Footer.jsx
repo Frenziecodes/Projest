@@ -16,7 +16,7 @@ function Footer() {
   const resources = [
     { url: '#!', text: 'Articles' },
     { url: '#!', text: 'Documentation' },
-    { url: '#!', text: 'Developer Resources' },
+    { url: '/developerresources', text: 'Developer Resources' },
   ]
   const legal = [
     { url: 'https://github.com/Frenziecodes/Projest/blob/master/LICENSE', text: 'License' },
@@ -52,10 +52,10 @@ function Footer() {
           <p className="text-sm px-2 md:px-0">A platform for showcasing and sharing projects. If you find this platform helpful, we would appreciate it if you could <a href="https://github.com/Frenziecodes/Projest" target="_blank" rel="noopener noreferrer">star</a> the project on <a href="https://github.com/Frenziecodes/Projest" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 place-items-center my-2">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 place-items-center my-2">
         <LinksComponent label="Solutions" links={getInVolved} />
         <LinksComponent label="Support" links={support} />        
-        {/* <LinksComponent label="resources" links={resources} />         */}
+        <LinksComponent label="resources" links={resources} />        
         <LinksComponent label="Legal" links={legal} />        
       </div>
       <div className='flex justify-around  mt-4'>
