@@ -108,7 +108,7 @@ function ViewProject() {
           </a>
           <a
             href={user.projectGithubLink}
-            className="text-sm lg:text-lg bg-blue-800 hover:bg-blue-900 text-white py-2 px-2 mt-1 rounded-md"
+            className="text-sm lg:text-lg bg-blue-800 hover:bg-white text-white hover:text-blue-800 hover:border hover:border-1 hover:border-blue-800 py-2 px-2 mt-1 rounded-md"
             target="_blank"
             rel="noopener noreferrer"
           >
