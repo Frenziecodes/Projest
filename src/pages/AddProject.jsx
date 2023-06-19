@@ -107,7 +107,7 @@ function AddProject() {
 
   return (
     <section className=''>
-      <div className='flex md:pl-10 flex-col items-center ml-1 md:ml-60 h-[100%] pb-4 mb-8 pt-10 Context'>
+      <div className='flex md:pl-10 flex-col items-center ml-1 md:ml-60 h-[100%] pb-8 mb-8 pt-10 Context'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="font-medium leading-tight text-md mt-10 mx-1 md:mt-[50px] mb-4 text-gray-700">Add your project details by filling the form below</h2>
           <div className='flex flex-col md:flex-row justify-start items-start w-[100%]'>
