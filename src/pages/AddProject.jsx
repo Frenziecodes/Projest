@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import { collection, addDoc } from "firebase/firestore";
-import { db } from '../firebase';
+import React, { useState, useCallback } from 'react';
+import { collection, addDoc } from 'firebase/firestore';
+import { db, storage } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { WithContext as ReactTags } from 'react-tag-input';
+import { useDropzone } from 'react-dropzone';
 import * as yup from 'yup';
 import '../tags.css';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 const KeyCodes = {
   comma: 188,
@@ -22,12 +24,16 @@ function AddProject() {
   const [projectLink, setProjectLink] = useState('');
   const [demoLink, setDemoLink] = useState('');
   const [category, setCategory] = useState('');
-  const userData = collection(db, 'projects');
   const [tags, setTags] = useState([]);
+  const [selectedImages, setSelectedImages] = useState([]);
+  const [droppedImages, setDroppedImages] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [uploadProgress, setUploadProgress] = useState(0); // State for progress indicator
   const navigate = useNavigate();
 
-  const saveData = async () => {
-    const tagsArr = tags.map(tag => tag.text);
+  const saveData = async (data) => {
+    const imageFiles = selectedImages.concat(droppedImages);
+    const tagsArr = tags.map((tag) => tag.text);
     const projectData = {
       title: title,
       description: description,
@@ -35,19 +41,59 @@ function AddProject() {
       projectGithubLink: projectLink,
       demoLink: demoLink,
       tags: tagsArr,
-      category: category 
+      category: category,
     };
-    await addDoc(userData, projectData);
-    navigate('/viewprojects');
+
+    // Upload the image files to Firebase Storage
+    const storagePromises = imageFiles.map((imageFile) => {
+      const storageRef = ref(storage, 'images/' + imageFile.name);
+
+      // Create a unique upload task for each file
+      const uploadTask = uploadBytesResumable(storageRef, imageFile);
+
+      // Track the upload progress
+      uploadTask.on('state_changed', (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setUploadProgress(progress);
+      });
+
+      // Return a promise that resolves when the upload is complete
+      return new Promise((resolve, reject) => {
+        uploadTask
+          .then((snapshot) => {
+            // Get the download URL after the upload is complete
+            getDownloadURL(snapshot.ref)
+              .then((downloadUrl) => resolve(downloadUrl))
+              .catch(reject);
+          })
+          .catch(reject);
+      });
+    });
+
+    try {
+      // Wait for all image uploads to complete
+      const downloadUrls = await Promise.all(storagePromises);
+
+      // Add the image URLs to the project data
+      projectData.imageUrls = downloadUrls;
+
+      // Save the project data to Firestore
+      const docRef = await addDoc(collection(db, 'projects'), projectData);
+      navigate('/viewprojects');
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
   };
   
 
   const schema = yup.object({
-    title: yup.string().required("Project Title is required"),
-    description: yup.string().required("Project Description is required"),
-    userGithubLink: yup.string().required("User Github Link is required"),
-    projectGithubLink: yup.string().required("Project Github Link is required"),
-    demoLink: yup.string().required("Demo Link is required"),
+    title: yup.string().required('Project Title is required'),
+    description: yup.string().required('Project Description is required'),
+    userGithubLink: yup.string().required('User Github Link is required'),
+    projectGithubLink: yup.string().required('Project Github Link is required'),
+    demoLink: yup.string().required('Demo Link is required'),
   }).required();
 
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -55,22 +101,27 @@ function AddProject() {
   });
 
   const onSubmit = (data) => {
-    saveData();
+    saveData(data);
+  };
+
+  const handleImageChange = (e) => {
+    const files = Array.from(e.target.files);
+    setSelectedImages(files);
   };
 
   const suggestions = [
-    { id: "1", text: "Javascript" },
-    { id: "2", text: "Python" },
-    { id: "3", text: "Java" },
-    { id: "4", text: "HTML" },
-    { id: "5", text: "PHP" },
-    { id: "6", text: "TypeScript" },
-    { id: "7", text: "React" },
-    { id: "8", text: "Vue" },
-    { id: "9", text: "Angular" },
-    { id: "10", text: "Bootstrap" },
-    { id: "11", text: "Tailwind" },
-    { id: "12", text: "CSS" },
+    { id: '1', text: 'Javascript' },
+    { id: '2', text: 'Python' },
+    { id: '3', text: 'Java' },
+    { id: '4', text: 'HTML' },
+    { id: '5', text: 'PHP' },
+    { id: '6', text: 'TypeScript' },
+    { id: '7', text: 'React' },
+    { id: '8', text: 'Vue' },
+    { id: '9', text: 'Angular' },
+    { id: '10', text: 'Bootstrap' },
+    { id: '11', text: 'Tailwind' },
+    { id: '12', text: 'CSS' },
   ];
 
   const handleAddition = tag => {
@@ -81,9 +132,21 @@ function AddProject() {
     setTags(tags.filter((tag, index) => index !== i));
   };
 
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    accept: 'image/*',
+    onDrop: (acceptedFiles) => {
+      const invalidFiles = acceptedFiles.filter(file => !file.type.startsWith('image/'));
+      if (invalidFiles.length > 0) {
+        setErrorMessage('Invalid file types. Please drop only image files.');
+      } else {
+        setDroppedImages((prevImages) => [...prevImages, ...acceptedFiles]);
+      }
+    },
+  });
+
   return (
     <section className=''>
-      <div className='flex md:pl-10 flex-col items-center ml-1 md:ml-60 h-[100%] pb-4 mb-8 pt-10 Context'>
+      <div className='flex md:pl-10 flex-col items-center ml-1 md:ml-60 h-[100%] pb-8 mb-8 pt-10 Context'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="font-medium leading-tight text-md mt-10 mx-1 md:mt-[50px] mb-4 text-gray-700">Add your project details by filling the form below</h2>
           <div className='flex flex-col md:flex-row justify-start items-start w-[100%]'>
@@ -92,6 +155,25 @@ function AddProject() {
               <p className='text-red-500'>{errors.title?.message}</p>
               <textarea placeholder='Project Description' {...register("description")} className='placeholder:text-slate-500 block bg-white min-h-[170px] w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setDescription(e.target.value)}></textarea>
               <p className='text-red-500'>{errors.description?.message}</p>
+              <section className='flex flex-col w-full justify-start bg-gray-200 border border-gray-400  p-3'>
+                <div>
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    {isDragActive ? (
+                      <p>Drop the files here ...</p>
+                    ) : (
+                      <p>Drag and drop some files here, or click to select files</p>
+                    )}
+                  </div>
+                  {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+                  <div className="w-full grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-2">
+                    {droppedImages.map((image, index) => (
+                      <img key={index} src={URL.createObjectURL(image)} alt="Selected" className="w-32 h-32 my-4" />
+                    ))}
+                  </div>
+                </div>
+              </section>           
+
             </div>
 
             <div className='md:ml-5 w-11/12 h-64 md:w-2/3 lg:w-1/2 my-5 mx-5 md:my-0'>
@@ -108,14 +190,17 @@ function AddProject() {
                 className='block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'
               >
                 <option value="">Select Category</option>
-                <option value="Development">Development</option>
-                <option value="Mobile App Development">Mobile App Development</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Mobile Development">Mobile Development</option>
                 <option value="Data Science">Data Science</option>
+                <option value="Machine Learning">Machine Learning</option>
                 <option value="Artificial Intelligence">Artificial Intelligence</option>
-                <option value="Game Development">Game Development</option>
+                <option value="Blockchain">Blockchain</option>
+                <option value="Cybersecurity">Cybersecurity</option>
                 <option value="UI/UX Design">UI/UX Design</option>
-                <option value="E-commerce">E-commerce</option>
+                <option value="Other">Other</option>
               </select>
+              <p className='text-red-500'>{errors.category?.message}</p>
               <div className='placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'>
                 <ReactTags
                   tags={tags}
@@ -136,15 +221,31 @@ function AddProject() {
                   }}
                 />
               </div>
+              <div className='my-4'>
+                <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+                  Submit
+                </button>
+                <button onClick={() => navigate('/viewprojects')} className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4'>
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
-          <button className="px-6 py-2 mt-8 mx-1 font-medium text-white bg-blue-800 rounded-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" type='submit'>
-            Save Project
-          </button>
+          {uploadProgress > 0 && (
+              <div className="relative pt-1">
+                <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                  <div
+                    style={{ width: `${uploadProgress}%` }}
+                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"
+                  ></div>
+                </div>
+                <div className="text-center">{uploadProgress}%</div>
+              </div>
+            )}
         </form>
       </div>
     </section>
-  )
+  );
 }
 
 export default AddProject;

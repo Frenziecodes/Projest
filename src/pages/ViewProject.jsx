@@ -1,7 +1,8 @@
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { db, storage } from "../firebase";
 import AdvertBanner from "../components/AdvertBanner";
+import Modal from "../components/Modal";
 
 function ViewProject() {
   const [users, setUsers] = useState([]);
@@ -11,6 +12,8 @@ function ViewProject() {
   const [searchVal, setSearchVal] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -27,40 +30,38 @@ function ViewProject() {
     if (searchVal === "" && selectedCategory === "" && selectedLanguage === "") {
       return setUserResult(users);
     }
-  
+
     const filteredData = users.filter((item) => {
       const isMatchedCategory =
         selectedCategory === "" || item.category === selectedCategory;
-  
+
       const isMatchedLanguage =
         selectedLanguage === "" || item.tags.includes(selectedLanguage);
-  
+
       if (!isMatchedCategory || !isMatchedLanguage) {
         return false;
       }
-  
+
       if (item.title.toLowerCase().includes(searchVal.toLowerCase())) {
         return true;
       }
-  
+
       if (item.description.toLowerCase().includes(searchVal.toLowerCase())) {
         return true;
       }
-  
+
       const list = item.tags.filter((it) => {
         if (it.toLowerCase().includes(searchVal.toLowerCase())) {
           return true;
         }
         return false;
       });
-  
+
       return list.length > 0;
     });
-  
+
     setUserResult(filteredData);
   }, [searchVal, selectedCategory, selectedLanguage, users]);
-  
-
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
@@ -70,14 +71,21 @@ function ViewProject() {
     setSelectedLanguage(e.target.value);
   };
 
+  const openModal = (project) => {
+    setSelectedProject(project);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   const h = userResult.length <= 3 ? "h-[84vh]" : "h-[100%]";
 
   const displayUsers = userResult.map((user) => {
     // Truncate the description to a maximum of 70 characters
     const truncatedDescription =
-      user.description.length > 70
-        ? user.description.slice(0, 70) + "..."
-        : user.description;
+      user.description.length > 70 ? user.description.slice(0, 70) + "..." : user.description;
 
     return (
       <div
@@ -85,9 +93,7 @@ function ViewProject() {
         className="bg-white rounded-lg shadow-lg border border-gray-300 p-6 hover:-translate-y-1 hover:scale-110 duration-300"
       >
         <div className="flex justify-between items-center">
-          <h2 className="text-xl font-semibold mb-2 text-gray-900">
-            {user.title}
-          </h2>
+          <h2 className="text-xl font-semibold mb-2 text-gray-900">{user.title}</h2>
           <img
             className="rounded-full w-12 h-12 mb-4"
             src={`https://github.com/${user.userGithubLink.split("/")[3]}.png`}
@@ -104,16 +110,14 @@ function ViewProject() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Github Profile
+            User Profile
           </a>
-          <a
-            href={user.projectGithubLink}
+          <button
             className="text-sm lg:text-lg bg-blue-800 hover:bg-white text-white hover:text-blue-800 hover:border hover:border-1 hover:border-blue-800 py-2 px-2 mt-1 rounded-md"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => openModal(user)}
           >
-            Project Link
-          </a>
+            View More
+          </button>
         </div>
       </div>
     );
@@ -147,13 +151,9 @@ function ViewProject() {
         >
           <option value="">All Categories</option>
           <option value="Development">Development</option>
-          <option value="Mobile App Development">
-            Mobile App Development
-          </option>
+          <option value="Mobile App Development">Mobile App Development</option>
           <option value="Data Science">Data Science</option>
-          <option value="Artificial Intelligence">
-            Artificial Intelligence
-          </option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
           <option value="Game Development">Game Development</option>
           <option value="UI/UX Design">UI/UX Design</option>
           <option value="E-commerce">E-commerce</option>
@@ -178,6 +178,67 @@ function ViewProject() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[40px] py-4 px-[20px]">
         {displayUsers}
       </div>
+
+      {showModal && selectedProject && (
+        <Modal closeModal={closeModal}>
+          <div className="flex justify-between items-center">
+            <h2 className="text-2xl font-semibold mb-2 text-gray-900">{selectedProject.title}</h2>
+            <img
+              className="rounded-full w-14 h-14 mb-4"
+              src={`https://github.com/${selectedProject.userGithubLink.split("/")[3]}.png`}
+              alt="Profile"
+            />
+          </div>          
+          <p className="text-gray-800 mb-4">{selectedProject.description}</p>
+          {selectedProject.category && (
+            <p className="text-gray-800 mb-4">Category: {selectedProject.category}</p>
+          )}
+          {selectedProject.tags.length > 0 && (
+            <p className="text-gray-800 mb-4">Tags: {selectedProject.tags.join(', ')}</p>
+          )}          
+          <div className="grid grid-cols-3 gap-2 place-items-center">
+            <a
+              href={selectedProject.userGithubLink}
+              className="text-sm lg:text-lg bg-white hover:bg-blue-800 hover:text-white border border-1 border-blue-800 text-blue-800 py-2 px-2 mt-1 rounded-md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              User Profile
+            </a>
+            {selectedProject.demoLink && (
+              <a
+                href={selectedProject.demoLink}
+                className="text-sm lg:text-lg bg-blue-600 hover:bg-white text-white hover:text-blue-800 hover:border hover:border-1 hover:border-blue-800 py-2 px-2 mt-1 rounded-md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Demo Link
+              </a>
+            )}
+            <a
+              href={selectedProject.projectGithubLink}
+              className="text-sm lg:text-lg bg-blue-800 hover:bg-white text-white hover:text-blue-800 hover:border hover:border-1 hover:border-blue-800 py-2 px-2 mt-1 rounded-md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Project Link
+            </a>
+          </div>
+          <div className="flex flex-wrap mt-4">
+            {selectedProject.imageUrls &&
+              selectedProject.imageUrls.map((imageUrl, index) => (
+                <div key={index} className="w-1/3 p-2">
+                  <img
+                    src={imageUrl}
+                    alt={`Project Image ${index}`}
+                    className="w-full h-auto rounded-md"
+                  />
+                </div>
+              ))}
+          </div>
+        </Modal>
+      )}
+
     </div>
   );
 }
