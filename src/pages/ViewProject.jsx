@@ -110,7 +110,7 @@ function ViewProject() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Github Profile
+            User Profile
           </a>
           <button
             className="text-sm lg:text-lg bg-blue-800 hover:bg-white text-white hover:text-blue-800 hover:border hover:border-1 hover:border-blue-800 py-2 px-2 mt-1 rounded-md"
@@ -203,7 +203,7 @@ function ViewProject() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Github Profile
+              User Profile
             </a>
             {selectedProject.demoLink && (
               <a
