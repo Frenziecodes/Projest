@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { db, storage } from "../firebase";
 import AdvertBanner from "../components/AdvertBanner";
 import Modal from "../components/Modal";
 
@@ -223,6 +223,18 @@ function ViewProject() {
             >
               Project Link
             </a>
+          </div>
+          <div className="flex flex-wrap mt-4">
+            {selectedProject.imageUrls &&
+              selectedProject.imageUrls.map((imageUrl, index) => (
+                <div key={index} className="w-1/3 p-2">
+                  <img
+                    src={imageUrl}
+                    alt={`Project Image ${index}`}
+                    className="w-full h-auto rounded-md"
+                  />
+                </div>
+              ))}
           </div>
         </Modal>
       )}

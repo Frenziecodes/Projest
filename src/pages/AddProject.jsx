@@ -8,7 +8,7 @@ import { WithContext as ReactTags } from 'react-tag-input';
 import { useDropzone } from 'react-dropzone';
 import * as yup from 'yup';
 import '../tags.css';
-import { ref, uploadBytes } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const KeyCodes = {
   comma: 188,
@@ -42,18 +42,32 @@ function AddProject() {
       tags: tagsArr,
       category: category,
     };
-
+  
     // Upload the image files to Firebase Storage
     const storagePromises = imageFiles.map((imageFile) => {
       const storageRef = ref(storage, 'images/' + imageFile.name);
-      return uploadBytes(storageRef, imageFile);
+      return uploadBytes(storageRef, imageFile)
+        .then((snapshot) => getDownloadURL(snapshot.ref))
+        .catch((error) => {
+          throw new Error('Error uploading image: ' + error.message);
+        });
     });
-    await Promise.all(storagePromises);
-
-    // Save the project data to Firestore
-    const docRef = await addDoc(collection(db, 'projects'), projectData);
-    navigate('/viewprojects');
+  
+    try {
+      // Wait for all image uploads to complete
+      const downloadUrls = await Promise.all(storagePromises);
+  
+      // Add the image URLs to the project data
+      projectData.imageUrls = downloadUrls;
+  
+      // Save the project data to Firestore
+      const docRef = await addDoc(collection(db, 'projects'), projectData);
+      navigate('/viewprojects');
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
   };
+  
 
   const schema = yup.object({
     title: yup.string().required('Project Title is required'),
