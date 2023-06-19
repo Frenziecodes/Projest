@@ -98,11 +98,12 @@ function AddProject() {
     setTags(tags.filter((tag, index) => index !== i));
   };
 
-  const onDrop = useCallback((acceptedFiles) => {
-    setDroppedImages((prevImages) => [...prevImages, ...acceptedFiles]);
-  }, []);
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    accept: 'image/*',
+    onDrop: (acceptedFiles) => {
+      setDroppedImages((prevImages) => [...prevImages, ...acceptedFiles]);
+    },
+  });
 
   return (
     <section className=''>
@@ -116,7 +117,8 @@ function AddProject() {
               <textarea placeholder='Project Description' {...register("description")} className='placeholder:text-slate-500 block bg-white min-h-[170px] w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setDescription(e.target.value)}></textarea>
               <p className='text-red-500'>{errors.description?.message}</p>
               <section className='flex flex-col w-full justify-start bg-gray-200 border border-gray-400  p-3'>
-                <div {...getRootProps()} className="my-4">
+              <div>
+                <div {...getRootProps()}>
                   <input {...getInputProps()} />
                   {isDragActive ? (
                     <p>Drop the files here ...</p>
@@ -129,6 +131,7 @@ function AddProject() {
                     <img key={index} src={URL.createObjectURL(image)} alt="Selected" className="w-32 h-32 my-4" />
                   ))}
                 </div>
+              </div>
               </section>             
 
             </div>
