@@ -161,24 +161,23 @@ function AddProject() {
                 <option value="Other">Other</option>
               </select>
               <p className='text-red-500'>{errors.category?.message}</p>
-              <div className='flex flex-col'>
-                <label htmlFor='tags'>Tags</label>
+              <div className='placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'>
                 <ReactTags
                   tags={tags}
                   suggestions={suggestions}
+                  delimiters={delimiters}
                   handleDelete={handleDelete}
                   handleAddition={handleAddition}
-                  delimiters={delimiters}
-                  placeholder='Add Tags'
+                  placeholder='Add Skill Tags'
+                  inputFieldPosition="top"
+                  allowDragDrop={false}
                   classNames={{
-                    tags: 'react-tags-container',
-                    tagInput: 'react-tags-input input',
-                    tagInputField: 'react-tags-input input-field',
-                    selected: 'react-tags-selected',
-                    tag: 'react-tags-selected-tag',
-                    remove: 'react-tags-remove',
-                    suggestions: 'react-tags-suggestions',
-                    activeSuggestion: 'react-tags-active-suggestion',
+                    tags: 'tagsClass',
+                    tagInput: 'tagInputClass',
+                    tagInputField: 'tagInputFieldClass',
+                    tag: 'tagClass',
+                    suggestions: 'suggestionsClass',
+                    activeSuggestion: 'activeSuggestionClass',
                   }}
                 />
               </div>
