@@ -8,7 +8,7 @@ import { WithContext as ReactTags } from 'react-tag-input';
 import { useDropzone } from 'react-dropzone';
 import * as yup from 'yup';
 import '../tags.css';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 const KeyCodes = {
   comma: 188,
@@ -28,6 +28,7 @@ function AddProject() {
   const [selectedImages, setSelectedImages] = useState([]);
   const [droppedImages, setDroppedImages] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
+  const [uploadProgress, setUploadProgress] = useState(0); // State for progress indicator
   const navigate = useNavigate();
 
   const saveData = async (data) => {
@@ -42,24 +43,42 @@ function AddProject() {
       tags: tagsArr,
       category: category,
     };
-  
+
     // Upload the image files to Firebase Storage
     const storagePromises = imageFiles.map((imageFile) => {
       const storageRef = ref(storage, 'images/' + imageFile.name);
-      return uploadBytes(storageRef, imageFile)
-        .then((snapshot) => getDownloadURL(snapshot.ref))
-        .catch((error) => {
-          throw new Error('Error uploading image: ' + error.message);
-        });
+
+      // Create a unique upload task for each file
+      const uploadTask = uploadBytesResumable(storageRef, imageFile);
+
+      // Track the upload progress
+      uploadTask.on('state_changed', (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setUploadProgress(progress);
+      });
+
+      // Return a promise that resolves when the upload is complete
+      return new Promise((resolve, reject) => {
+        uploadTask
+          .then((snapshot) => {
+            // Get the download URL after the upload is complete
+            getDownloadURL(snapshot.ref)
+              .then((downloadUrl) => resolve(downloadUrl))
+              .catch(reject);
+          })
+          .catch(reject);
+      });
     });
-  
+
     try {
       // Wait for all image uploads to complete
       const downloadUrls = await Promise.all(storagePromises);
-  
+
       // Add the image URLs to the project data
       projectData.imageUrls = downloadUrls;
-  
+
       // Save the project data to Firestore
       const docRef = await addDoc(collection(db, 'projects'), projectData);
       navigate('/viewprojects');
@@ -212,6 +231,17 @@ function AddProject() {
               </div>
             </div>
           </div>
+          {uploadProgress > 0 && (
+              <div className="relative pt-1">
+                <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                  <div
+                    style={{ width: `${uploadProgress}%` }}
+                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"
+                  ></div>
+                </div>
+                <div className="text-center">{uploadProgress}%</div>
+              </div>
+            )}
         </form>
       </div>
     </section>
