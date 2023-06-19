@@ -24,11 +24,11 @@ function AddProject() {
   const [demoLink, setDemoLink] = useState('');
   const [category, setCategory] = useState('');
   const [tags, setTags] = useState([]);
-  const [selectedImages, setSelectedImages] = useState([]); // Track the selected image files
+  const [selectedImages, setSelectedImages] = useState([]);
   const navigate = useNavigate();
 
   const saveData = async (data) => {
-    const imageFiles = selectedImages; // Retrieve the selected image files
+    const imageFiles = selectedImages;
     const tagsArr = tags.map((tag) => tag.text);
     const projectData = {
       title: title,
@@ -69,8 +69,8 @@ function AddProject() {
   };
 
   const handleImageChange = (e) => {
-    const files = Array.from(e.target.files); // Convert FileList to an array
-    setSelectedImages(files); // Update the selected image files
+    const files = Array.from(e.target.files);
+    setSelectedImages(files);
   };
 
   const suggestions = [
