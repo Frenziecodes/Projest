@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db, storage } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { WithContext as ReactTags } from 'react-tag-input';
+import { useDropzone } from 'react-dropzone';
 import * as yup from 'yup';
 import '../tags.css';
 import { ref, uploadBytes } from 'firebase/storage';
@@ -25,10 +26,11 @@ function AddProject() {
   const [category, setCategory] = useState('');
   const [tags, setTags] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
+  const [droppedImages, setDroppedImages] = useState([]);
   const navigate = useNavigate();
 
   const saveData = async (data) => {
-    const imageFiles = selectedImages;
+    const imageFiles = selectedImages.concat(droppedImages);
     const tagsArr = tags.map((tag) => tag.text);
     const projectData = {
       title: title,
@@ -96,6 +98,12 @@ function AddProject() {
     setTags(tags.filter((tag, index) => index !== i));
   };
 
+  const onDrop = useCallback((acceptedFiles) => {
+    setDroppedImages((prevImages) => [...prevImages, ...acceptedFiles]);
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
   return (
     <section className=''>
       <div className='flex md:pl-10 flex-col items-center ml-1 md:ml-60 h-[100%] pb-4 mb-8 pt-10 Context'>
@@ -108,9 +116,16 @@ function AddProject() {
               <textarea placeholder='Project Description' {...register("description")} className='placeholder:text-slate-500 block bg-white min-h-[170px] w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setDescription(e.target.value)}></textarea>
               <p className='text-red-500'>{errors.description?.message}</p>
               <section className='flex flex-col w-full justify-start bg-gray-200 border border-gray-400  p-3'>
-                <input type="file" {...register("image")} className="my-4" multiple title='Upload Images' onChange={handleImageChange} />
+                <div {...getRootProps()} className="my-4">
+                  <input {...getInputProps()} />
+                  {isDragActive ? (
+                    <p>Drop the files here ...</p>
+                  ) : (
+                    <p>Drag and drop some files here, or click to select files</p>
+                  )}
+                </div>
                 <div className="w-full grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-2">
-                  {selectedImages.map((image, index) => (
+                  {droppedImages.map((image, index) => (
                     <img key={index} src={URL.createObjectURL(image)} alt="Selected" className="w-32 h-32 my-4" />
                   ))}
                 </div>
@@ -132,43 +147,52 @@ function AddProject() {
                 className='block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'
               >
                 <option value="">Select Category</option>
-                <option value="Development">Development</option>
-                <option value="Mobile App Development">Mobile App Development</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Mobile Development">Mobile Development</option>
                 <option value="Data Science">Data Science</option>
+                <option value="Machine Learning">Machine Learning</option>
                 <option value="Artificial Intelligence">Artificial Intelligence</option>
-                <option value="Game Development">Game Development</option>
+                <option value="Blockchain">Blockchain</option>
+                <option value="Cybersecurity">Cybersecurity</option>
                 <option value="UI/UX Design">UI/UX Design</option>
-                <option value="E-commerce">E-commerce</option>
+                <option value="Other">Other</option>
               </select>
-              <div className='placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'>
+              <p className='text-red-500'>{errors.category?.message}</p>
+              <div className='flex flex-col'>
+                <label htmlFor='tags'>Tags</label>
                 <ReactTags
                   tags={tags}
                   suggestions={suggestions}
-                  delimiters={delimiters}
                   handleDelete={handleDelete}
                   handleAddition={handleAddition}
-                  placeholder='Add Skill Tags'
-                  inputFieldPosition="top"
-                  allowDragDrop={false}
+                  delimiters={delimiters}
+                  placeholder='Add Tags'
                   classNames={{
-                    tags: 'tagsClass',
-                    tagInput: 'tagInputClass',
-                    tagInputField: 'tagInputFieldClass',
-                    tag: 'tagClass',
-                    suggestions: 'suggestionsClass',
-                    activeSuggestion: 'activeSuggestionClass',
+                    tags: 'react-tags-container',
+                    tagInput: 'react-tags-input input',
+                    tagInputField: 'react-tags-input input-field',
+                    selected: 'react-tags-selected',
+                    tag: 'react-tags-selected-tag',
+                    remove: 'react-tags-remove',
+                    suggestions: 'react-tags-suggestions',
+                    activeSuggestion: 'react-tags-active-suggestion',
                   }}
                 />
               </div>
+              <div className='my-4'>
+                <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+                  Submit
+                </button>
+                <button onClick={() => navigate('/viewprojects')} className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4'>
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
-          <button className="px-6 py-2 mt-8 mx-1 font-medium text-white bg-blue-800 rounded-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" type='submit'>
-            Save Project
-          </button>
         </form>
       </div>
     </section>
-  )
+  );
 }
 
 export default AddProject;
