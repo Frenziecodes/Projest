@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { collection, addDoc } from "firebase/firestore";
-import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import { db, storage } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { WithContext as ReactTags } from 'react-tag-input';
 import * as yup from 'yup';
 import '../tags.css';
+import { ref, uploadBytes } from 'firebase/storage';
 
 const KeyCodes = {
   comma: 188,
@@ -22,12 +23,13 @@ function AddProject() {
   const [projectLink, setProjectLink] = useState('');
   const [demoLink, setDemoLink] = useState('');
   const [category, setCategory] = useState('');
-  const userData = collection(db, 'projects');
   const [tags, setTags] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null); // Track the selected image file
   const navigate = useNavigate();
 
-  const saveData = async () => {
-    const tagsArr = tags.map(tag => tag.text);
+  const saveData = async (data) => {
+    const imageFile = selectedImage; // Retrieve the selected image file
+    const tagsArr = tags.map((tag) => tag.text);
     const projectData = {
       title: title,
       description: description,
@@ -35,19 +37,24 @@ function AddProject() {
       projectGithubLink: projectLink,
       demoLink: demoLink,
       tags: tagsArr,
-      category: category 
+      category: category,
     };
-    await addDoc(userData, projectData);
+
+    // Upload the image file to Firebase Storage
+    const storageRef = ref(storage, 'images/' + imageFile.name);
+    await uploadBytes(storageRef, imageFile);
+
+    // Save the project data to Firestore
+    const docRef = await addDoc(collection(db, 'projects'), projectData);
     navigate('/viewprojects');
   };
-  
 
   const schema = yup.object({
-    title: yup.string().required("Project Title is required"),
-    description: yup.string().required("Project Description is required"),
-    userGithubLink: yup.string().required("User Github Link is required"),
-    projectGithubLink: yup.string().required("Project Github Link is required"),
-    demoLink: yup.string().required("Demo Link is required"),
+    title: yup.string().required('Project Title is required'),
+    description: yup.string().required('Project Description is required'),
+    userGithubLink: yup.string().required('User Github Link is required'),
+    projectGithubLink: yup.string().required('Project Github Link is required'),
+    demoLink: yup.string().required('Demo Link is required'),
   }).required();
 
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -55,22 +62,26 @@ function AddProject() {
   });
 
   const onSubmit = (data) => {
-    saveData();
+    saveData(data);
+  };
+
+  const handleImageChange = (e) => {
+    setSelectedImage(e.target.files[0]); // Update the selected image file
   };
 
   const suggestions = [
-    { id: "1", text: "Javascript" },
-    { id: "2", text: "Python" },
-    { id: "3", text: "Java" },
-    { id: "4", text: "HTML" },
-    { id: "5", text: "PHP" },
-    { id: "6", text: "TypeScript" },
-    { id: "7", text: "React" },
-    { id: "8", text: "Vue" },
-    { id: "9", text: "Angular" },
-    { id: "10", text: "Bootstrap" },
-    { id: "11", text: "Tailwind" },
-    { id: "12", text: "CSS" },
+    { id: '1', text: 'Javascript' },
+    { id: '2', text: 'Python' },
+    { id: '3', text: 'Java' },
+    { id: '4', text: 'HTML' },
+    { id: '5', text: 'PHP' },
+    { id: '6', text: 'TypeScript' },
+    { id: '7', text: 'React' },
+    { id: '8', text: 'Vue' },
+    { id: '9', text: 'Angular' },
+    { id: '10', text: 'Bootstrap' },
+    { id: '11', text: 'Tailwind' },
+    { id: '12', text: 'CSS' },
   ];
 
   const handleAddition = tag => {
@@ -92,6 +103,10 @@ function AddProject() {
               <p className='text-red-500'>{errors.title?.message}</p>
               <textarea placeholder='Project Description' {...register("description")} className='placeholder:text-slate-500 block bg-white min-h-[170px] w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setDescription(e.target.value)}></textarea>
               <p className='text-red-500'>{errors.description?.message}</p>
+              <input type="file" {...register("image")} className="my-4" onChange={handleImageChange} />
+              {selectedImage && (
+                <img src={URL.createObjectURL(selectedImage)} alt="Selected" className="w-32 h-32 my-4" />
+              )}
             </div>
 
             <div className='md:ml-5 w-11/12 h-64 md:w-2/3 lg:w-1/2 my-5 mx-5 md:my-0'>
