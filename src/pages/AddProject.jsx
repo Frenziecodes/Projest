@@ -24,11 +24,11 @@ function AddProject() {
   const [demoLink, setDemoLink] = useState('');
   const [category, setCategory] = useState('');
   const [tags, setTags] = useState([]);
-  const [selectedImage, setSelectedImage] = useState(null); // Track the selected image file
+  const [selectedImages, setSelectedImages] = useState([]); // Track the selected image files
   const navigate = useNavigate();
 
   const saveData = async (data) => {
-    const imageFile = selectedImage; // Retrieve the selected image file
+    const imageFiles = selectedImages; // Retrieve the selected image files
     const tagsArr = tags.map((tag) => tag.text);
     const projectData = {
       title: title,
@@ -40,9 +40,12 @@ function AddProject() {
       category: category,
     };
 
-    // Upload the image file to Firebase Storage
-    const storageRef = ref(storage, 'images/' + imageFile.name);
-    await uploadBytes(storageRef, imageFile);
+    // Upload the image files to Firebase Storage
+    const storagePromises = imageFiles.map((imageFile) => {
+      const storageRef = ref(storage, 'images/' + imageFile.name);
+      return uploadBytes(storageRef, imageFile);
+    });
+    await Promise.all(storagePromises);
 
     // Save the project data to Firestore
     const docRef = await addDoc(collection(db, 'projects'), projectData);
@@ -66,7 +69,8 @@ function AddProject() {
   };
 
   const handleImageChange = (e) => {
-    setSelectedImage(e.target.files[0]); // Update the selected image file
+    const files = Array.from(e.target.files); // Convert FileList to an array
+    setSelectedImages(files); // Update the selected image files
   };
 
   const suggestions = [
@@ -103,10 +107,10 @@ function AddProject() {
               <p className='text-red-500'>{errors.title?.message}</p>
               <textarea placeholder='Project Description' {...register("description")} className='placeholder:text-slate-500 block bg-white min-h-[170px] w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setDescription(e.target.value)}></textarea>
               <p className='text-red-500'>{errors.description?.message}</p>
-              <input type="file" {...register("image")} className="my-4" onChange={handleImageChange} />
-              {selectedImage && (
-                <img src={URL.createObjectURL(selectedImage)} alt="Selected" className="w-32 h-32 my-4" />
-              )}
+              <input type="file" {...register("image")} className="my-4" multiple onChange={handleImageChange} />
+              {selectedImages.map((image, index) => (
+                <img key={index} src={URL.createObjectURL(image)} alt="Selected" className="w-32 h-32 my-4" />
+              ))}
             </div>
 
             <div className='md:ml-5 w-11/12 h-64 md:w-2/3 lg:w-1/2 my-5 mx-5 md:my-0'>
