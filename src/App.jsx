@@ -11,6 +11,7 @@ import Layout from './components/Layout';
 import NotFound from './pages/404';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
 import TermsOfServicePage from './pages/Terms';
+import Success from './pages/Success'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path='/404' element={<NotFound />} />
+          <Route path='/success' element={<Success />} />
           <Route path='/' element={<HomePage />} />
           <Route path='/viewprojects' element={<ViewProject />} />
           <Route path='/addproject' element={<AddProject />} />
