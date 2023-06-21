@@ -11,6 +11,7 @@ import Layout from './components/Layout';
 import NotFound from './pages/404';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
 import TermsOfServicePage from './pages/Terms';
+import Success from './pages/Success'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='*' element={<NotFound />} />
+          <Route path='/success' element={<Success />} />
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -81,7 +81,7 @@ function AddProject() {
 
       // Save the project data to Firestore
       const docRef = await addDoc(collection(db, 'projects'), projectData);
-      navigate('/viewprojects');
+      navigate('/success');
     } catch (error) {
       setErrorMessage(error.message);
     }
