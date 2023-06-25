@@ -134,7 +134,7 @@ function ViewProject() {
       </div>
     </div>
   ) : (
-    <div className="{`${h} p-[20px]`} mt-20 Context">
+    <div className="{`${h} p-[20px]`} mt-16 Context">
       <AdvertBanner />
       <div className="flex flex-col md:flex-row justify-center items-center space-x-4">
         <input
