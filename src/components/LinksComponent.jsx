@@ -10,7 +10,7 @@ const LinksComponent = ({ label, links }) => {
       <ul className="mb-0 list-none">
         {links.map((link, index) => (
           <li key={index}>
-            <a href={link.url} className="text-neutral-900 text-sm">
+            <a href={link.url} className="text-neutral-900 text-sm text-white font-lite">
               {link.text}
             </a>
           </li>
