@@ -145,8 +145,8 @@ function AddProject() {
   });
 
   return (
-    <section className=''>
-      <div className='flex md:pl-10 flex-col items-center ml-1 md:ml-60 h-[100%] pb-8 mb-8 pt-10 Context'>
+    <section className='mb-20 mt-10'>
+      <div className='flex md:pl-10 flex-col items-center ml-1 h-[100%] pb-8 mb-8 pt-10 Context'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="font-medium leading-tight text-md mt-10 mx-1 md:mt-[50px] mb-4 text-gray-700">Add your project details by filling the form below</h2>
           <div className='flex flex-col md:flex-row justify-start items-start w-[100%]'>
@@ -155,7 +155,7 @@ function AddProject() {
               <p className='text-red-500'>{errors.title?.message}</p>
               <textarea placeholder='Project Description' {...register("description")} className='placeholder:text-slate-500 block bg-white min-h-[170px] w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setDescription(e.target.value)}></textarea>
               <p className='text-red-500'>{errors.description?.message}</p>
-              <section className='flex flex-col w-full justify-start bg-gray-200 border border-gray-400  p-3'>
+              <section className='flex flex-col w-full justify-start bg-gray-200 border border-gray-400  p-3 cursor-pointer'>
                 <div>
                   <div {...getRootProps()}>
                     <input {...getInputProps()} />
