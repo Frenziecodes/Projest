@@ -162,7 +162,7 @@ function AddProject() {
                 {...register("category")}
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className='block bg-gray-200 w-[90vw] md:w-[36vw] lg:w-[32vw] rounded-md my-6 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 h-12'
+                className='block bg-gray-200 w-[90vw] md:w-[36vw] lg:w-[32vw] rounded-md my-6 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 h-12 text-slate-500'
               >
                 <option value="">Select Category</option>
                 <option value="Web Development">Web Development</option>
@@ -176,7 +176,7 @@ function AddProject() {
                 <option value="Other">Other</option>
               </select>
               <p className='text-red-500'>{errors.category?.message}</p>
-              <div className='placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'>
+              <div className='placeholder:text-slate-500 block bg-gray-200 w-[90vw] md:w-[36vw] lg:w-[32vw] rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1'>
                 <ReactTags
                   tags={tags}
                   suggestions={suggestions}
