@@ -145,12 +145,36 @@ function AddProject() {
   });
 
   return (
-    <section className='mb-56 mt-10'>
+    <section className='mb-46 mt-10'>
       <div className='flex md:pl-10 flex-col items-center ml-1 h-[100%] pb-8 mb-8 pt-10 Context'>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="font-semibold leading-tight text-2xl mt-10 ml-[13vw] md:mt-[50px] mb-16 text-gray-700">Add your project details by filling the form below</h2>
+          <h2 className="font-semibold leading-tight text-2xl w-[34rem] mt-10 m-auto md:mt-[50px] mb-12 text-gray-700">Add your project details by filling the form below</h2>
           <div className='flex flex-col md:flex-row justify-start items-start w-[100%]'>
+            <div className='flex flex-col items-center md:items-end justify-center w-[100%] md:w-[40%] lg:w-[50%]'>
+              <input type="text" placeholder='Project Title' {...register("title")} className='placeholder:text-slate-500 block bg-gray-200 w-[90vw] md:w-[36vw] h-12 lg:w-[32vw] rounded-md my-6 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setTitle(e.target.value)}></input>
+              <p className='text-red-500'>{errors.title?.message}</p>
+              <textarea placeholder='Project Description' {...register("description")} className='placeholder:text-slate-500 block bg-gray-200 min-h-[215px] w-[90vw] md:w-[36vw] lg:w-[32vw] rounded-md mb-6 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setDescription(e.target.value)}></textarea>
+              <p className='text-red-500'>{errors.description?.message}</p>
+              <section className='flex flex-col w-full justify-start bg-gray-200  p-3 cursor-pointer'>
+                <div>
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    {isDragActive ? (
+                      <p className='text-slate-600'>Drop the files here ...</p>
+                    ) : (
+                      <p className='text-slate-600'>Drag and drop some files here, or click to select files</p>
+                    )}
+                  </div>
+                  {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+                  <div className="w-full grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-2">
+                    {droppedImages.map((image, index) => (
+                      <img key={index} src={URL.createObjectURL(image)} alt="Selected" className="w-32 h-32 my-4" />
+                    ))}
+                  </div>
+                </div>
+              </section>           
 
+            </div>
             <div className='md:ml-5 w-11/12 h-64 md:w-2/3 lg:w-1/2 my-5 mx-5 md:my-0'>
               <input type="text" placeholder='User Github Link' {...register("userGithubLink")} className='placeholder:text-slate-500 block bg-gray-200 w-[90vw] md:w-[36vw] lg:w-[32vw] rounded-md my-6 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 h-12' onChange={(e) => setGithubLink(e.target.value)}></input>
               <p className='text-red-500'>{errors.userGithubLink?.message}</p>
@@ -196,42 +220,16 @@ function AddProject() {
                   }}
                 />
               </div>
-              <div className='my-4'>
-                <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+            </div>
+          </div>
+          <div className='w-52 my-16 m-auto flex'>
+                <button type='submit' className='bg-blue-800 hover:bg-blue-700 w-32 h-10 text-white font-bold py-2 px-4 rounded'>
                   Submit
                 </button>
-                <button onClick={() => navigate('/viewprojects')} className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4'>
+                <button onClick={() => navigate('/viewprojects')} className='bg-red-500 hover:bg-red-700 w-32 h-10 text-white font-bold py-2 px-4 rounded ml-4'>
                   Cancel
                 </button>
               </div>
-            </div>
-
-            <div className='flex flex-col items-center md:items-end justify-center w-[100%] md:w-[40%] lg:w-[50%]'>
-              <input type="text" placeholder='Project Title' {...register("title")} className='placeholder:text-slate-500 block bg-white w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setTitle(e.target.value)}></input>
-              <p className='text-red-500'>{errors.title?.message}</p>
-              <textarea placeholder='Project Description' {...register("description")} className='placeholder:text-slate-500 block bg-white min-h-[170px] w-[90vw] md:w-[36vw] lg:w-[32vw] border border-slate-300 rounded-md my-4 py-2 pl-4 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1' onChange={(e) => setDescription(e.target.value)}></textarea>
-              <p className='text-red-500'>{errors.description?.message}</p>
-              <section className='flex flex-col w-full justify-start bg-gray-200 border border-gray-400  p-3 cursor-pointer'>
-                <div>
-                  <div {...getRootProps()}>
-                    <input {...getInputProps()} />
-                    {isDragActive ? (
-                      <p>Drop the files here ...</p>
-                    ) : (
-                      <p>Drag and drop some files here, or click to select files</p>
-                    )}
-                  </div>
-                  {errorMessage && <p className="text-red-500">{errorMessage}</p>}
-                  <div className="w-full grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-2">
-                    {droppedImages.map((image, index) => (
-                      <img key={index} src={URL.createObjectURL(image)} alt="Selected" className="w-32 h-32 my-4" />
-                    ))}
-                  </div>
-                </div>
-              </section>           
-
-            </div>
-          </div>
           {uploadProgress > 0 && (
               <div className="relative pt-1">
                 <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
