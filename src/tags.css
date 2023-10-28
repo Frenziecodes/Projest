@@ -3,6 +3,7 @@
     border: 1px solid #8080807a;
     border-radius: 5px;
     width: 100%;
+    outline: none;
 }
 
 .ReactTags__selected{
